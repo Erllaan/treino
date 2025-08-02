@@ -3,147 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Treinos Semanal</title>
+    <title>Your Trainer Partner</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #eef2f7;
+            font-family: 'Poppins', sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
             justify-content: center;
-            color: #333;
+            align-items: center;
+            min-height: 100vh;
+            background-image: linear-gradient(135deg, #0d1117 0%, #171d2b 100%);
         }
+
         .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: #161b22;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             box-sizing: border-box;
+            border: 1px solid #30363d;
         }
+
         h1 {
             text-align: center;
-            color: #1e3a5f;
+            color: #58a6ff;
             margin-bottom: 25px;
-            border-bottom: 2px solid #e2e8f0;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
             padding-bottom: 15px;
+            border-bottom: 1px solid #30363d;
         }
+        
         h2 {
-            color: #1e3a5f;
+            color: #58a6ff;
             margin-top: 30px;
             margin-bottom: 15px;
+            font-weight: 600;
         }
+
         label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #4a5568;
+            margin-bottom: 8px;
+            font-weight: 400;
+            color: #8b949e;
         }
+
         input[type="text"],
         input[type="number"],
         select {
             width: 100%;
             padding: 12px;
             margin-bottom: 20px;
-            border: 1px solid #cbd5e0;
+            border: 1px solid #30363d;
             border-radius: 8px;
+            background: #0d1117;
+            color: #c9d1d9;
             box-sizing: border-box;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
+
         input[type="text"]:focus,
         input[type="number"]:focus,
         select:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+            border-color: #58a6ff;
+            box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.3);
             outline: none;
         }
-        .treino-dia {
-            border: 1px solid #e2e8f0;
-            background-color: #f8fafc;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            position: relative;
+        
+        input[type="checkbox"] {
+            margin-right: 10px;
         }
+        
+        .treino-dia {
+            border: 1px solid #30363d;
+            background: #1c2128;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            position: relative;
+            transition: box-shadow 0.3s;
+        }
+        
+        .treino-dia:hover {
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.1);
+        }
+
         .treino-dia h3 {
             margin-top: 0;
-            color: #3b82f6;
-            font-size: 1.2em;
+            color: #58a6ff;
+            font-size: 1.3em;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
         }
+        
         .treino-dia .remover {
             position: absolute;
             top: 15px;
             right: 15px;
-            color: #ef4444;
+            color: #f87171;
             font-weight: bold;
             cursor: pointer;
-            font-size: 1.2em;
+            font-size: 1.1em;
             transition: color 0.3s;
         }
+        
         .treino-dia .remover:hover {
             color: #dc2626;
         }
+
         .checkbox-group {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             margin-top: 10px;
         }
+
         .checkbox-item {
             display: flex;
             align-items: center;
-            flex-basis: calc(25% - 15px);
+            flex-basis: calc(33.333% - 15px);
             min-width: 150px;
         }
-        .checkbox-item input[type="checkbox"] {
-            margin-right: 8px;
-        }
+
         .checkbox-item label {
-            font-weight: normal;
+            font-weight: 300;
             font-size: 0.9em;
-            color: #4a5568;
+            color: #c9d1d9;
             margin-bottom: 0;
         }
+        
+        .form-section {
+            background: #1c2128;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid #30363d;
+        }
+
+        .form-section h2 {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #58a6ff;
+        }
+
         .add-dia, button[type="submit"] {
             width: 100%;
             padding: 15px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             color: #fff;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
             margin-top: 15px;
         }
+
         .add-dia {
-            background-color: #2563eb;
+            background-color: #58a6ff;
+            box-shadow: 0 5px 15px rgba(88, 166, 255, 0.3);
         }
+
         .add-dia:hover {
-            background-color: #1d4ed8;
+            background-color: #3b82f6;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(88, 166, 255, 0.4);
         }
+
         button[type="submit"] {
-            background-color: #10b981;
+            background-color: #38c172;
+            box-shadow: 0 5px 15px rgba(56, 193, 114, 0.3);
         }
+
         button[type="submit"]:hover {
-            background-color: #059669;
+            background-color: #2b9e59;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(56, 193, 114, 0.4);
         }
-        .form-section {
-            background-color: #f8fafc;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            border: 1px solid #e2e8f0;
+        
+        /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .checkbox-item {
+                flex-basis: calc(50% - 15px);
+            }
         }
-        .form-section h2 {
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            color: #3b82f6;
+        
+        @media (max-width: 480px) {
+            .checkbox-item {
+                flex-basis: 100%;
+            }
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -151,7 +213,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Gerador de Treinos Semanal</h1>
+        <h1>Your Trainer Partner</h1>
         <form id="treinoForm">
             <div class="form-section">
                 <h2>Informações do Aluno</h2>
@@ -173,7 +235,7 @@
                 </select>
                 
                 <input type="checkbox" id="incluir_descricao">
-                <label for="incluir_descricao" style="display:inline; font-weight:normal;">Incluir descrições detalhadas dos exercícios</label>
+                <label for="incluir_descricao" style="display:inline; font-weight:300;">Incluir descrições detalhadas dos exercícios</label>
             </div>
 
             <div class="form-section">
@@ -223,148 +285,144 @@
             {"nome": "Supino declinado com halteres", "grupoMuscular": "Peito", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Deite no banco declinado, segure os halteres, desça até a altura dos ombros e empurre para cima."},
             {"nome": "Crucifixo reto com halteres", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12"}, "descricao": "Deite no banco reto, segure um halter em cada mão, abra os braços e retorne, sentindo o alongamento do peito."},
             {"nome": "Crucifixo inclinado com halteres", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12"}, "descricao": "Deite no banco inclinado, segure os halteres, abra os braços e retorne, sentindo o alongamento do peito superior."},
-            {"nome": "Crucifixo reto na polia (cabo)", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12 + drop set"}, "descricao": "Deite no banco reto, segure os cabos da polia e faça o movimento de crucifixo."},
-            {"nome": "Crucifixo inclinado na polia (cabo)", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Deite no banco inclinado, segure os cabos da polia e faça o movimento de crucifixo inclinado."},
-            {"nome": "Cross Over alto na polia", "grupoMuscular": "Peito", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Segure os cabos da polia alta e puxe para baixo e para o centro, contraindo o peito inferior."},
-            {"nome": "Cross Over médio na polia", "grupoMuscular": "Peito", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Segure os cabos da polia na altura do peito e puxe para o centro, contraindo a porção central do peito."},
-            {"nome": "Cross Over baixo na polia", "grupoMuscular": "Peito", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Segure os cabos da polia baixa e puxe para cima e para o centro, contraindo o peito superior."},
-            {"nome": "Peck Deck (máquina voador)", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste a altura e junte as alças, contraindo o peito."},
-            {"nome": "Flexão de braços no solo", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x10-12", "Intermediario": "4x12-15"}, "descricao": "Com as mãos no chão na largura dos ombros, abaixe o corpo e empurre para cima."},
-            {"nome": "Flexão com pés elevados", "grupoMuscular": "Peito", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x10", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Coloque os pés em um banco ou plataforma, abaixe o corpo e empurre para cima."},
-            {"nome": "Flexão na máquina guiada (chest press)", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x15"}, "descricao": "Sente-se na máquina, segure as alças e empurre para frente, estendendo os braços."},
-            
+            {"nome": "Crucifixo na máquina peck deck", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste a altura e junte as alças, contraindo o peito."},
+            {"nome": "Crucifixo na polia baixa", "grupoMuscular": "Peito", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Deite no banco reto, segure os cabos da polia e faça o movimento de crucifixo."},
+            {"nome": "Crossover na polia alta", "grupoMuscular": "Peito", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Segure os cabos da polia alta e puxe para baixo e para o centro, contraindo o peito inferior."},
+            {"nome": "Flexão de braço tradicional", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x10-12", "Intermediario": "4x12-15"}, "descricao": "Com as mãos no chão na largura dos ombros, abaixe o corpo e empurre para cima."},
+            {"nome": "Flexão de braço inclinada", "grupoMuscular": "Peito", "dificuldade": ["Iniciante"], "sugerirRepeticoes": {"Iniciante": "3x12-15"}, "descricao": "Com as mãos apoiadas em um banco ou plataforma, abaixe o corpo e empurre para cima."},
+            {"nome": "Flexão de braço declinada", "grupoMuscular": "Peito", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Coloque os pés em um banco ou plataforma, abaixe o corpo e empurre para cima."},
+            {"nome": "Press na máquina reto", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x15"}, "descricao": "Sente-se na máquina, segure as alças e empurre para frente, estendendo os braços."},
+            {"nome": "Press na máquina inclinado", "grupoMuscular": "Peito", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x15"}, "descricao": "Sente-se na máquina inclinada, segure as alças e empurre para frente, estendendo os braços."},
+
             // COSTAS
-            {"nome": "Puxada frontal na polia com barra reta (pegada aberta)", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10 + drop set"}, "descricao": "Sentado, segure a barra com pegada aberta. Puxe em direção ao peito, contraindo as costas, e retorne controladamente."},
-            {"nome": "Puxada frontal na polia com barra reta (pegada supinada)", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure a barra com pegada supinada. Puxe em direção ao peito, focando na contração da porção inferior das costas."},
-            {"nome": "Puxada frontal com pegada neutra (barra V)", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure a barra V. Puxe em direção ao peito, mantendo os cotovelos próximos ao corpo."},
-            {"nome": "Puxada unilateral com pegada neutra (cabo ou máquina)", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Puxe o cabo ou a alça da máquina com um braço de cada vez, focando na contração das costas."},
+            {"nome": "Puxada na polia alta com barra reta – pegada aberta", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10 + drop set"}, "descricao": "Sentado, segure a barra com pegada aberta. Puxe em direção ao peito, contraindo as costas, e retorne controladamente."},
+            {"nome": "Puxada na polia alta com barra neutra – pegada neutra", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure a barra neutra. Puxe em direção ao peito, mantendo os cotovelos próximos ao corpo."},
+            {"nome": "Puxada na frente com triangulo (neutra)", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado, segure o triângulo. Puxe em direção ao peito, mantendo os cotovelos próximos ao corpo."},
             {"nome": "Remada curvada com barra reta", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "5x6-8"}, "descricao": "Com o tronco curvado, segure a barra e puxe em direção ao abdômen, mantendo os cotovelos próximos ao corpo."},
             {"nome": "Remada curvada com barra W", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "5x6-8"}, "descricao": "Com o tronco curvado, segure a barra W e puxe em direção ao abdômen, mantendo os cotovelos próximos ao corpo."},
+            {"nome": "Remada curvada com halteres", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12"}, "descricao": "Com o tronco curvado, puxe os halteres em direção ao tronco, focando na contração da lombar e dorsal."},
             {"nome": "Remada unilateral com halteres", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12"}, "descricao": "Ajoelhado em um banco, puxe o halter com uma das mãos em direção ao tronco, focando na contração da lombar e dorsal."},
-            {"nome": "Remada baixa na máquina", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12"}, "descricao": "Sente-se na máquina, segure as alças e puxe em direção ao peito, contraindo as costas."},
-            {"nome": "Remada baixa na polia com barra reta", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Sentado na polia, segure a barra reta e puxe em direção ao abdômen."},
-            {"nome": "Remada cavalinho com barra (T-bar row)", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Apoie a barra em um canto, encaixe o pegador e puxe em direção ao peito."},
-            {"nome": "Remada na máquina Hammer unilateral", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8-10 + drop set"}, "descricao": "Sente-se na máquina Hammer e puxe a alça unilateralmente, focando na contração das costas."},
+            {"nome": "Remada unilateral com polia baixa", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado na polia, puxe o cabo com uma das mãos em direção ao tronco, focando na contração das costas."},
+            {"nome": "Remada baixa com triangulo na polia", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12"}, "descricao": "Sente-se na máquina, segure o triângulo e puxe em direção ao peito, contraindo as costas."},
+            {"nome": "Remada na máquina hammer unilateral", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8-10 + drop set"}, "descricao": "Sente-se na máquina Hammer e puxe a alça unilateralmente, focando na contração das costas."},
+            {"nome": "Remada na máquina hammer bilateral", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Sente-se na máquina Hammer e puxe as alças bilateralmente, focando na contração das costas."},
             {"nome": "Pullover com halteres", "grupoMuscular": "Costas", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12"}, "descricao": "Deite no banco, segure o halter com as duas mãos e leve para trás da cabeça, sentindo o alongamento do dorsal."},
-            {"nome": "Pullover na polia alta", "grupoMuscular": "Costas", "dificuldade": ["Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Fique em pé, de frente para a polia alta, segure a barra reta e puxe para baixo com os braços esticados."},
-            {"nome": "Pull Down com corda (foco dorsal)", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Fique em pé, de frente para a polia alta, segure a corda e puxe para baixo com os braços esticados."},
-            
-            // OMBRO
-            {"nome": "Desenvolvimento com barra reta (frente)", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Sentado, segure a barra à frente dos ombros e empurre para cima até estender os braços."},
-            {"nome": "Desenvolvimento com halteres (sentado)", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure os halteres à altura dos ombros e empurre para cima até estender os braços."},
-            {"nome": "Elevação lateral com halteres", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12 + drop set"}, "descricao": "Em pé, eleve os braços para os lados até a altura dos ombros, mantendo uma leve flexão nos cotovelos."},
-            {"nome": "Elevação lateral na polia baixa", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12 + drop set"}, "descricao": "Fique ao lado da polia baixa, segure a alça e eleve o braço para o lado, sentindo o deltoide lateral."},
-            {"nome": "Elevação lateral na máquina", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina e eleve os braços para os lados, trabalhando o deltoide lateral."},
-            {"nome": "Elevação frontal com halteres", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Em pé, segure os halteres e eleve os braços para a frente até a altura dos ombros."},
-            {"nome": "Elevação frontal na polia", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Fique de costas para a polia baixa, segure a barra e eleve os braços para a frente."},
-            {"nome": "Desenvolvimento na máquina guiada (ombro)", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Sente-se na máquina guiada e empurre as alças para cima, estendendo os braços."},
-            {"nome": "Remada alta com barra W", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure a barra W e puxe em direção ao queixo, levantando os cotovelos."},
-            {"nome": "Remada alta com barra reta", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure a barra reta e puxe em direção ao queixo, levantando os cotovelos."},
-            {"nome": "Remada alta na polia", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x12-15"}, "descricao": "Fique de frente para a polia baixa, segure a barra e puxe em direção ao queixo."},
-            {"nome": "Crucifixo invertido com halteres", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Com o tronco curvado, abra os braços para os lados, focando na porção posterior do ombro."},
-            {"nome": "Crucifixo invertido na máquina peck deck inverso", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Sente-se de frente para a máquina, segure as alças e empurre para trás, trabalhando o deltoide posterior."},
-            {"nome": "Crucifixo invertido na polia baixa", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia baixa, segure as alças cruzadas e abra os braços para os lados."},
-            {"nome": "Encolhimento com halteres", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Segure os halteres nas laterais do corpo e encolha os ombros, elevando-os em direção às orelhas."},
-            {"nome": "Encolhimento com barra reta", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Segure a barra reta à frente do corpo e encolha os ombros, elevando-os em direção às orelhas."},
-            {"nome": "Encolhimento na máquina", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, segure as alças e encolha os ombros, elevando-os em direção às orelhas."},
-            
-            // TRÍCEPS
-            {"nome": "Tríceps testa com barra reta", "grupoMuscular": "Tríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "5x8-10"}, "descricao": "Deitado, estenda a barra acima da cabeça e flexione os cotovelos, levando-a em direção à testa."},
-            {"nome": "Tríceps testa com barra W", "grupoMuscular": "Tríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "5x8-10"}, "descricao": "Deitado, estenda a barra W acima da cabeça e flexione os cotovelos, levando-a em direção à testa."},
-            {"nome": "Tríceps testa com halteres (unilateral ou simultâneo)", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Deitado, segure os halteres acima da cabeça e flexione os cotovelos, levando-os em direção à testa."},
-            {"nome": "Tríceps francês com barra W", "grupoMuscular": "Tríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado ou em pé, segure a barra W atrás da cabeça e estenda os braços para cima."},
-            {"nome": "Tríceps francês com halteres", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Sentado ou em pé, segure o halter atrás da cabeça e estenda o braço para cima."},
-            {"nome": "Tríceps coice com halteres", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante"], "sugerirRepeticoes": {"Iniciante": "3x15"}, "descricao": "Com o tronco inclinado, estenda o braço para trás, contraindo o tríceps no topo."},
-            {"nome": "Tríceps na polia com barra reta", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Fique de frente para a polia alta, segure a barra reta e empurre para baixo com os cotovelos fixos."},
-            {"nome": "Tríceps na polia com barra V", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia alta, segure a barra V e empurre para baixo com os cotovelos fixos."},
-            {"nome": "Tríceps na polia com corda", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Fique de frente para a polia alta, segure a corda e empurre para baixo, abrindo as mãos no final do movimento."},
-            {"nome": "Tríceps unilateral na polia", "grupoMuscular": "Tríceps", "dificuldade": ["Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Fique de frente para a polia alta, segure a alça com uma mão e empurre para baixo, com o cotovelo fixo."},
-            {"nome": "Tríceps banco (mergulho com peso corporal)", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x10-12", "Intermediario": "4x12-15"}, "descricao": "Apoie as mãos em um banco e o corpo no ar. Abaixe e suba o corpo, flexionando e estendendo os cotovelos."},
-            {"nome": "Tríceps na máquina (pushdown guiado)", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x15"}, "descricao": "Sente-se na máquina, segure as alças e empurre para baixo com os cotovelos fixos."},
+            {"nome": "Pullover na polia alta com corda", "grupoMuscular": "Costas", "dificuldade": ["Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Fique em pé, de frente para a polia alta, segure a corda e puxe para baixo com os braços esticados."},
+            {"nome": "Pull down com barra reta na polia alta", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Fique em pé, de frente para a polia alta, segure a barra reta e puxe para baixo com os braços esticados."},
+            {"nome": "Pull down com barra neutra na polia alta", "grupoMuscular": "Costas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Fique em pé, de frente para a polia alta, segure a barra neutra e puxe para baixo com os braços esticados."},
 
+            // OMBRO
+            {"nome": "Elevação lateral com halteres", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12 + drop set"}, "descricao": "Em pé, eleve os braços para os lados até a altura dos ombros, mantendo uma leve flexão nos cotovelos."},
+            {"nome": "Elevação lateral na máquina", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina e eleve os braços para os lados, trabalhando o deltoide lateral."},
+            {"nome": "Elevação lateral na polia baixa", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12 + drop set"}, "descricao": "Fique ao lado da polia baixa, segure a alça e eleve o braço para o lado, sentindo o deltoide lateral."},
+            {"nome": "Elevação frontal com halteres", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Em pé, segure os halteres e eleve os braços para a frente até a altura dos ombros."},
+            {"nome": "Elevação frontal com barra reta", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Em pé, segure a barra reta e eleve os braços para a frente até a altura dos ombros."},
+            {"nome": "Elevação frontal na polia baixa", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Fique de costas para a polia baixa, segure a barra e eleve os braços para a frente."},
+            {"nome": "Desenvolvimento com barra reta (em pé)", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Em pé, segure a barra à frente dos ombros e empurre para cima até estender os braços."},
+            {"nome": "Desenvolvimento com barra reta (sentado)", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Sentado, segure a barra à frente dos ombros e empurre para cima até estender os braços."},
+            {"nome": "Desenvolvimento com halteres (sentado)", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure os halteres à altura dos ombros e empurre para cima até estender os braços."},
+            {"nome": "Desenvolvimento na máquina", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Sente-se na máquina guiada e empurre as alças para cima, estendendo os braços."},
+            {"nome": "Arnold press com halteres", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure os halteres à altura dos ombros com as palmas para trás, e empurre para cima enquanto gira as palmas para frente."},
+            {"nome": "Remada alta com barra reta", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure a barra reta e puxe em direção ao queixo, levantando os cotovelos."},
+            {"nome": "Remada alta com barra W", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure a barra W e puxe em direção ao queixo, levantando os cotovelos."},
+            {"nome": "Remada alta com halteres", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x12-15"}, "descricao": "Segure os halteres e puxe em direção ao queixo, levantando os cotovelos."},
+            {"nome": "Crucifixo invertido com halteres (posterior)", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Com o tronco curvado, abra os braços para os lados, focando na porção posterior do ombro."},
+            {"nome": "Crucifixo invertido na máquina (posterior)", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Sente-se de frente para a máquina, segure as alças e empurre para trás, trabalhando o deltoide posterior."},
+            {"nome": "Crucifixo invertido na polia baixa", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia baixa, segure as alças cruzadas e abra os braços para os lados."},
+
+            // TRAPÉZIO
+            {"nome": "Encolhimento com halteres", "grupoMuscular": "Trapézio", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Segure os halteres nas laterais do corpo e encolha os ombros, elevando-os em direção às orelhas."},
+            {"nome": "Encolhimento com barra reta", "grupoMuscular": "Trapézio", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Segure a barra reta à frente do corpo e encolha os ombros, elevando-os em direção às orelhas."},
+            {"nome": "Encolhimento com barra W", "grupoMuscular": "Trapézio", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Segure a barra W à frente do corpo e encolha os ombros, elevando-os em direção às orelhas."},
+            {"nome": "Encolhimento na máquina guiada", "grupoMuscular": "Trapézio", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, segure as alças e encolha os ombros, elevando-os em direção às orelhas."},
+            
             // BÍCEPS
             {"nome": "Rosca direta com barra reta", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8 + rest-pause na ultima"}, "descricao": "Segure a barra com as mãos na largura dos ombros. Flexione os cotovelos para levantar a barra em direção ao peito."},
             {"nome": "Rosca direta com barra W", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8 + rest-pause na ultima"}, "descricao": "Segure a barra W com as mãos na pegada fechada. Flexione os cotovelos para levantar a barra em direção ao peito."},
+            {"nome": "Rosca direta com halteres", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Segure os halteres e levante-os, flexionando os cotovelos."},
             {"nome": "Rosca alternada com halteres", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Fique em pé, segure os halteres e alterne os braços, levantando-os em direção aos ombros."},
             {"nome": "Rosca simultânea com halteres", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Fique em pé, segure os halteres e levante ambos os braços ao mesmo tempo."},
             {"nome": "Rosca concentrada com halteres", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado, apoie o cotovelo na coxa e levante o halter, contraindo o bíceps com foco."},
             {"nome": "Rosca martelo com halteres", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Segure os halteres com as palmas das mãos voltadas uma para a outra e levante os braços."},
-            {"nome": "Rosca martelo na corda (polia)", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12"}, "descricao": "Fique de frente para a polia baixa, segure a corda e levante-a com as palmas das mãos voltadas uma para a outra."},
-            {"nome": "Rosca na polia com barra reta", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12"}, "descricao": "Fique de frente para a polia baixa, segure a barra reta e levante-a em direção aos ombros."},
-            {"nome": "Rosca na polia com barra W", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12"}, "descricao": "Fique de frente para a polia baixa, segure a barra W e levante-a em direção aos ombros."},
+            {"nome": "Rosca martelo com corda na polia baixa", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12"}, "descricao": "Fique de frente para a polia baixa, segure a corda e levante-a com as palmas das mãos voltadas uma para a outra."},
+            {"nome": "Rosca na polia baixa com barra reta", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12"}, "descricao": "Fique de frente para a polia baixa, segure a barra reta e levante-a em direção aos ombros."},
+            {"nome": "Rosca na polia baixa com barra W", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12"}, "descricao": "Fique de frente para a polia baixa, segure a barra W e levante-a em direção aos ombros."},
+            {"nome": "Rosca Scott com barra reta", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure a barra reta e levante-a, contraindo o bíceps."},
             {"nome": "Rosca Scott com barra W", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure a barra W e levante-a, contraindo o bíceps."},
             {"nome": "Rosca Scott com halteres", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure os halteres e levante-os, contraindo o bíceps."},
-            {"nome": "Rosca no banco inclinado com halteres", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se em um banco inclinado, segure os halteres e levante-os, focando no alongamento do bíceps."},
             {"nome": "Rosca 21 com barra reta", "grupoMuscular": "Bíceps", "dificuldade": ["Avancado"], "sugerirRepeticoes": {"Avancado": "3x21 (7+7+7)"}, "descricao": "Faça 7 repetições da parte inferior, 7 da superior e 7 completas com a barra reta."},
-            {"nome": "Rosca inversa com barra reta", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Segure a barra com a palma das mãos virada para baixo e levante-a flexionando os cotovelos, ativando os antebraços."},
+            {"nome": "Rosca 21 com halteres", "grupoMuscular": "Bíceps", "dificuldade": ["Avancado"], "sugerirRepeticoes": {"Avancado": "3x21 (7+7+7)"}, "descricao": "Faça 7 repetições da parte inferior, 7 da superior e 7 completas com os halteres."},
+
+            // TRÍCEPS
+            {"nome": "Tríceps testa com barra reta", "grupoMuscular": "Tríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "5x8-10"}, "descricao": "Deitado, estenda a barra acima da cabeça e flexione os cotovelos, levando-a em direção à testa."},
+            {"nome": "Tríceps testa com barra W", "grupoMuscular": "Tríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediante": "4x10", "Avancado": "5x8-10"}, "descricao": "Deitado, estenda a barra W acima da cabeça e flexione os cotovelos, levando-a em direção à testa."},
+            {"nome": "Tríceps testa com halteres", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Deitado, segure os halteres acima da cabeça e flexione os cotovelos, levando-os em direção à testa."},
+            {"nome": "Tríceps coice com halteres", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante"], "sugerirRepeticoes": {"Iniciante": "3x15"}, "descricao": "Com o tronco inclinado, estenda o braço para trás, contraindo o tríceps no topo."},
+            {"nome": "Tríceps unilateral na polia", "grupoMuscular": "Tríceps", "dificuldade": ["Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Fique de frente para a polia alta, segure a alça com uma mão e empurre para baixo, com o cotovelo fixo."},
+            {"nome": "Tríceps corda na polia alta", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Fique de frente para a polia alta, segure a corda e empurre para baixo, abrindo as mãos no final do movimento."},
+            {"nome": "Tríceps barra reta na polia alta", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Fique de frente para a polia alta, segure a barra reta e empurre para baixo com os cotovelos fixos."},
+            {"nome": "Tríceps banco (mergulho)", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x10-12", "Intermediario": "4x12-15"}, "descricao": "Apoie as mãos em um banco e o corpo no ar. Abaixe e suba o corpo, flexionando e estendendo os cotovelos."},
+            {"nome": "Tríceps francês com halteres", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Sentado ou em pé, segure o halter atrás da cabeça e estenda o braço para cima."},
+            {"nome": "Tríceps francês com barra W", "grupoMuscular": "Tríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado ou em pé, segure a barra W atrás da cabeça e estenda os braços para cima."},
+            {"nome": "Tríceps francês com barra reta", "grupoMuscular": "Tríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado ou em pé, segure a barra reta atrás da cabeça e estenda os braços para cima."},
+            {"nome": "Tríceps máquina sentado", "grupoMuscular": "Tríceps", "dificuldade": ["Iniciante"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x15"}, "descricao": "Sente-se na máquina, segure as alças e empurre para baixo com os cotovelos fixos."},
+
+            // QUADRÍCEPS
+            {"nome": "Agachamento livre com barra reta", "grupoMuscular": "Quadríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "5x6-8"}, "descricao": "Com a barra nas costas, desça o quadril, como se fosse sentar, até que as coxas fiquem paralelas ao chão."},
+            {"nome": "Agachamento livre com halteres", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Segure os halteres nas laterais do corpo e agache, mantendo o tronco reto."},
+            {"nome": "Agachamento guiado no smith", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Com a barra no smith, desça o quadril, como se fosse sentar, até que as coxas fiquem paralelas ao chão."},
+            {"nome": "Agachamento frontal com barra reta", "grupoMuscular": "Quadríceps", "dificuldade": ["Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Com a barra na frente do corpo, desça o quadril, como se fosse sentar, até que as coxas fiquem paralelas ao chão."},
+            {"nome": "Cadeira extensora", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste o rolo nas canelas e estenda as pernas, contraindo o quadríceps."},
+            {"nome": "Agachamento búlgaro com halteres", "grupoMuscular": "Quadríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Apoie um pé em um banco e agache com a perna da frente, segurando os halteres."},
+            {"nome": "Agachamento sumô com barra reta", "grupoMuscular": "Quadríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12 + rest-pause"}, "descricao": "Com os pés afastados, agache segurando a barra reta, focando a contração nos glúteos e quadríceps."},
+            {"nome": "Agachamento sumô com halteres", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12 + rest-pause"}, "descricao": "Com os pés afastados, agache segurando um halter, focando a contração nos glúteos e quadríceps."},
+            {"nome": "Leg press 45°", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste a carga e empurre a plataforma com os pés."},
+            {"nome": "Leg press horizontal", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste a carga e empurre a plataforma com os pés."},
+            {"nome": "Hack machine", "grupoMuscular": "Quadríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sente-se na máquina, ajuste a carga e agache, focando na contração do quadríceps."},
+            {"nome": "Avanço com barra reta", "grupoMuscular": "Quadríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Com a barra nas costas, dê um passo para frente e agache, mantendo o tronco reto."},
+            {"nome": "Avanço com halteres", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure os halteres, dê um passo para frente e agache, mantendo o tronco reto."},
+            {"nome": "Afundo com barra reta", "grupoMuscular": "Quadríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Com a barra nas costas, dê um passo para trás e agache, mantendo o tronco reto."},
+            {"nome": "Afundo com halteres", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure os halteres, dê um passo para trás e agache, mantendo o tronco reto."},
+            {"nome": "Passada com halteres", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12 (cada perna)", "Intermediario": "4x10-12 (cada perna)", "Avancado": "4x8-10 (cada perna)"}, "descricao": "Segure os halteres, dê um passo longo para frente e agache, como se estivesse caminhando."},
+
+            // POSTERIOR DE COXA
+            {"nome": "Mesa flexora deitada", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Deite na máquina, prenda os tornozelos no rolo e flexione as pernas."},
+            {"nome": "Mesa flexora sentada", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste o rolo nos tornozelos e flexione as pernas."},
+            {"nome": "Mesa flexora em pé unilateral", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Em pé na máquina, flexione uma perna de cada vez, contraindo o posterior de coxa."},
+            {"nome": "Stiff com barra reta", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure a barra reta, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
+            {"nome": "Stiff com halteres", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure os halteres, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
+            {"nome": "Stiff no smith", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure a barra do smith, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
+            {"nome": "Good morning com barra reta", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Avancado"], "sugerirRepeticoes": {"Avancado": "4x8-10"}, "descricao": "Com a barra nas costas, incline o tronco para frente, mantendo as pernas esticadas, e retorne."},
+            {"nome": "Cadeira glúteo (posição ênfase posterior)", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina e realize a extensão do quadril, focando na contração da porção superior do posterior de coxa."},
+            {"nome": "Agachamento romeno com barra reta", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure a barra reta, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
+            {"nome": "Agachamento romeno com halteres", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure os halteres, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
 
             // GLÚTEOS
-            {"nome": "Cadeira abdutora", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15-20"}, "descricao": "Sente-se na máquina, ajuste a carga e empurre as pernas para fora."},
-            {"nome": "Abdução na polia (em pé)", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Prenda a caneleira na polia baixa e afaste a perna para o lado."},
-            {"nome": "Agachamento sumô com halteres", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12 + rest-pause"}, "descricao": "Com os pés afastados, agache segurando um halter, focando a contração nos glúteos."},
+            {"nome": "Cadeira glúteo (ênfase glúteo)", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina e realize a extensão do quadril, focando na contração do glúteo."},
+            {"nome": "Elevação pélvica com barra reta", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "5x8-10"}, "descricao": "Com as costas apoiadas em um banco e a barra sobre o quadril, levante o quadril."},
+            {"nome": "Elevação pélvica com halteres", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Com as costas apoiadas em um banco e o halter sobre o quadril, levante o quadril."},
+            {"nome": "Elevação pélvica no smith", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Com as costas apoiadas em um banco e a barra do smith sobre o quadril, levante o quadril."},
+            {"nome": "Extensão de quadril na polia", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Prenda a caneleira na polia baixa e empurre a perna para trás, contraindo o glúteo.", "sexo": "Feminino"},
+            {"nome": "Extensão de quadril no banco", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante"], "sugerirRepeticoes": {"Iniciante": "3x15-20"}, "descricao": "Apoie-se em um banco, coloque a caneleira no tornozelo e levante a perna para trás.", "sexo": "Feminino"},
             {"nome": "Agachamento com recuo com halteres", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Segure os halteres, dê um passo para trás e agache, com o peso na perna da frente."},
             {"nome": "Agachamento com recuo com barra reta", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Com a barra nas costas, dê um passo para trás e agache, com o peso na perna da frente."},
-            {"nome": "Passada (afundo andando) com halteres", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12 (cada perna)", "Intermediario": "4x10-12 (cada perna)", "Avancado": "4x8-10 (cada perna)"}, "descricao": "Segure os halteres, dê um passo longo para frente e agache, como se estivesse caminhando."},
-            {"nome": "Afundo no smith", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Com a barra no smith, dê um passo para trás e agache, com o peso na perna da frente."},
-            {"nome": "Afundo com barra reta", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Com a barra nas costas, dê um passo para frente e agache, mantendo o tronco reto."},
-            {"nome": "Elevação pélvica com barra reta (hip thrust)", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "5x8-10"}, "descricao": "Com as costas apoiadas em um banco e a barra sobre o quadril, levante o quadril."},
-            {"nome": "Elevação pélvica na máquina", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste a carga e levante o quadril, contraindo os glúteos."},
-            {"nome": "Elevação de quadril no solo (peso livre)", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante"], "sugerirRepeticoes": {"Iniciante": "3x20"}, "descricao": "Deite no solo com os joelhos flexionados e levante o quadril, contraindo os glúteos."},
-            {"nome": "Coice na polia baixa", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Prenda a caneleira na polia baixa e empurre a perna para trás, contraindo o glúteo."},
-            {"nome": "Coice no banco com caneleira", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante"], "sugerirRepeticoes": {"Iniciante": "3x15-20"}, "descricao": "Apoie-se em um banco, coloque a caneleira no tornozelo e levante a perna para trás."},
-            {"nome": "Coice na máquina", "grupoMuscular": "Glúteos", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste a carga e empurre a perna para trás."},
-            {"nome": "Stiff com halteres", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure os halteres, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
-            {"nome": "Stiff com barra reta", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure a barra reta, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
-            {"nome": "Stiff com barra W", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure a barra W, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
-            
-            // POSTERIOR DE COXA
-            {"nome": "Mesa flexora (deitado)", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Deite na máquina, prenda os tornozelos no rolo e flexione as pernas."},
-            {"nome": "Cadeira flexora (sentado)", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste o rolo nos tornozelos e flexione as pernas."},
-            {"nome": "Stiff com halteres", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure os halteres, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
-            {"nome": "Stiff com barra reta", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure a barra reta, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
-            {"nome": "Stiff com barra W", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure a barra W, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
-            {"nome": "Stiff unilateral com halteres", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Fique em uma perna só, segure um halter e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
-            {"nome": "Coice na máquina (foco posterior)", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste a carga e empurre a perna para trás, focando na contração da posterior de coxa."},
-            {"nome": "Coice na polia com pé flexionado", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Prenda a caneleira na polia baixa e empurre a perna para trás com o pé flexionado."},
-            {"nome": "Glute bridge com barra reta (ênfase posterior)", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Deite no solo com a barra sobre o quadril, levante o quadril, focando na contração do posterior de coxa."},
-            {"nome": "Levantamento terra romeno com halteres", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure os halteres, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
-            {"nome": "Levantamento terra com barra reta", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Segure a barra reta, mantenha as costas retas e levante o peso do chão, ativando as pernas e a lombar."},
-            {"nome": "Avanço com passo longo (ênfase posterior)", "grupoMuscular": "Posterior de Coxa", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Dê um passo longo para frente e agache, focando na contração do posterior de coxa e glúteos."},
-            
-            // QUADRÍCEPS
-            {"nome": "Cadeira extensora", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste o rolo nas canelas e estenda as pernas, contraindo o quadríceps."},
-            {"nome": "Agachamento livre com barra reta", "grupoMuscular": "Quadríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "5x6-8"}, "descricao": "Com a barra nas costas, desça o quadril, como se fosse sentar, até que as coxas fiquem paralelas ao chão."},
-            {"nome": "Agachamento no smith", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12"}, "descricao": "Com a barra no smith, desça o quadril, como se fosse sentar, até que as coxas fiquem paralelas ao chão."},
-            {"nome": "Agachamento frontal com barra reta", "grupoMuscular": "Quadríceps", "dificuldade": ["Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Com a barra na frente do corpo, desça o quadril, como se fosse sentar, até que as coxas fiquem paralelas ao chão."},
-            {"nome": "Agachamento com halteres", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Segure os halteres nas laterais do corpo e agache, mantendo o tronco reto."},
-            {"nome": "Agachamento hack machine", "grupoMuscular": "Quadríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sente-se na máquina, ajuste a carga e agache, focando na contração do quadríceps."},
-            {"nome": "Leg Press 45º", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste a carga e empurre a plataforma com os pés."},
-            {"nome": "Leg Press horizontal", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Sente-se na máquina, ajuste a carga e empurre a plataforma com os pés."},
-            {"nome": "Afundo com barra reta", "grupoMuscular": "Quadríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Com a barra nas costas, dê um passo para frente e agache, mantendo o tronco reto."},
-            {"nome": "Afundo com halteres", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure os halteres, dê um passo para frente e agache, mantendo o tronco reto."},
-            {"nome": "Avanço no smith", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10"}, "descricao": "Com a barra no smith, dê um passo para frente e agache, mantendo o tronco reto."},
-            {"nome": "Agachamento búlgaro com halteres", "grupoMuscular": "Quadríceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Apoie um pé em um banco e agache com a perna da frente, segurando os halteres."},
-            {"nome": "Step-up com halteres", "grupoMuscular": "Quadríceps", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Com os halteres, suba em um banco com uma perna e retorne, alternando as pernas."},
-            {"nome": "Agachamento com pausa (tempo controlado)", "grupoMuscular": "Quadríceps", "dificuldade": ["Avancado"], "sugerirRepeticoes": {"Avancado": "4x8 (3s de pausa)"}, "descricao": "Agache com a barra nas costas e faça uma pausa de 3 segundos na parte inferior do movimento."},
+            {"nome": "Avanço com ênfase em glúteo", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Dê um passo bem longo à frente com o tronco reto, descendo o quadril e focando a força no glúteo da perna que está à frente."},
+            {"nome": "Stiff com ênfase no glúteo", "grupoMuscular": "Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Segure a barra ou halteres e desça o tronco, mantendo os joelhos levemente flexionados, focando no alongamento do glúteo."},
 
-            // PANTURRILHAS
-            {"nome": "Gêmeos sentado na máquina", "grupoMuscular": "Panturrilhas", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15-20"}, "descricao": "Sente-se na máquina, coloque a parte da frente dos pés na plataforma e eleve o corpo."},
-            {"nome": "Gêmeos em pé na máquina", "grupoMuscular": "Panturrilhas", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12 + drop set na ultima"}, "descricao": "Apoie os ombros na máquina e eleve o corpo usando a força das panturrilhas, fazendo uma pausa no ponto mais alto."},
-            {"nome": "Gêmeos no Leg Press 45º", "grupoMuscular": "Panturrilhas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x15-20", "Avancado": "4x12-15"}, "descricao": "Sente-se na máquina de Leg Press, coloque a parte da frente dos pés na plataforma e empurre, contraindo as panturrilhas."},
-            {"nome": "Gêmeos com halteres em pé", "grupoMuscular": "Panturrilhas", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15-20"}, "descricao": "Segure os halteres nas laterais do corpo e eleve os calcanhares, contraindo as panturrilhas."},
-            {"nome": "Gêmeos no step (com halteres ou barra)", "grupoMuscular": "Panturrilhas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Suba em um step, com os calcanhares para fora, e suba e desça o corpo, sentindo o alongamento e a contração."},
-            {"nome": "Gêmeos unilateral com halteres", "grupoMuscular": "Panturrilhas", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Segure o halter com uma mão e eleve o corpo com uma perna só, contraindo a panturrilha."},
-            {"nome": "Elevação de panturrilha no smith", "grupoMuscular": "Panturrilhas", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15"}, "descricao": "Apoie a barra do smith nas costas, suba em um step e eleve os calcanhares, contraindo as panturrilhas."},
+            // PANTURRILHA
+            {"nome": "Elevação plantar em pé livre", "grupoMuscular": "Panturrilha", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15-20"}, "descricao": "Em pé, eleve o corpo usando a força das panturrilhas, fazendo uma pausa no ponto mais alto."},
+            {"nome": "Elevação plantar em pé na máquina", "grupoMuscular": "Panturrilha", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12 + drop set na ultima"}, "descricao": "Apoie os ombros na máquina e eleve o corpo usando a força das panturrilhas, fazendo uma pausa no ponto mais alto."},
+            {"nome": "Elevação plantar sentado na máquina", "grupoMuscular": "Panturrilha", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15-20"}, "descricao": "Sente-se na máquina, coloque a parte da frente dos pés na plataforma e eleve o corpo."},
+            {"nome": "Elevação plantar no leg press", "grupoMuscular": "Panturrilha", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x15-20", "Avancado": "4x12-15"}, "descricao": "Sente-se na máquina de Leg Press, coloque a parte da frente dos pés na plataforma e empurre, contraindo as panturrilhas."},
+            {"nome": "Elevação unilateral com halteres", "grupoMuscular": "Panturrilha", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Segure o halter com uma mão e eleve o corpo com uma perna só, contraindo a panturrilha."},
 
             // ANTEBRAÇO
-            {"nome": "Rosca inversa com barra reta", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Segure a barra com a palma das mãos virada para baixo e levante-a flexionando os cotovelos, ativando os antebraços."},
-            {"nome": "Rosca inversa com barra W", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Segure a barra W com a palma das mãos virada para baixo e levante-a flexionando os cotovelos, ativando os antebraços."},
-            {"nome": "Rosca punho com halteres (flexão de punho)", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15"}, "descricao": "Sente-se, apoie os antebraços nas coxas, segure os halteres e flexione os punhos para cima."},
             {"nome": "Rosca punho com barra reta", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15"}, "descricao": "Sente-se, apoie os antebraços nas coxas, segure a barra e flexione os punhos para cima."},
-            {"nome": "Rosca punho reversa com barra", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15"}, "descricao": "Sente-se, apoie os antebraços nas coxas, segure a barra e flexione os punhos para baixo."},
-            {"nome": "Extensão de punho com halteres (braço apoiado)", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15"}, "descricao": "Sente-se, apoie os antebraços nas coxas, segure os halteres e estenda os punhos para cima."},
-            {"nome": "Pronação e supinação com halteres", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante"], "sugerirRepeticoes": {"Iniciante": "3x15"}, "descricao": "Segure os halteres e gire o punho para dentro e para fora, trabalhando a pronação e supinação."},
-            {"nome": "Rosca de pegada neutra com barra V na polia baixa", "grupoMuscular": "Antebraço", "dificuldade": ["Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12"}, "descricao": "Fique de frente para a polia baixa, segure a barra V e levante-a, com as palmas das mãos voltadas uma para a outra."}
+            {"nome": "Rosca punho com barra W", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15"}, "descricao": "Sente-se, apoie os antebraços nas coxas, segure a barra W e flexione os punhos para cima."},
+            {"nome": "Rosca punho com halteres", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15"}, "descricao": "Sente-se, apoie os antebraços nas coxas, segure os halteres e flexione os punhos para cima."},
+            {"nome": "Rosca reversa com barra reta", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Segure a barra com a palma das mãos virada para baixo e levante-a flexionando os cotovelos, ativando os antebraços."},
+            {"nome": "Rosca reversa com barra W", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Segure a barra W com a palma das mãos virada para baixo e levante-a flexionando os cotovelos, ativando os antebraços."},
+            {"nome": "Rosca reversa com halteres", "grupoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Segure os halteres com a palma das mãos virada para baixo e levante-os flexionando os cotovelos, ativando os antebraços."},
         ];
 
         // Mapeamento de exercícios redundantes para evitar repetição
@@ -372,38 +430,45 @@
             "Supino reto": ["Supino reto com barra reta", "Supino reto com halteres"],
             "Supino inclinado": ["Supino inclinado com barra reta", "Supino inclinado com halteres"],
             "Supino declinado": ["Supino declinado com barra reta", "Supino declinado com halteres"],
-            "Crucifixo peito": ["Crucifixo reto com halteres", "Crucifixo inclinado com halteres", "Crucifixo reto na polia (cabo)", "Crucifixo inclinado na polia (cabo)"],
-            "Cross Over": ["Cross Over alto na polia", "Cross Over médio na polia", "Cross Over baixo na polia"],
-            "Puxada frontal": ["Puxada frontal na polia com barra reta (pegada aberta)", "Puxada frontal na polia com barra reta (pegada supinada)", "Puxada frontal com pegada neutra (barra V)"],
-            "Remada curvada": ["Remada curvada com barra reta", "Remada curvada com barra W"],
-            "Remada baixa": ["Remada baixa na máquina", "Remada baixa na polia com barra reta"],
-            "Remada alta": ["Remada alta com barra W", "Remada alta com barra reta", "Remada alta na polia"],
-            "Desenvolvimento ombro": ["Desenvolvimento com barra reta (frente)", "Desenvolvimento com halteres (sentado)", "Desenvolvimento na máquina guiada (ombro)"],
-            "Elevação lateral": ["Elevação lateral com halteres", "Elevação lateral na polia baixa", "Elevação lateral na máquina"],
-            "Elevação frontal": ["Elevação frontal com halteres", "Elevação frontal na polia"],
-            "Crucifixo invertido": ["Crucifixo invertido com halteres", "Crucifixo invertido na máquina peck deck inverso", "Crucifixo invertido na polia baixa"],
-            "Encolhimento": ["Encolhimento com halteres", "Encolhimento com barra reta", "Encolhimento na máquina"],
-            "Tríceps testa": ["Tríceps testa com barra reta", "Tríceps testa com barra W", "Tríceps testa com halteres (unilateral ou simultâneo)"],
-            "Tríceps francês": ["Tríceps francês com barra W", "Tríceps francês com halteres"],
-            "Tríceps na polia": ["Tríceps na polia com barra reta", "Tríceps na polia com barra V", "Tríceps na polia com corda", "Tríceps unilateral na polia"],
-            "Rosca direta": ["Rosca direta com barra reta", "Rosca direta com barra W"],
-            "Rosca halteres": ["Rosca alternada com halteres", "Rosca simultânea com halteres"],
-            "Rosca concentrada": ["Rosca concentrada com halteres", "Rosca Scott com halteres"],
-            "Rosca martelo": ["Rosca martelo com halteres", "Rosca martelo na corda (polia)"],
-            "Rosca Scott": ["Rosca Scott com barra W", "Rosca Scott com halteres"],
-            "Rosca na polia": ["Rosca na polia com barra reta", "Rosca na polia com barra W"],
-            "Stiff": ["Stiff com halteres", "Stiff com barra reta", "Stiff com barra W", "Stiff unilateral com halteres", "Levantamento terra romeno com halteres"],
-            "Elevação pélvica": ["Elevação pélvica com barra reta (hip thrust)", "Elevação pélvica na máquina", "Elevação de quadril no solo (peso livre)"],
-            "Coice": ["Coice na polia baixa", "Coice no banco com caneleira", "Coice na máquina", "Coice na máquina (foco posterior)"],
-            "Agachamento": ["Agachamento livre com barra reta", "Agachamento no smith", "Agachamento frontal com barra reta", "Agachamento com halteres", "Agachamento hack machine", "Agachamento com pausa (tempo controlado)", "Agachamento sumô com halteres"],
+            "Crucifixo peito": ["Crucifixo reto com halteres", "Crucifixo inclinado com halteres", "Crucifixo na máquina peck deck", "Crucifixo na polia baixa"],
+            "Crossover": ["Crossover na polia alta"],
+            "Flexão de braço": ["Flexão de braço tradicional", "Flexão de braço inclinada", "Flexão de braço declinada"],
+            "Puxada na polia alta": ["Puxada na polia alta com barra reta – pegada aberta", "Puxada na polia alta com barra neutra – pegada neutra"],
+            "Puxada na frente": ["Puxada na frente com triangulo (neutra)"],
+            "Remada curvada": ["Remada curvada com barra reta", "Remada curvada com barra W", "Remada curvada com halteres"],
+            "Remada unilateral": ["Remada unilateral com halteres", "Remada unilateral com polia baixa"],
+            "Remada baixa": ["Remada baixa com triangulo na polia"],
+            "Remada na máquina hammer": ["Remada na máquina hammer unilateral", "Remada na máquina hammer bilateral"],
+            "Pullover": ["Pullover com halteres", "Pullover na polia alta com corda"],
+            "Pull down": ["Pull down com barra reta na polia alta", "Pull down com barra neutra na polia alta"],
+            "Elevação lateral": ["Elevação lateral com halteres", "Elevação lateral na máquina", "Elevação lateral na polia baixa"],
+            "Elevação frontal": ["Elevação frontal com halteres", "Elevação frontal com barra reta", "Elevação frontal na polia baixa"],
+            "Desenvolvimento ombro": ["Desenvolvimento com barra reta (em pé)", "Desenvolvimento com barra reta (sentado)", "Desenvolvimento com halteres (sentado)", "Desenvolvimento na máquina"],
+            "Remada alta": ["Remada alta com barra reta", "Remada alta com barra W", "Remada alta com halteres"],
+            "Crucifixo invertido": ["Crucifixo invertido com halteres (posterior)", "Crucifixo invertido na máquina (posterior)", "Crucifixo invertido na polia baixa"],
+            "Encolhimento": ["Encolhimento com halteres", "Encolhimento com barra reta", "Encolhimento com barra W", "Encolhimento na máquina guiada"],
+            "Rosca direta": ["Rosca direta com barra reta", "Rosca direta com barra W", "Rosca direta com halteres"],
+            "Rosca alternada": ["Rosca alternada com halteres", "Rosca simultânea com halteres"],
+            "Rosca martelo": ["Rosca martelo com halteres", "Rosca martelo com corda na polia baixa"],
+            "Rosca na polia": ["Rosca na polia baixa com barra reta", "Rosca na polia baixa com barra W"],
+            "Rosca Scott": ["Rosca Scott com barra reta", "Rosca Scott com barra W", "Rosca Scott com halteres"],
+            "Rosca 21": ["Rosca 21 com barra reta", "Rosca 21 com halteres"],
+            "Tríceps testa": ["Tríceps testa com barra reta", "Tríceps testa com barra W", "Tríceps testa com halteres"],
+            "Tríceps na polia": ["Tríceps unilateral na polia", "Tríceps corda na polia alta", "Tríceps barra reta na polia alta"],
+            "Tríceps francês": ["Tríceps francês com halteres", "Tríceps francês com barra W", "Tríceps francês com barra reta"],
+            "Agachamento": ["Agachamento livre com barra reta", "Agachamento livre com halteres", "Agachamento guiado no smith", "Agachamento frontal com barra reta", "Agachamento sumô com barra reta", "Agachamento sumô com halteres"],
+            "Agachamento búlgaro": ["Agachamento búlgaro com halteres"],
+            "Leg press": ["Leg press 45°", "Leg press horizontal"],
+            "Avanço": ["Avanço com barra reta", "Avanço com halteres"],
+            "Afundo": ["Afundo com barra reta", "Afundo com halteres", "Avanço com ênfase em glúteo"],
+            "Stiff": ["Stiff com barra reta", "Stiff com halteres", "Stiff no smith", "Agachamento romeno com barra reta", "Agachamento romeno com halteres", "Stiff com ênfase no glúteo"],
+            "Mesa flexora": ["Mesa flexora deitada", "Mesa flexora sentada", "Mesa flexora em pé unilateral"],
+            "Elevação pélvica": ["Elevação pélvica com barra reta", "Elevação pélvica com halteres", "Elevação pélvica no smith"],
+            "Extensão de quadril": ["Extensão de quadril na polia", "Extensão de quadril no banco"],
             "Agachamento com recuo": ["Agachamento com recuo com halteres", "Agachamento com recuo com barra reta"],
-            "Passada": ["Passada (afundo andando) com halteres", "Afundo no smith", "Afundo com barra reta", "Afundo com halteres", "Avanço no smith", "Agachamento búlgaro com halteres"],
-            "Gêmeos": ["Gêmeos sentado na máquina", "Gêmeos em pé na máquina", "Gêmeos no Leg Press 45º", "Gêmeos com halteres em pé", "Gêmeos no step (com halteres ou barra)", "Gêmeos unilateral com halteres", "Elevação de panturrilha no smith"],
-            "Rosca inversa": ["Rosca inversa com barra reta", "Rosca inversa com barra W"],
-            "Rosca punho": ["Rosca punho com halteres (flexão de punho)", "Rosca punho com barra reta"],
-            "Rosca punho reversa": ["Rosca punho reversa com barra", "Extensão de punho com halteres (braço apoiado)"],
-            "Prone e supino": ["Pronação e supinação com halteres"],
-            "Flexão": ["Flexão de braços no solo", "Flexão com pés elevados", "Flexão na máquina guiada (chest press)"]
+            "Elevação plantar": ["Elevação plantar em pé livre", "Elevação plantar em pé na máquina", "Elevação plantar sentado na máquina", "Elevação plantar no leg press"],
+            "Rosca punho": ["Rosca punho com barra reta", "Rosca punho com barra W", "Rosca punho com halteres"],
+            "Rosca reversa": ["Rosca reversa com barra reta", "Rosca reversa com barra W", "Rosca reversa com halteres"],
         };
 
         // Descrições de técnicas avançadas para inclusão no PDF
@@ -431,8 +496,8 @@
             diaTreinoDiv.innerHTML = `
                 <h3>Treino Dia ${String.fromCharCode(64 + diaTreinoCount)}</h3>
                 <span class="remover" onclick="this.parentNode.remove()">x Remover</span>
-                <label for="nome_dia_${diaTreinoCount}">Nome do Treino:</label>
-                <input type="text" id="nome_dia_${diaTreinoCount}" name="nome_dia_${diaTreinoCount}" placeholder="Ex: Treino A" required>
+                <label for="nome_dia_${diaTreinoCount}">Nome do Treino (opcional):</label>
+                <input type="text" id="nome_dia_${diaTreinoCount}" name="nome_dia_${diaTreinoCount}" placeholder="Ex: Treino A">
                 <label>Grupos Musculares:</label>
                 <div class="checkbox-group">
                     ${gruposDisponiveis.map(grupo => `
@@ -446,7 +511,7 @@
             diasDeTreinoContainer.appendChild(diaTreinoDiv);
         }
 
-        function gerarTreinoAutomatico(dificuldade, grupos_musculares) {
+        function gerarTreinoAutomatico(dificuldade, grupos_musculares, sexo) {
             let numTotalExercicios = {
                 "Iniciante": 6,
                 "Intermediario": 7,
@@ -461,7 +526,7 @@
             shuffleArray(grupos_musculares);
 
             let exerciciosJaUsados = new Set();
-            let grupoJaUsado = new Set();
+            let gruposDeExerciciosJaUsados = new Set();
             
             for (const grupo of grupos_musculares) {
                 let num = exerciciosPorGrupo;
@@ -473,7 +538,8 @@
                 let exerciciosDoGrupo = [];
                 let opcoesValidas = EXERCICIOS.filter(ex => 
                     ex.grupoMuscular === grupo && 
-                    ex.dificuldade.includes(dificuldade)
+                    ex.dificuldade.includes(dificuldade) &&
+                    (!ex.sexo || ex.sexo === sexo) // Adiciona a nova condição de sexo
                 );
                 shuffleArray(opcoesValidas);
                 
@@ -484,11 +550,11 @@
                     let isRedundant = false;
                     for (const [key, value] of Object.entries(EXERCICIOS_AGRUPADOS)) {
                         if (value.includes(ex.nome)) {
-                            if (grupoJaUsidao.has(key)) {
+                            if (gruposDeExerciciosJaUsados.has(key)) {
                                 isRedundant = true;
                                 break;
                             }
-                            grupoJaUsado.add(key);
+                            gruposDeExerciciosJaUsados.add(key);
                         }
                     }
 
@@ -747,7 +813,7 @@
             doc.save(`treino_semanal_${dados_gerais.nome_aluno}.pdf`);
         }
 
-        // Event Listeners
+        // Event listeners
         window.onload = function() {
             adicionarDiaTreino();
             document.getElementById('treinoForm').addEventListener('submit', function(e) {
@@ -781,8 +847,12 @@
                     return;
                 }
 
-                diasTreino.forEach(dia => {
-                    const nomeDia = dia.querySelector('input[type="text"]').value;
+                diasTreino.forEach((dia, index) => {
+                    let nomeDia = dia.querySelector('input[type="text"]').value;
+                    if (!nomeDia) {
+                        nomeDia = `Treino ${String.fromCharCode(65 + index)}`;
+                    }
+
                     const gruposMusculares = Array.from(dia.querySelectorAll('input[type="checkbox"]:checked'))
                                                  .map(checkbox => checkbox.value);
                     
@@ -791,7 +861,7 @@
                          throw new Error("Grupos musculares não selecionados.");
                     }
                     
-                    const treinoDoDia = gerarTreinoAutomatico(dificuldade, gruposMusculares);
+                    const treinoDoDia = gerarTreinoAutomatico(dificuldade, gruposMusculares, sexo);
                     treinoSemanal.push({
                         nome_dia: nomeDia,
                         grupos_musculares: gruposMusculares,
