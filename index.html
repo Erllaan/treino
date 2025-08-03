@@ -414,6 +414,11 @@
             // ANTEBRAÇO
             {"nome": "Rosca punho com barra reta", "grupoMuscular": "Antebraço", "porcaoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12-15"}, "descricao": "Sente-se, apoie os antebraços nas coxas, segure a barra e flexione os punhos para cima."},
             {"nome": "Rosca reversa com barra reta", "grupoMuscular": "Antebraço", "porcaoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Segure a barra com a palma das mãos virada para baixo e levante-a flexionando os cotovelos, ativando os antebraços."},
+
+            // FORTALECIMENTO (para preenchimento)
+            {"nome": "Abdominal (tradicional)", "grupoMuscular": "Core", "porcaoMuscular": "Abdominal", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x20", "Avancado": "4x25+"}, "descricao": "Deite de costas, joelhos flexionados, mãos atrás da cabeça e suba o tronco em direção aos joelhos."},
+            {"nome": "Prancha", "grupoMuscular": "Core", "porcaoMuscular": "Abdominal", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x30s", "Intermediario": "4x45s", "Avancado": "4x60s+"}, "descricao": "Apoie-se nos antebraços e pontas dos pés, mantendo o corpo reto como uma prancha."},
+            {"nome": "Elevação de pernas (abdominal)", "grupoMuscular": "Core", "porcaoMuscular": "Abdominal", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x15", "Avancado": "4x20"}, "descricao": "Deite de costas, levante as pernas esticadas e desça-as lentamente sem tocar o chão."},
         ];
 
         const DESCRICOES_TECNICAS_AVANCADAS = {
@@ -465,15 +470,23 @@
         }
         
         function sortGruposMusculares(grupos) {
-            const ordemPredefinida = ["Peito", "Costas", "Ombro", "Glúteos", "Quadríceps", "Posterior de Coxa", "Bíceps", "Tríceps", "Panturrilha", "Antebraço", "Trapézio"];
+            const ordemPredefinida = ["Peito", "Costas", "Ombro", "Glúteos", "Quadríceps", "Posterior de Coxa", "Bíceps", "Tríceps", "Panturrilha", "Antebraço", "Trapézio", "Core"];
             return grupos.sort((a, b) => ordemPredefinida.indexOf(a) - ordemPredefinida.indexOf(b));
         }
-
+        
         function adicionarDiaTreino() {
             diaTreinoCount++;
             const diasDeTreinoContainer = document.getElementById('diasDeTreino');
             const diaTreinoDiv = document.createElement('div');
             diaTreinoDiv.classList.add('treino-dia');
+            
+            const gruposParaCheckboxes = gruposDisponiveis.filter(g => g !== "Core").map(grupo => `
+                <div class="checkbox-item">
+                    <input type="checkbox" id="grupo_dia_${diaTreinoCount}_${grupo}" name="grupos_dia_${diaTreinoCount}" value="${grupo}">
+                    <label for="grupo_dia_${diaTreinoCount}_${grupo}">${grupo}</label>
+                </div>
+            `).join('');
+
             diaTreinoDiv.innerHTML = `
                 <h3>Treino Dia ${String.fromCharCode(64 + diaTreinoCount)}</h3>
                 <span class="remover" onclick="this.parentNode.remove()">x Remover</span>
@@ -481,12 +494,7 @@
                 <input type="text" id="nome_dia_${diaTreinoCount}" name="nome_dia_${diaTreinoCount}" placeholder="Ex: Treino A">
                 <label>Grupos Musculares:</label>
                 <div class="checkbox-group">
-                    ${gruposDisponiveis.map(grupo => `
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="grupo_dia_${diaTreinoCount}_${grupo}" name="grupos_dia_${diaTreinoCount}" value="${grupo}">
-                            <label for="grupo_dia_${diaTreinoCount}_${grupo}">${grupo}</label>
-                        </div>
-                    `).join('')}
+                    ${gruposParaCheckboxes}
                 </div>
                 <label>Técnicas Avançadas (Opcional):</label>
                 <div class="tecnicas-group">
@@ -531,24 +539,20 @@
             return antagonistas[grupo];
         }
 
-        function getExerciciosParaGrupoEPorcao(grupo, porcao, dificuldade, sexo) {
+        function getExerciciosParaGrupo(grupo, dificuldade, sexo, exerciciosJaUsadosNomes) {
             return EXERCICIOS.filter(ex => 
                 ex.grupoMuscular === grupo && 
-                ex.porcaoMuscular === porcao &&
                 ex.dificuldade.includes(dificuldade) &&
-                (!ex.sexo || ex.sexo === sexo)
+                (!ex.sexo || ex.sexo === sexo) &&
+                !exerciciosJaUsadosNomes.has(ex.nome)
             );
-        }
-        
-        function getPorcoesPorGrupo(grupo) {
-            return [...new Set(EXERCICIOS.filter(ex => ex.grupoMuscular === grupo).map(ex => ex.porcaoMuscular))];
         }
 
         function gerarTreinoAutomatico(dificuldade, grupos_musculares, sexo, tecnicas_avancadas) {
             const numTotalExerciciosMap = {
-                "Iniciante": 6,
-                "Intermediario": Math.random() < 0.5 ? 6 : 7,
-                "Avancado": 8
+                "Iniciante": 5,
+                "Intermediario": 6,
+                "Avancado": 7
             };
             const numTotalExercicios = numTotalExerciciosMap[dificuldade];
             
@@ -567,8 +571,8 @@
                     grupo1 = grupos_musculares.find(g => getOppositeMuscleGroup(g) && grupos_musculares.includes(getOppositeMuscleGroup(g)));
                     if (grupo1 && exerciciosSelecionados.length <= numTotalExercicios - 2) {
                         grupo2 = getOppositeMuscleGroup(grupo1);
-                        ex1 = EXERCICIOS.find(e => e.grupoMuscular === grupo1 && !exerciciosJaUsadosNomes.has(e.nome));
-                        ex2 = EXERCICIOS.find(e => e.grupoMuscular === grupo2 && !exerciciosJaUsadosNomes.has(e.nome));
+                        ex1 = EXERCICIOS.find(e => e.grupoMuscular === grupo1 && e.dificuldade.includes(dificuldade) && !exerciciosJaUsadosNomes.has(e.nome));
+                        ex2 = EXERCICIOS.find(e => e.grupoMuscular === grupo2 && e.dificuldade.includes(dificuldade) && !exerciciosJaUsadosNomes.has(e.nome));
                         if (ex1 && ex2) {
                             exerciciosSelecionados.push({ tipo: "superset", ex1: ex1, ex2: ex2 });
                             exerciciosJaUsadosNomes.add(ex1.nome);
@@ -581,8 +585,8 @@
                     if (grupo1 && exerciciosSelecionados.length <= numTotalExercicios - 2) {
                          const isoladorNome = EXERCICIOS_ISOLADORES[grupo1][0];
                          const compostoNome = EXERCICIOS_COMPOSTOS[grupo1][0];
-                         ex1 = EXERCICIOS.find(e => e.nome === isoladorNome && !exerciciosJaUsadosNomes.has(e.nome));
-                         ex2 = EXERCICIOS.find(e => e.nome === compostoNome && !exerciciosJaUsadosNomes.has(e.nome));
+                         ex1 = EXERCICIOS.find(e => e.nome === isoladorNome && e.dificuldade.includes(dificuldade) && !exerciciosJaUsadosNomes.has(e.nome));
+                         ex2 = EXERCICIOS.find(e => e.nome === compostoNome && e.dificuldade.includes(dificuldade) && !exerciciosJaUsadosNomes.has(e.nome));
                          if (ex1 && ex2) {
                              exerciciosSelecionados.push({ tipo: "pré-exaustão", ex1: ex1, ex2: ex2 });
                              exerciciosJaUsadosNomes.add(ex1.nome);
@@ -591,9 +595,9 @@
                          }
                     }
                 } else if (tecnica === "giant set") {
-                    grupo1 = grupos_musculares.find(g => EXERCICIOS.filter(e => e.grupoMuscular === g).length >= 3);
+                    grupo1 = grupos_musculares.find(g => EXERCICIOS.filter(e => e.grupoMuscular === g && e.dificuldade.includes(dificuldade)).length >= 3);
                     if (grupo1 && exerciciosSelecionados.length <= numTotalExercicios - 3) {
-                        const exs = EXERCICIOS.filter(e => e.grupoMuscular === grupo1 && !exerciciosJaUsadosNomes.has(e.nome));
+                        const exs = EXERCICIOS.filter(e => e.grupoMuscular === grupo1 && e.dificuldade.includes(dificuldade) && !exerciciosJaUsadosNomes.has(e.nome));
                         shuffleArray(exs);
                         if (exs.length >= 3) {
                             const set = [exs[0], exs[1], exs[2]];
@@ -605,47 +609,50 @@
                 }
             });
 
-            // Adiciona exercícios simples, priorizando a ordem dos grupos
-            let gruposPrioridade = sortGruposMusculares([...grupos_musculares]);
+            // Adiciona exercícios simples, priorizando a distribuição equitativa entre os grupos
+            const gruposPrioridade = sortGruposMusculares([...grupos_musculares]);
             
-            let exerciciosPorGrupo = {};
-            gruposPrioridade.forEach(grupo => {
-                exerciciosPorGrupo[grupo] = EXERCICIOS.filter(e => e.grupoMuscular === grupo && !exerciciosJaUsadosNomes.has(e.nome));
-                shuffleArray(exerciciosPorGrupo[grupo]);
-            });
-
             while (exerciciosSelecionados.length < numTotalExercicios) {
-                let grupoParaAdicionar = gruposPrioridade.find(g => exerciciosPorGrupo[g].length > 0);
-                if (!grupoParaAdicionar) break;
-                
-                const exercicio = exerciciosPorGrupo[grupoParaAdicionar].shift();
-                
-                let tecnicaSimples = tecnicasDisponiveis.find(t => !["superset", "pré-exaustão", "giant set"].includes(t));
-                if (tecnicaSimples) {
-                    exercicio.tecnicaAvancada = tecnicaSimples;
-                    tecnicasDisponiveis = tecnicasDisponiveis.filter(t => t !== tecnicaSimples);
-                }
+                let exercicioAdicionado = false;
+                for (const grupo of gruposPrioridade) {
+                    if (exerciciosSelecionados.length >= numTotalExercicios) break;
 
+                    const exerciciosDisponiveis = getExerciciosParaGrupo(grupo, dificuldade, sexo, exerciciosJaUsadosNomes);
+                    
+                    if (exerciciosDisponiveis.length > 0) {
+                        const exercicio = exerciciosDisponiveis[Math.floor(Math.random() * exerciciosDisponiveis.length)];
+                        
+                        let tecnicaSimples = tecnicasDisponiveis.find(t => !["superset", "pré-exaustão", "giant set"].includes(t));
+                        if (tecnicaSimples) {
+                            exercicio.tecnicaAvancada = tecnicaSimples;
+                            tecnicasDisponiveis = tecnicasDisponiveis.filter(t => t !== tecnicaSimples);
+                        }
+
+                        exerciciosSelecionados.push(exercicio);
+                        exerciciosJaUsadosNomes.add(exercicio.nome);
+                        exercicioAdicionado = true;
+                    }
+                }
+                if (!exercicioAdicionado) break; // Se não houver mais exercícios para nenhum grupo, sai do loop
+            }
+
+            // Se ainda faltarem exercícios, adiciona fortalecimento de core
+            const coreExercicios = getExerciciosParaGrupo("Core", dificuldade, sexo, exerciciosJaUsadosNomes);
+            shuffleArray(coreExercicios);
+
+            while (exerciciosSelecionados.length < numTotalExercicios && coreExercicios.length > 0) {
+                const exercicio = coreExercicios.shift();
                 exerciciosSelecionados.push(exercicio);
                 exerciciosJaUsadosNomes.add(exercicio.nome);
-
-                if (exerciciosPorGrupo[grupoParaAdicionar].length === 0) {
-                    gruposPrioridade = gruposPrioridade.filter(g => g !== grupoParaAdicionar);
-                }
             }
             
             // Re-ordena os exercícios com base na ordem dos grupos musculares
             exerciciosSelecionados.sort((a, b) => {
                 let grupoA = a.grupoMuscular || a.exercicios[0].grupoMuscular || a.ex1.grupoMuscular;
                 let grupoB = b.grupoMuscular || b.exercicios[0].grupoMuscular || b.ex1.grupoMuscular;
-                const ordemPredefinida = ["Peito", "Costas", "Ombro", "Glúteos", "Quadríceps", "Posterior de Coxa", "Bíceps", "Tríceps", "Panturrilha", "Antebraço", "Trapézio"];
+                const ordemPredefinida = ["Peito", "Costas", "Ombro", "Glúteos", "Quadríceps", "Posterior de Coxa", "Bíceps", "Tríceps", "Panturrilha", "Antebraço", "Trapézio", "Core"];
                 return ordemPredefinida.indexOf(grupoA) - ordemPredefinida.indexOf(grupoB);
             });
-            
-            // Ajusta o número de exercícios para ser exatamente o desejado, se possível
-            if (exerciciosSelecionados.length > numTotalExercicios) {
-                exerciciosSelecionados = exerciciosSelecionados.slice(0, numTotalExercicios);
-            }
             
             return exerciciosSelecionados;
         }
