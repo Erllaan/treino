@@ -439,60 +439,81 @@
 
         // Mapeamento de exercícios redundantes para evitar repetição
         const EXERCICIOS_AGRUPADOS = {
-            "Supino reto": ["Supino reto com barra reta", "Supino reto com halteres"],
-            "Supino inclinado": ["Supino inclinado com barra reta", "Supino inclinado com halteres"],
+            "Supino reto": ["Supino reto com barra reta", "Supino reto com halteres", "Press na máquina reto"],
+            "Supino inclinado": ["Supino inclinado com barra reta", "Supino inclinado com halteres", "Press na máquina inclinado"],
             "Supino declinado": ["Supino declinado com barra reta", "Supino declinado com halteres"],
             "Crucifixo peito": ["Crucifixo reto com halteres", "Crucifixo inclinado com halteres", "Crucifixo na máquina peck deck", "Crucifixo na polia baixa"],
             "Crossover": ["Crossover na polia alta"],
             "Flexão de braço": ["Flexão de braço tradicional", "Flexão de braço inclinada", "Flexão de braço declinada"],
-            "Press máquina peito": ["Press na máquina reto", "Press na máquina inclinado"],
             "Puxada na polia alta": ["Puxada na polia alta com barra reta – pegada aberta", "Puxada na polia alta com barra neutra – pegada neutra", "Puxada na frente com triangulo (neutra)"],
-            "Remada curvada": ["Remada curvada com barra reta", "Remada curvada com barra W", "Remada curvada com halteres"],
+            "Remada curvada": ["Remada curvada com barra reta", "Remada curvada com barra W", "Remada curvada com halteres", "Remada na máquina hammer unilateral", "Remada na máquina hammer bilateral"],
             "Remada unilateral": ["Remada unilateral com halteres", "Remada unilateral com polia baixa"],
             "Remada baixa": ["Remada baixa com triangulo na polia"],
-            "Remada na máquina hammer": ["Remada na máquina hammer unilateral", "Remada na máquina hammer bilateral"],
-            "Pullover": ["Pullover com halteres", "Pullover na polia alta com corda"],
-            "Pull down": ["Pull down com barra reta na polia alta", "Pull down com barra neutra na polia alta"],
+            "Pullover": ["Pullover com halteres", "Pullover na polia alta com corda", "Pull down com barra reta na polia alta", "Pull down com barra neutra na polia alta"],
             "Elevação lateral": ["Elevação lateral com halteres", "Elevação lateral na máquina", "Elevação lateral na polia baixa"],
             "Elevação frontal": ["Elevação frontal com halteres", "Elevação frontal com barra reta", "Elevação frontal na polia baixa"],
-            "Desenvolvimento ombro": ["Desenvolvimento com barra reta (em pé)", "Desenvolvimento com barra reta (sentado)", "Desenvolvimento com halteres (sentado)", "Desenvolvimento na máquina"],
+            "Desenvolvimento ombro": ["Desenvolvimento com barra reta (em pé)", "Desenvolvimento com barra reta (sentado)", "Desenvolvimento com halteres (sentado)", "Desenvolvimento na máquina", "Arnold press com halteres"],
             "Remada alta": ["Remada alta com barra reta", "Remada alta com barra W", "Remada alta com halteres"],
             "Crucifixo invertido": ["Crucifixo invertido com halteres (posterior)", "Crucifixo invertido na máquina (posterior)", "Crucifixo invertido na polia baixa"],
             "Encolhimento": ["Encolhimento com halteres", "Encolhimento com barra reta", "Encolhimento com barra W", "Encolhimento na máquina guiada"],
-            "Rosca direta": ["Rosca direta com barra reta", "Rosca direta com barra W", "Rosca direta com halteres"],
-            "Rosca alternada": ["Rosca alternada com halteres", "Rosca simultânea com halteres"],
+            "Rosca direta": ["Rosca direta com barra reta", "Rosca direta com barra W", "Rosca direta com halteres", "Rosca simultânea com halteres"],
+            "Rosca alternada": ["Rosca alternada com halteres"],
             "Rosca martelo": ["Rosca martelo com halteres", "Rosca martelo com corda na polia baixa"],
             "Rosca na polia": ["Rosca na polia baixa com barra reta", "Rosca na polia baixa com barra W"],
             "Rosca Scott": ["Rosca Scott com barra reta", "Rosca Scott com barra W", "Rosca Scott com halteres"],
             "Rosca 21": ["Rosca 21 com barra reta", "Rosca 21 com halteres"],
-            "Tríceps testa": ["Tríceps testa com barra reta", "Tríceps testa com barra W", "Tríceps testa com halteres"],
+            "Tríceps testa": ["Tríceps testa com barra reta", "Tríceps testa com barra W", "Tríceps testa com halteres", "Tríceps francês com halteres", "Tríceps francês com barra W", "Tríceps francês com barra reta"],
             "Tríceps na polia": ["Tríceps unilateral na polia", "Tríceps corda na polia alta", "Tríceps barra reta na polia alta"],
-            "Tríceps francês": ["Tríceps francês com halteres", "Tríceps francês com barra W", "Tríceps francês com barra reta"],
-            "Agachamento": ["Agachamento livre com barra reta", "Agachamento livre com halteres", "Agachamento guiado no smith", "Agachamento frontal com barra reta"],
-            "Agachamento sumô": ["Agachamento sumô com barra reta", "Agachamento sumô com halteres"],
-            "Agachamento búlgaro": ["Agachamento búlgaro com halteres"],
-            "Leg press": ["Leg press 45°", "Leg press horizontal"],
-            "Avanço": ["Avanço com barra reta", "Avanço com halteres"],
-            "Afundo": ["Afundo com barra reta", "Afundo com halteres", "Avanço com ênfase em glúteo"],
+            "Tríceps coice": ["Tríceps coice com halteres"],
+            "Tríceps banco": ["Tríceps banco (mergulho)"],
+            "Tríceps máquina": ["Tríceps máquina sentado"],
+            "Agachamento": ["Agachamento livre com barra reta", "Agachamento livre com halteres", "Agachamento guiado no smith", "Agachamento frontal com barra reta", "Agachamento búlgaro com halteres", "Agachamento sumô com barra reta", "Agachamento sumô com halteres"],
+            "Leg press": ["Leg press 45°", "Leg press horizontal", "Hack machine"],
+            "Cadeira extensora": ["Cadeira extensora"],
+            "Avanço/Afundo": ["Avanço com barra reta", "Avanço com halteres", "Afundo com barra reta", "Afundo com halteres", "Avanço com ênfase em glúteo"],
             "Passada": ["Passada com halteres"],
             "Stiff": ["Stiff com barra reta", "Stiff com halteres", "Stiff no smith", "Agachamento romeno com barra reta", "Agachamento romeno com halteres", "Stiff com ênfase no glúteo"],
             "Mesa flexora": ["Mesa flexora deitada", "Mesa flexora sentada", "Mesa flexora em pé unilateral"],
             "Elevação pélvica": ["Elevação pélvica com barra reta", "Elevação pélvica com halteres", "Elevação pélvica no smith"],
             "Extensão de quadril": ["Extensão de quadril na polia", "Extensão de quadril no banco"],
             "Agachamento com recuo": ["Agachamento com recuo com halteres", "Agachamento com recuo com barra reta"],
-            "Elevação plantar": ["Elevação plantar em pé livre", "Elevação plantar em pé na máquina", "Elevação plantar sentado na máquina", "Elevação plantar no leg press"],
+            "Elevação plantar": ["Elevação plantar em pé livre", "Elevação plantar em pé na máquina", "Elevação plantar sentado na máquina", "Elevação plantar no leg press", "Elevação unilateral com halteres"],
             "Rosca punho": ["Rosca punho com barra reta", "Rosca punho com barra W", "Rosca punho com halteres"],
             "Rosca reversa": ["Rosca reversa com barra reta", "Rosca reversa com barra W", "Rosca reversa com halteres"],
+        };
+        
+        // Mapeamento de exercícios isoladores para a técnica de Pré-exaustão
+        const EXERCICIOS_ISOLADORES = {
+            "Peito": ["Crucifixo na máquina peck deck", "Crucifixo reto com halteres"],
+            "Costas": ["Pullover com halteres", "Pull down com barra reta na polia alta"],
+            "Ombro": ["Elevação lateral com halteres", "Crucifixo invertido na máquina (posterior)"],
+            "Quadríceps": ["Cadeira extensora"],
+            "Posterior de Coxa": ["Mesa flexora deitada", "Mesa flexora sentada"],
+            "Bíceps": ["Rosca concentrada com halteres", "Rosca Scott com barra W"],
+            "Tríceps": ["Tríceps coice com halteres", "Tríceps unilateral na polia"],
+            "Glúteos": ["Cadeira glúteo (ênfase glúteo)", "Extensão de quadril na polia"]
+        };
+        
+        // Mapeamento de exercícios compostos para a técnica de Pré-exaustão
+        const EXERCICIOS_COMPOSTOS = {
+            "Peito": ["Supino reto com barra reta", "Supino inclinado com halteres"],
+            "Costas": ["Puxada na polia alta com barra reta – pegada aberta", "Remada curvada com barra reta"],
+            "Ombro": ["Desenvolvimento com halteres (sentado)", "Desenvolvimento com barra reta (sentado)"],
+            "Quadríceps": ["Agachamento livre com barra reta", "Leg press 45°"],
+            "Posterior de Coxa": ["Stiff com barra reta", "Agachamento romeno com halteres"],
+            "Bíceps": ["Rosca direta com barra reta", "Rosca direta com halteres"],
+            "Tríceps": ["Tríceps testa com barra reta", "Tríceps banco (mergulho)"],
+            "Glúteos": ["Elevação pélvica com barra reta", "Agachamento com recuo com halteres"]
         };
 
         // Descrições de técnicas avançadas para inclusão no PDF
         const DESCRICOES_TECNICAS_AVANCADAS = {
-            "bi-set": "BI-SET: Realize dois exercícios consecutivos para o mesmo grupo muscular sem descanso. O descanso de 30-60 segundos deve ser feito somente após a conclusão da segunda série.",
-            "drop set": "DROP SET: Após falhar na série com uma determinada carga, reduza o peso em 20-30% e continue as repetições até a nova falha. Repita este processo de 2 a 3 vezes, sem descanso entre as reduções de peso.",
-            "rest-pause": "REST-PAUSE: Faça o máximo de repetições que conseguir com a carga escolhida. Ao atingir a falha, descanse por 10 a 15 segundos e faça o máximo de repetições novamente com a mesma carga. Repita este processo até completar o número de séries.",
-            "superset": "SUPERSET: Faça dois exercícios consecutivos para grupos musculares opostos (antagonistas) sem descanso entre eles. O descanso deve ser realizado somente após a conclusão do segundo exercício. Por exemplo: Rosca direta (bíceps) seguida de Tríceps corda (tríceps).",
-            "pré-exaustão": "PRÉ-EXAUSTÃO: Realize um exercício isolador para um músculo específico até a falha, e imediatamente após, faça um exercício composto que trabalhe o mesmo músculo. Por exemplo: Cadeira extensora (quadríceps) seguida de Agachamento livre.",
-            "giant set": "GIANT SET: Realize três ou mais exercícios consecutivos para o mesmo grupo muscular, sem descanso entre eles. Por exemplo: Supino inclinado (peito), seguido de Crucifixo inclinado (peito) e, por último, Flexão de braço (peito)."
+            "drop set": "**DROP SET:** Realize uma série até a falha muscular. Em seguida, reduza a carga em 20-30% e continue as repetições até a próxima falha. Repita este processo de 2 a 3 vezes, sem descanso entre as reduções de peso.",
+            "bi-set": "**BI-SET:** Execute dois exercícios consecutivos para o mesmo grupo muscular, sem descanso entre eles. O descanso de 30-60 segundos é feito somente após a conclusão da segunda série.",
+            "rest-pause": "**REST-PAUSE:** Faça o máximo de repetições que conseguir. Ao atingir a falha, descanse por 10 a 15 segundos e faça o máximo de repetições novamente com a mesma carga. Repita este processo até completar o número de séries.",
+            "superset": "**SUPERSET:** Realize dois exercícios consecutivos para grupos musculares opostos (antagonistas) sem descanso. Exemplo: Rosca direta (bíceps) seguida de Tríceps corda (tríceps).",
+            "pré-exaustão": "**PRÉ-EXAUSTÃO:** Execute um exercício isolador para um músculo até a falha. Imediatamente após, faça um exercício composto que trabalhe o mesmo músculo. Exemplo: Cadeira extensora (quadríceps) seguida de Leg press.",
+            "giant set": "**GIANT SET:** Consiste em realizar três ou mais exercícios consecutivos para o mesmo grupo muscular, sem descanso entre eles. É uma técnica de altíssima intensidade para maximizar a exaustão muscular."
         };
 
         let gruposDisponiveis = [...new Set(EXERCICIOS.map(ex => ex.grupoMuscular))].sort();
@@ -568,44 +589,48 @@
             return antagonistas[grupo];
         }
 
+        function getExerciciosParaGrupo(grupo, dificuldade, sexo) {
+            return EXERCICIOS.filter(ex => 
+                ex.grupoMuscular === grupo && 
+                ex.dificuldade.includes(dificuldade) &&
+                (!ex.sexo || ex.sexo === sexo)
+            );
+        }
+
         function gerarTreinoAutomatico(dificuldade, grupos_musculares, sexo, tecnicas_avancadas) {
-            let numTotalExercicios = {
-                "Iniciante": 6,
-                "Intermediario": 7,
-                "Avancado": 8
-            }[dificuldade] || 6;
+            const numTotalExerciciosMap = {
+                "Iniciante": 5,
+                "Intermediario": 6,
+                "Avancado": 7
+            };
+            let numTotalExercicios = numTotalExerciciosMap[dificuldade] || 5;
 
             let exerciciosSelecionados = [];
-            let gruposDeExerciciosJaUsados = new Set();
+            let exerciciosJaUsadosNomes = new Set();
+            let gruposMuscularesUsados = new Set();
             
             shuffleArray(grupos_musculares);
 
-            let tecnicasDisponiveis = [...tecnicas_avancadas];
-            shuffleArray(tecnicasDisponiveis);
-            let tecnicasAplicadasCount = 0;
+            const tecnicas_multi_exercicios = tecnicas_avancadas.filter(t => ["superset", "pré-exaustão", "giant set"].includes(t));
+            const tecnicas_simples = tecnicas_avancadas.filter(t => ["drop set", "bi-set", "rest-pause"].includes(t));
+            
+            shuffleArray(tecnicas_multi_exercicios);
 
-            const exerciciosSimplesPorGrupo = Math.floor(numTotalExercicios / grupos_musculares.length);
+            for (const tecnica of tecnicas_multi_exercicios) {
+                if (exerciciosSelecionados.length >= numTotalExercicios) break;
+                
+                let grupo1 = grupos_musculares.find(g => !gruposMuscularesUsados.has(g));
+                if (!grupo1) continue;
 
-            // Primeiro, tenta aplicar as técnicas que usam múltiplos exercícios
-            for (const tecnica of tecnicas_avancadas) {
-                if (tecnicasAplicadasCount >= 2) break;
-
-                let grupo1 = grupos_musculares[Math.floor(Math.random() * grupos_musculares.length)];
-                let exerciciosDisponiveisGrupo1 = EXERCICIOS.filter(ex => 
-                    ex.grupoMuscular === grupo1 && 
-                    ex.dificuldade.includes(dificuldade) &&
-                    (!ex.sexo || ex.sexo === sexo)
-                );
+                let exerciciosDisponiveisGrupo1 = getExerciciosParaGrupo(grupo1, dificuldade, sexo)
+                    .filter(ex => !exerciciosJaUsadosNomes.has(ex.nome));
                 shuffleArray(exerciciosDisponiveisGrupo1);
 
                 if (tecnica === "superset") {
                     let grupo2 = getOppositeMuscleGroup(grupo1);
-                    if (grupo2 && grupos_musculares.includes(grupo2)) {
-                        let exerciciosDisponiveisGrupo2 = EXERCICIOS.filter(ex => 
-                            ex.grupoMuscular === grupo2 && 
-                            ex.dificuldade.includes(dificuldade) &&
-                            (!ex.sexo || ex.sexo === sexo)
-                        );
+                    if (grupo2 && grupos_musculares.includes(grupo2) && !gruposMuscularesUsados.has(grupo2)) {
+                        let exerciciosDisponiveisGrupo2 = getExerciciosParaGrupo(grupo2, dificuldade, sexo)
+                            .filter(ex => !exerciciosJaUsadosNomes.has(ex.nome));
                         shuffleArray(exerciciosDisponiveisGrupo2);
                         if (exerciciosDisponiveisGrupo1.length > 0 && exerciciosDisponiveisGrupo2.length > 0) {
                             exerciciosSelecionados.push({
@@ -613,30 +638,25 @@
                                 ex1: exerciciosDisponiveisGrupo1[0], 
                                 ex2: exerciciosDisponiveisGrupo2[0]
                             });
-                            gruposDeExerciciosJaUsados.add(exerciciosDisponiveisGrupo1[0].nome);
-                            gruposDeExerciciosJaUsados.add(exerciciosDisponiveisGrupo2[0].nome);
-                            numTotalExercicios -= 2;
-                            tecnicasAplicadasCount++;
+                            exerciciosJaUsadosNomes.add(exerciciosDisponiveisGrupo1[0].nome);
+                            exerciciosJaUsadosNomes.add(exerciciosDisponiveisGrupo2[0].nome);
+                            gruposMuscularesUsados.add(grupo1);
+                            gruposMuscularesUsados.add(grupo2);
                         }
                     }
                 } else if (tecnica === "pré-exaustão") {
-                     // Exemplo: Cadeira extensora (isolador) + Agachamento (composto)
-                    const isoladores = ["Cadeira extensora", "Mesa flexora deitada", "Mesa flexora sentada", "Crucifixo na máquina peck deck", "Elevação lateral na máquina"];
-                    const compostos = ["Agachamento livre com barra reta", "Leg press 45°", "Supino reto com barra reta", "Supino inclinado com halteres"];
+                    let isolador = exerciciosDisponiveisGrupo1.find(ex => EXERCICIOS_ISOLADORES[grupo1]?.includes(ex.nome));
+                    let composto = exerciciosDisponiveisGrupo1.find(ex => EXERCICIOS_COMPOSTOS[grupo1]?.includes(ex.nome));
                     
-                    let exercicioIsolador = exerciciosDisponiveisGrupo1.find(ex => isoladores.includes(ex.nome));
-                    let exercicioComposto = exerciciosDisponiveisGrupo1.find(ex => compostos.includes(ex.nome));
-
-                    if (exercicioIsolador && exercicioComposto && exercicioIsolador !== exercicioComposto) {
+                    if (isolador && composto && isolador !== composto) {
                          exerciciosSelecionados.push({
                             tipo: "pré-exaustão", 
-                            ex1: exercicioIsolador, 
-                            ex2: exercicioComposto
+                            ex1: isolador, 
+                            ex2: composto
                         });
-                        gruposDeExerciciosJaUsados.add(exercicioIsolador.nome);
-                        gruposDeExerciciosJaUsados.add(exercicioComposto.nome);
-                        numTotalExercicios -= 2;
-                        tecnicasAplicadasCount++;
+                        exerciciosJaUsadosNomes.add(isolador.nome);
+                        exerciciosJaUsadosNomes.add(composto.nome);
+                        gruposMuscularesUsados.add(grupo1);
                     }
                 } else if (tecnica === "giant set") {
                      if (exerciciosDisponiveisGrupo1.length >= 3) {
@@ -649,87 +669,86 @@
                              tipo: "giant set",
                              exercicios: set
                          });
-                         gruposDeExerciciosJaUsados.add(set[0].nome);
-                         gruposDeExerciciosJaUsados.add(set[1].nome);
-                         gruposDeExerciciosJaUsados.add(set[2].nome);
-                         numTotalExercicios -= 3;
-                         tecnicasAplicadasCount++;
+                         exerciciosJaUsadosNomes.add(set[0].nome);
+                         exerciciosJaUsadosNomes.add(set[1].nome);
+                         exerciciosJaUsadosNomes.add(set[2].nome);
+                         gruposMuscularesUsados.add(grupo1);
                      }
                 }
             }
 
-            // Em seguida, preenche o restante com exercícios e técnicas de um exercício só
-            let exerciciosRestantes = EXERCICIOS.filter(ex => 
-                !gruposDeExerciciosJaUsados.has(ex.nome) &&
-                ex.dificuldade.includes(dificuldade) &&
-                grupos_musculares.includes(ex.grupoMuscular) &&
-                (!ex.sexo || ex.sexo === sexo)
-            );
-            shuffleArray(exerciciosRestantes);
-
-            let tecnicasSimplesDisponiveis = tecnicas_avancadas.filter(t => ["drop set", "bi-set", "rest-pause"].includes(t));
-            shuffleArray(tecnicasSimplesDisponiveis);
-
-            let i = 0;
-            while (exerciciosSelecionados.length < (numTotalExercicios + exerciciosSelecionados.length) && i < exerciciosRestantes.length) {
-                 const ex = exerciciosRestantes[i];
-                 let isRedundant = false;
-                 for (const [key, value] of Object.entries(EXERCICIOS_AGRUPADOS)) {
-                     if (value.includes(ex.nome)) {
-                         if (gruposDeExerciciosJaUsados.has(key)) {
-                             isRedundant = true;
-                             break;
-                         }
-                     }
-                 }
-                 if (isRedundant) {
-                    i++;
-                    continue;
-                 }
-
-                 if (tecnicasAplicadasCount < tecnicas_avancadas.length && Math.random() > 0.5) {
-                    const tecnica = tecnicasSimplesDisponiveis[tecnicasAplicadasCount % tecnicasSimplesDisponiveis.length];
-                    if (tecnica === "bi-set" && i < exerciciosRestantes.length -1 && ex.grupoMuscular === exerciciosRestantes[i+1].grupoMuscular) {
-                        exerciciosSelecionados.push({
-                            tipo: "bi-set",
-                            ex1: ex,
-                            ex2: exerciciosRestantes[i+1]
-                        });
-                        i++;
-                    } else if (tecnica !== "bi-set") {
-                        exerciciosSelecionados.push({ ...ex, tecnicaAvancada: tecnica });
-                    } else {
-                         exerciciosSelecionados.push(ex);
-                    }
-                    tecnicasAplicadasCount++;
-                 } else {
-                     exerciciosSelecionados.push(ex);
-                 }
-                 i++;
-            }
-            
-            // Corrige se faltou algum exercício devido às técnicas
-            const numAtual = exerciciosSelecionados.reduce((acc, curr) => {
-                if (curr.tipo === "superset" || curr.tipo === "bi-set" || curr.tipo === "pré-exaustão") return acc + 2;
-                if (curr.tipo === "giant set") return acc + 3;
+            let numExerciciosSimplesRestantes = numTotalExercicios - exerciciosSelecionados.reduce((acc, item) => {
+                if (item.tipo) {
+                    if (item.tipo === "giant set") return acc + 3;
+                    return acc + 2;
+                }
                 return acc + 1;
             }, 0);
             
-            while(numAtual < numTotalExercicios) {
-                let exercicioExtra = EXERCICIOS.find(ex => 
-                    !gruposDeExerciciosJaUsados.has(ex.nome) &&
-                    ex.dificuldade.includes(dificuldade) &&
-                    grupos_musculares.includes(ex.grupoMuscular) &&
-                    (!ex.sexo || ex.sexo === sexo)
-                );
-                if (exercicioExtra) {
-                    exerciciosSelecionados.push(exercicioExtra);
-                    gruposDeExerciciosJaUsados.add(exercicioExtra.nome);
-                } else {
-                    break;
-                }
-            }
+            let tecnicasDisponiveisSimples = [...tecnicas_simples];
+            shuffleArray(tecnicasDisponiveisSimples);
 
+            let gruposDisponiveisParaSimples = grupos_musculares.filter(g => !gruposMuscularesUsados.has(g));
+            shuffleArray(gruposDisponiveisParaSimples);
+
+            let exerciciosRestantes = [];
+            gruposDisponiveisParaSimples.forEach(grupo => {
+                const exDoGrupo = getExerciciosParaGrupo(grupo, dificuldade, sexo)
+                    .filter(ex => !exerciciosJaUsadosNomes.has(ex.nome));
+                exerciciosRestantes.push(...exDoGrupo);
+            });
+            shuffleArray(exerciciosRestantes);
+            
+            // Corrige para evitar redundância de exercícios
+            let exerciciosUnicos = [];
+            let exerciciosAgrupadosUsados = new Set();
+            for (const ex of exerciciosRestantes) {
+                let isRedundant = false;
+                 for (const [key, value] of Object.entries(EXERCICIOS_AGRUPADOS)) {
+                     if (value.includes(ex.nome)) {
+                         if (exerciciosAgrupadosUsados.has(key)) {
+                             isRedundant = true;
+                             break;
+                         }
+                         exerciciosAgrupadosUsados.add(key);
+                     }
+                 }
+                 if (!isRedundant) {
+                    exerciciosUnicos.push(ex);
+                    if (exerciciosUnicos.length >= numExerciciosSimplesRestantes) break;
+                 }
+            }
+            
+            let exerciciosParaAdicionar = exerciciosUnicos.slice(0, numExerciciosSimplesRestantes);
+            
+            let numTecnicasSimples = tecnicasDisponiveisSimples.length;
+            exerciciosParaAdicionar.forEach((ex, index) => {
+                let tecnicaAplicada = null;
+                // Aplica uma técnica simples se houver disponível
+                if (index < numTecnicasSimples) {
+                    tecnicaAplicada = tecnicasDisponiveisSimples[index];
+                }
+
+                if (tecnicaAplicada === "bi-set" && index < exerciciosParaAdicionar.length - 1 && ex.grupoMuscular === exerciciosParaAdicionar[index + 1].grupoMuscular) {
+                    // Tenta criar um bi-set
+                    exerciciosSelecionados.push({
+                        tipo: "bi-set",
+                        ex1: ex,
+                        ex2: exerciciosParaAdicionar[index + 1]
+                    });
+                    exerciciosJaUsadosNomes.add(ex.nome);
+                    exerciciosJaUsadosNomes.add(exerciciosParaAdicionar[index + 1].nome);
+                    index++; // Pula o próximo exercício, pois já foi usado no bi-set
+                } else if (tecnicaAplicada) {
+                    // Aplica drop-set ou rest-pause
+                    exerciciosSelecionados.push({ ...ex, tecnicaAvancada: tecnicaAplicada });
+                    exerciciosJaUsadosNomes.add(ex.nome);
+                } else {
+                    // Sem técnica
+                    exerciciosSelecionados.push(ex);
+                    exerciciosJaUsadosNomes.add(ex.nome);
+                }
+            });
 
             shuffleArray(exerciciosSelecionados);
             return exerciciosSelecionados;
@@ -821,7 +840,7 @@
             doc.setFontSize(12);
             doc.setFont("helvetica", "normal");
             doc.setTextColor(51, 51, 51);
-            doc.text("Cardio leve (esteira, bicicleta) e alongamento dinâmico.", margin, y);
+            doc.text("Inicie com 5 minutos de cardio leve (esteira, bicicleta) e depois faça alongamentos dinâmicos.", margin, y);
             y += 10;
             
             let tecnicasNoTreino = new Set();
@@ -852,7 +871,8 @@
                 y += 5;
 
                 const bodyData = [];
-                dia.treino.forEach((item, index) => {
+                let exercicioNum = 1;
+                dia.treino.forEach((item) => {
                     const descanso = { "Iniciante": "60-90s", "Intermediario": "60s", "Avancado": "30-60s" }[dados_gerais.dificuldade];
                     let reps = "Não definido";
                     let observacao = "";
@@ -883,7 +903,7 @@
                         exercicioNome = item.nome;
                     }
                     
-                    bodyData.push([index + 1, exercicioNome, reps, descanso, observacao]);
+                    bodyData.push([exercicioNum++, exercicioNome, reps, descanso, observacao]);
 
                     if (incluir_descricao) {
                         if (item.tipo === "bi-set" || item.tipo === "superset" || item.tipo === "pré-exaustão") {
@@ -929,16 +949,26 @@
                 doc.text("Técnicas Avançadas Utilizadas", margin, y);
                 doc.line(margin, y + 1, pageWidth - margin, y + 1);
                 y += 5;
-                doc.setFontSize(12);
-                doc.setFont("helvetica", "normal");
-                doc.setTextColor(51, 51, 51);
+                
                 tecnicasNoTreino.forEach(tecnica => {
                     const desc = DESCRICOES_TECNICAS_AVANCADAS[tecnica];
-                    const linhas = doc.splitTextToSize(desc, pageWidth - margin * 2);
+                    const titulo = desc.split(':')[0];
+                    const texto = desc.split(':')[1].trim();
+
+                    // Título da técnica em negrito
+                    doc.setFontSize(12);
+                    doc.setFont("helvetica", "bold");
+                    doc.setTextColor(51, 51, 51);
+                    doc.text(titulo, margin, y);
+                    y += 5;
+                    
+                    // Descrição da técnica
+                    doc.setFont("helvetica", "normal");
+                    doc.setFontSize(10);
+                    const linhas = doc.splitTextToSize(texto, pageWidth - margin * 2);
                     doc.text(linhas, margin, y);
-                    y += (linhas.length * 5) + 2;
+                    y += (linhas.length * 5) + 3;
                 });
-                y += 5;
             }
 
             // Dicas e alongamento
@@ -947,15 +977,15 @@
                 y = 15;
             }
             const dicas_ia = {
-                "Iniciante": "Lembre-se, a técnica vem antes da carga. Mantenha-se hidratado e celebre cada pequena vitória!",
-                "Intermediario": "Para quebrar o platô, foque na conexão mente-músculo. Sinta o músculo trabalhando em cada repetição!",
-                "Avancado": "Hoje é dia de alta intensidade! Aproveite as técnicas para esgotar o músculo e garantir o estímulo máximo."
+                "Iniciante": "Foque na execução correta de cada movimento. A técnica é a base do seu desenvolvimento. Não se preocupe com a carga, a força virá com a consistência. Mantenha-se hidratado e descanse bem.",
+                "Intermediario": "Para quebrar o platô, experimente a progressão de carga e a conexão mente-músculo. Sinta o músculo trabalhar em cada repetição e não tenha medo de desafiar seus limites com segurança.",
+                "Avancado": "Hoje é dia de alta intensidade! Aproveite as técnicas avançadas para esgotar o músculo e maximizar o estímulo. O descanso e a nutrição são fundamentais para uma recuperação completa e o próximo nível de força."
             }[dados_gerais.dificuldade];
             
             doc.setFontSize(14);
             doc.setFont("helvetica", "bold");
             doc.setTextColor(30, 58, 95);
-            doc.text("Dicas de Recuperação e Conclusão", margin, y);
+            doc.text("Dicas de Treino e Recuperação", margin, y);
             doc.line(margin, y + 1, pageWidth - margin, y + 1);
             y += 5;
             doc.setFontSize(12);
@@ -965,13 +995,13 @@
             doc.text(dica_linhas, margin, y);
             y += (dica_linhas.length * 5) + 2;
 
-            doc.text("Alongamento estático (15-20s cada músculo) e beba bastante água para a recuperação.", margin, y);
+            doc.text("Finalize com alongamento estático (15-20s por músculo) para ajudar na flexibilidade.", margin, y);
             y += 10;
 
             // Rodapé
             doc.setFontSize(8);
             doc.setTextColor(150, 150, 150);
-            doc.text(`Gerado para: ${dados_gerais.nome_aluno} em ${new Date().toLocaleDateString('pt-BR')}`, pageWidth / 2, doc.internal.pageSize.getHeight() - 10, { align: "center" });
+            doc.text(`Gerado por Your Trainer Partner para: ${dados_gerais.nome_aluno} em ${new Date().toLocaleDateString('pt-BR')}`, pageWidth / 2, doc.internal.pageSize.getHeight() - 10, { align: "center" });
             
             doc.save(`treino_semanal_${dados_gerais.nome_aluno}.pdf`);
         }
