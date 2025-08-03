@@ -18,6 +18,7 @@
             align-items: center;
             min-height: 100vh;
             background-image: linear-gradient(135deg, #0d1117 0%, #171d2b 100%);
+            font-size: 18px; /* Aumentado */
         }
 
         .container {
@@ -39,6 +40,7 @@
             text-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
             padding-bottom: 15px;
             border-bottom: 1px solid #30363d;
+            font-size: 2.5em; /* Aumentado */
         }
         
         h2 {
@@ -46,6 +48,11 @@
             margin-top: 30px;
             margin-bottom: 15px;
             font-weight: 600;
+            font-size: 1.8em; /* Aumentado */
+        }
+        
+        h3 {
+             font-size: 1.5em; /* Aumentado */
         }
 
         label {
@@ -59,7 +66,7 @@
         input[type="number"],
         select {
             width: 100%;
-            padding: 12px;
+            padding: 15px; /* Aumentado */
             margin-bottom: 20px;
             border: 1px solid #30363d;
             border-radius: 8px;
@@ -67,6 +74,7 @@
             color: #c9d1d9;
             box-sizing: border-box;
             transition: border-color 0.3s, box-shadow 0.3s;
+            font-size: 1em; /* Aumentado */
         }
 
         input[type="text"]:focus,
@@ -79,6 +87,7 @@
         
         input[type="checkbox"] {
             margin-right: 10px;
+            transform: scale(1.2); /* Aumentado */
         }
         
         .treino-dia {
@@ -98,7 +107,7 @@
         .treino-dia h3 {
             margin-top: 0;
             color: #58a6ff;
-            font-size: 1.3em;
+            font-size: 1.5em; /* Aumentado */
             border-bottom: 1px solid #30363d;
             padding-bottom: 10px;
         }
@@ -146,7 +155,7 @@
 
         .checkbox-item label {
             font-weight: 300;
-            font-size: 0.9em;
+            font-size: 1em; /* Aumentado */
             color: #c9d1d9;
             margin-bottom: 0;
         }
@@ -168,8 +177,8 @@
 
         .add-dia, button[type="submit"] {
             width: 100%;
-            padding: 15px;
-            font-size: 16px;
+            padding: 18px; /* Aumentado */
+            font-size: 1.1em; /* Aumentado */
             font-weight: 600;
             color: #fff;
             border: none;
@@ -207,7 +216,7 @@
                 padding: 20px;
             }
             h1 {
-                font-size: 1.5em;
+                font-size: 2em;
             }
             .checkbox-item {
                 flex-basis: calc(50% - 15px);
@@ -215,8 +224,14 @@
         }
         
         @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
             .checkbox-item {
                 flex-basis: 100%;
+            }
+            .add-dia, button[type="submit"] {
+                 font-size: 1em;
             }
         }
     </style>
@@ -331,7 +346,7 @@
             {"nome": "Elevação frontal com barra reta", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Em pé, segure a barra reta e eleve os braços para a frente até a altura dos ombros."},
             {"nome": "Elevação frontal na polia baixa", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Fique de costas para a polia baixa, segure a barra e eleve os braços para a frente."},
             {"nome": "Desenvolvimento com barra reta (em pé)", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Em pé, segure a barra à frente dos ombros e empurre para cima até estender os braços."},
-            {"nome": "Desenvolvimento com barra reta (sentado)", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Sentado, segure a barra à frente dos ombros e empurre para cima até estender os braços."},
+            {"nome": "Desenvolvimento com barra reta (sentado)", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediante": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Sentado, segure a barra à frente dos ombros e empurre para cima até estender os braços."},
             {"nome": "Desenvolvimento com halteres (sentado)", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure os halteres à altura dos ombros e empurre para cima até estender os braços."},
             {"nome": "Desenvolvimento na máquina", "grupoMuscular": "Ombro", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sente-se na máquina guiada e empurre as alças para cima, estendendo os braços."},
             {"nome": "Arnold press com halteres", "grupoMuscular": "Ombro", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure os halteres à altura dos ombros com as palmas para trás, e empurre para cima enquanto gira as palmas para frente."},
@@ -359,7 +374,7 @@
             {"nome": "Rosca martelo com corda na polia baixa", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Fique de frente para a polia baixa, segure a corda e levante-a com as palmas das mãos voltadas uma para a outra."},
             {"nome": "Rosca na polia baixa com barra reta", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia baixa, segure a barra reta e levante-a em direção aos ombros."},
             {"nome": "Rosca na polia baixa com barra W", "grupoMuscular": "Bíceps", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia baixa, segure a barra W e levante-a em direção aos ombros."},
-            {"nome": "Rosca Scott com barra reta", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciario": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure a barra reta e levante-a, contraindo o bíceps."},
+            {"nome": "Rosca Scott com barra reta", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure a barra reta e levante-a, contraindo o bíceps."},
             {"nome": "Rosca Scott com barra W", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure a barra W e levante-a, contraindo o bíceps."},
             {"nome": "Rosca Scott com halteres", "grupoMuscular": "Bíceps", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure os halteres e levante-os, contraindo o bíceps."},
             {"nome": "Rosca 21 com barra reta", "grupoMuscular": "Bíceps", "dificuldade": ["Avancado"], "sugerirRepeticoes": {"Avancado": "3x21 (7+7+7)"}, "descricao": "Faça 7 repetições da parte inferior, 7 da superior e 7 completas com a barra reta."},
@@ -584,7 +599,8 @@
                 "Posterior de Coxa": "Quadríceps",
                 "Bíceps": "Tríceps",
                 "Tríceps": "Bíceps",
-                "Glúteos": "Quadríceps"
+                "Glúteos": "Quadríceps",
+                "Ombro": "Costas" // Ombro e Costas não são antagonistas diretos, mas frequentemente são treinados juntos. Vamos considerar como um par para superset.
             };
             return antagonistas[grupo];
         }
@@ -598,149 +614,98 @@
         }
 
         function gerarTreinoAutomatico(dificuldade, grupos_musculares, sexo, tecnicas_avancadas) {
+            const numExerciciosPorGrupo = Math.max(1, Math.floor(5 / grupos_musculares.length));
             const numTotalExerciciosMap = {
-                "Iniciante": 5,
-                "Intermediario": 6,
-                "Avancado": 7
+                "Iniciante": 4,
+                "Intermediario": 5,
+                "Avancado": 6
             };
-            const numTotalExercicios = numTotalExerciciosMap[dificuldade] || 5;
-
+            const numTotalExercicios = numTotalExerciciosMap[dificuldade];
+            
             let exerciciosSelecionados = [];
             let exerciciosJaUsadosNomes = new Set();
-            let numExerciciosAdicionados = 0;
+            let tecnicasDisponiveis = [...tecnicas_avancadas];
+            shuffleArray(tecnicasDisponiveis);
             
-            const tecnicas_multi_exercicios = tecnicas_avancadas.filter(t => ["superset", "pré-exaustão", "giant set"].includes(t));
-            const tecnicas_simples = tecnicas_avancadas.filter(t => ["drop set", "bi-set", "rest-pause"].includes(t));
-            let tecnicasSimplesDisponiveis = [...tecnicas_simples];
-            
-            // Prioriza a ordem dos grupos musculares selecionados
-            for (const grupo of grupos_musculares) {
-                if (numExerciciosAdicionados >= numTotalExercicios) break;
+            // Prioriza técnicas avançadas que usam múltiplos exercícios
+            const tecnicasMultiExercicios = tecnicasDisponiveis.filter(t => ["superset", "pré-exaustão", "giant set"].includes(t));
+            tecnicasMultiExercicios.forEach(tecnica => {
+                let exerciciosDisponiveis = [];
+                let grupo1, grupo2, ex1, ex2;
                 
-                let exerciciosDoGrupo = getExerciciosParaGrupo(grupo, dificuldade, sexo)
-                    .filter(ex => !exerciciosJaUsadosNomes.has(ex.nome));
-                shuffleArray(exerciciosDoGrupo);
-
-                const exerciciosDoGrupoAgrupados = {};
-                for (const ex of exerciciosDoGrupo) {
-                    let agrupamentoEncontrado = false;
-                    for (const [key, value] of Object.entries(EXERCICIOS_AGRUPADOS)) {
-                        if (value.includes(ex.nome)) {
-                            if (!exerciciosDoGrupoAgrupados[key]) {
-                                exerciciosDoGrupoAgrupados[key] = ex;
-                            }
-                            agrupamentoEncontrado = true;
-                            break;
+                if (tecnica === "superset") {
+                    grupo1 = grupos_musculares.find(g => getOppositeMuscleGroup(g) && grupos_musculares.includes(getOppositeMuscleGroup(g)));
+                    if (grupo1) {
+                        grupo2 = getOppositeMuscleGroup(grupo1);
+                        ex1 = getExerciciosParaGrupo(grupo1, dificuldade, sexo).find(e => !exerciciosJaUsadosNomes.has(e.nome));
+                        ex2 = getExerciciosParaGrupo(grupo2, dificuldade, sexo).find(e => !exerciciosJaUsadosNomes.has(e.nome));
+                        if (ex1 && ex2) {
+                             exerciciosSelecionados.push({ tipo: "superset", ex1: ex1, ex2: ex2 });
+                             exerciciosJaUsadosNomes.add(ex1.nome);
+                             exerciciosJaUsadosNomes.add(ex2.nome);
+                             grupos_musculares = grupos_musculares.filter(g => g !== grupo1 && g !== grupo2);
                         }
                     }
-                    if (!agrupamentoEncontrado && !exerciciosDoGrupoAgrupados[ex.nome]) {
-                         exerciciosDoGrupoAgrupados[ex.nome] = ex;
-                    }
-                }
-                
-                let exerciciosUnicosDoGrupo = Object.values(exerciciosDoGrupoAgrupados);
-                shuffleArray(exerciciosUnicosDoGrupo);
-                
-                // Tenta aplicar técnicas avançadas de múltiplos exercícios para o grupo
-                let tecnicaAplicadaMulti = tecnicas_multi_exercicios.find(t => {
-                    if (t === "superset") {
-                        let oposto = getOppositeMuscleGroup(grupo);
-                        return grupos_musculares.includes(oposto);
-                    } else if (t === "pré-exaustão") {
-                        return EXERCICIOS_ISOLADORES[grupo] && EXERCICIOS_COMPOSTOS[grupo];
-                    } else if (t === "giant set") {
-                        return exerciciosUnicosDoGrupo.length >= 3;
-                    }
-                    return false;
-                });
-                
-                if (tecnicaAplicadaMulti && numExerciciosAdicionados + (tecnicaAplicadaMulti === "giant set" ? 3 : 2) <= numTotalExercicios) {
-                    if (tecnicaAplicadaMulti === "superset") {
-                        let oposto = getOppositeMuscleGroup(grupo);
-                        let exOposto = getExerciciosParaGrupo(oposto, dificuldade, sexo)
-                            .filter(ex => !exerciciosJaUsadosNomes.has(ex.nome));
-                        shuffleArray(exOposto);
-                        
-                        if (exerciciosUnicosDoGrupo.length > 0 && exOposto.length > 0) {
-                            exerciciosSelecionados.push({
-                                tipo: "superset",
-                                ex1: exerciciosUnicosDoGrupo.pop(),
-                                ex2: exOposto.pop()
-                            });
-                            numExerciciosAdicionados += 2;
-                            tecnicas_multi_exercicios.splice(tecnicas_multi_exercicios.indexOf("superset"), 1);
-                        }
-                    } else if (tecnicaAplicadaMulti === "pré-exaustão") {
-                        let isolador = exerciciosUnicosDoGrupo.find(ex => EXERCICIOS_ISOLADORES[grupo]?.includes(ex.nome));
-                        let composto = exerciciosUnicosDoGrupo.find(ex => EXERCICIOS_COMPOSTOS[grupo]?.includes(ex.nome));
-                        if (isolador && composto) {
-                             exerciciosSelecionados.push({
-                                tipo: "pré-exaustão", 
-                                ex1: isolador, 
-                                ex2: composto
-                            });
-                            exerciciosJaUsadosNomes.add(isolador.nome);
-                            exerciciosJaUsadosNomes.add(composto.nome);
-                            numExerciciosAdicionados += 2;
-                            tecnicas_multi_exercicios.splice(tecnicas_multi_exercicios.indexOf("pré-exaustão"), 1);
-                        }
-                    } else if (tecnicaAplicadaMulti === "giant set") {
-                        if (exerciciosUnicosDoGrupo.length >= 3) {
-                             let set = [exerciciosUnicosDoGrupo.pop(), exerciciosUnicosDoGrupo.pop(), exerciciosUnicosDoGrupo.pop()];
-                             exerciciosSelecionados.push({
-                                 tipo: "giant set",
-                                 exercicios: set
-                             });
-                             exerciciosJaUsadosNomes.add(set[0].nome);
-                             exerciciosJaUsadosNomes.add(set[1].nome);
-                             exerciciosJaUsadosNomes.add(set[2].nome);
-                             numExerciciosAdicionados += 3;
-                             tecnicas_multi_exercicios.splice(tecnicas_multi_exercicios.indexOf("giant set"), 1);
+                } else if (tecnica === "pré-exaustão") {
+                    grupo1 = grupos_musculares.find(g => EXERCICIOS_ISOLADORES[g] && EXERCICIOS_COMPOSTOS[g]);
+                    if (grupo1) {
+                         const isolador = EXERCICIOS_ISOLADORES[grupo1][0];
+                         const composto = EXERCICIOS_COMPOSTOS[grupo1][0];
+                         ex1 = getExerciciosParaGrupo(grupo1, dificuldade, sexo).find(e => e.nome === isolador && !exerciciosJaUsadosNomes.has(e.nome));
+                         ex2 = getExerciciosParaGrupo(grupo1, dificuldade, sexo).find(e => e.nome === composto && !exerciciosJaUsadosNomes.has(e.nome));
+                         if (ex1 && ex2) {
+                             exerciciosSelecionados.push({ tipo: "pré-exaustão", ex1: ex1, ex2: ex2 });
+                             exerciciosJaUsadosNomes.add(ex1.nome);
+                             exerciciosJaUsadosNomes.add(ex2.nome);
+                             grupos_musculares = grupos_musculares.filter(g => g !== grupo1);
                          }
                     }
+                } else if (tecnica === "giant set") {
+                     grupo1 = grupos_musculares.find(g => getExerciciosParaGrupo(g, dificuldade, sexo).length >= 3);
+                     if(grupo1) {
+                         const exs = getExerciciosParaGrupo(grupo1, dificuldade, sexo).filter(e => !exerciciosJaUsadosNomes.has(e.nome));
+                         if (exs.length >= 3) {
+                             const set = [exs[0], exs[1], exs[2]];
+                             exerciciosSelecionados.push({ tipo: "giant set", exercicios: set });
+                             exerciciosJaUsadosNomes.add(exs[0].nome);
+                             exerciciosJaUsadosNomes.add(exs[1].nome);
+                             exerciciosJaUsadosNomes.add(exs[2].nome);
+                             grupos_musculares = grupos_musculares.filter(g => g !== grupo1);
+                         }
+                     }
+                }
+            });
+
+            // Preenche o restante do treino com exercícios simples
+            let exerciciosPorGrupo = {};
+            grupos_musculares.forEach(grupo => {
+                exerciciosPorGrupo[grupo] = getExerciciosParaGrupo(grupo, dificuldade, sexo)
+                    .filter(ex => !exerciciosJaUsadosNomes.has(ex.nome));
+                shuffleArray(exerciciosPorGrupo[grupo]);
+            });
+            
+            let numExerciciosAdicionados = exerciciosSelecionados.length * (2) - exerciciosSelecionados.filter(e => e.tipo === "giant set").length;
+            numExerciciosAdicionados = exerciciosSelecionados.filter(e => e.tipo === "giant set").length * 3 + exerciciosSelecionados.filter(e => e.tipo !== "giant set").length * 2
+            
+            while (exerciciosSelecionados.length < numTotalExercicios && Object.values(exerciciosPorGrupo).some(arr => arr.length > 0)) {
+                let grupoComExercicios = grupos_musculares.find(g => exerciciosPorGrupo[g].length > 0);
+                if (!grupoComExercicios) break;
+
+                const exercicio = exerciciosPorGrupo[grupoComExercicios].shift();
+                exerciciosSelecionados.push(exercicio);
+                exerciciosJaUsadosNomes.add(exercicio.nome);
+                
+                let tecnicaSimples = tecnicasDisponiveis.find(t => !["superset", "pré-exaustão", "giant set"].includes(t));
+                if (tecnicaSimples) {
+                    exerciciosSelecionados[exerciciosSelecionados.length-1].tecnicaAvancada = tecnicaSimples;
+                    tecnicasDisponiveis.splice(tecnicasDisponiveis.indexOf(tecnicaSimples), 1);
                 }
 
-                // Adiciona exercícios simples até atingir o limite
-                while (exerciciosUnicosDoGrupo.length > 0 && numExerciciosAdicionados < numTotalExercicios) {
-                    let ex = exerciciosUnicosDoGrupo.pop();
-                    if (!exerciciosJaUsadosNomes.has(ex.nome)) {
-                        let tecnicaAplicadaSimples = null;
-                        if (tecnicasSimplesDisponiveis.length > 0) {
-                            tecnicaAplicadaSimples = tecnicasSimplesDisponiveis.pop();
-                        }
-                        
-                        exerciciosSelecionados.push({ ...ex, tecnicaAvancada: tecnicaAplicadaSimples });
-                        exerciciosJaUsadosNomes.add(ex.nome);
-                        numExerciciosAdicionados++;
-                    }
-                }
+                // Balanceamento: move o grupo para o final da lista para dar chance a outros
+                grupos_musculares = grupos_musculares.filter(g => g !== grupoComExercicios);
+                grupos_musculares.push(grupoComExercicios);
             }
             
-            // Corrige se não atingiu o número de exercícios e ainda há grupos não explorados
-            while (numExerciciosAdicionados < numTotalExercicios) {
-                 const gruposNaoExplorados = grupos_musculares.filter(g => !exerciciosSelecionados.some(e => e.grupoMuscular === g || e.ex1?.grupoMuscular === g || e.exercicios?.[0]?.grupoMuscular === g));
-                 if (gruposNaoExplorados.length === 0) break;
-                 
-                 const grupoParaAdicionar = gruposNaoExplorados[0];
-                 let exerciciosDoGrupo = getExerciciosParaGrupo(grupoParaAdicionar, dificuldade, sexo)
-                     .filter(ex => !exerciciosJaUsadosNomes.has(ex.nome));
-                 shuffleArray(exerciciosDoGrupo);
-
-                 if (exerciciosDoGrupo.length > 0) {
-                     let ex = exerciciosDoGrupo[0];
-                     let tecnicaAplicadaSimples = null;
-                     if (tecnicasSimplesDisponiveis.length > 0) {
-                          tecnicaAplicadaSimples = tecnicasSimplesDisponiveis.pop();
-                     }
-                     
-                     exerciciosSelecionados.push({ ...ex, tecnicaAvancada: tecnicaAplicadaSimples });
-                     exerciciosJaUsadosNomes.add(ex.nome);
-                     numExerciciosAdicionados++;
-                 } else {
-                     break; // Evita loop infinito se não houver exercícios disponíveis
-                 }
-            }
-
             return exerciciosSelecionados;
         }
 
@@ -780,58 +745,65 @@
             let y = 15;
             const margin = 15;
             const pageWidth = doc.internal.pageSize.getWidth();
+            const pageHeight = doc.internal.pageSize.getHeight();
 
             // Header do documento
-            doc.setFontSize(24);
+            doc.setFontSize(26); // Aumentado
             doc.setFont("helvetica", "bold");
             doc.setTextColor(30, 58, 95);
             doc.text("Plano de Treino Semanal", pageWidth / 2, y, { align: "center" });
-            y += 10;
+            y += 12;
             
             // Dados do Aluno
-            doc.setFontSize(16);
+            doc.setFontSize(18); // Aumentado
             doc.setTextColor(51, 51, 51);
             doc.text(`Aluno: ${dados_gerais.nome_aluno}`, margin, y);
-            y += 8;
-            doc.setFontSize(14);
+            y += 10;
+            doc.setFontSize(16); // Aumentado
             doc.setFont("helvetica", "normal");
             doc.text(`Nível: ${dados_gerais.dificuldade} | Objetivo: ${dados_gerais.objetivo}`, margin, y);
-            y += 8;
+            y += 10;
             doc.text(`Data de Criação: ${new Date().toLocaleDateString('pt-BR')}`, margin, y);
-            y += 15;
+            y += 20;
 
             // Análise Nutricional
-            doc.setFontSize(16);
+            if (y > pageHeight - 50) {
+                 doc.addPage();
+                 y = 15;
+            }
+            doc.setFontSize(18); // Aumentado
             doc.setFont("helvetica", "bold");
             doc.setTextColor(30, 58, 95);
             doc.text("Análise Nutricional", margin, y);
-            doc.line(margin, y + 1, pageWidth - margin, y + 1);
-            y += 6;
-            doc.setFontSize(14);
+            doc.line(margin, y + 2, pageWidth - margin, y + 2);
+            y += 8;
+            doc.setFontSize(16); // Aumentado
             doc.setFont("helvetica", "normal");
             doc.setTextColor(51, 51, 51);
             const imc_classificacao = getIMCClassificacao(dados_nutricionais.imc);
             doc.text(`IMC: ${dados_nutricionais.imc} (${imc_classificacao})`, margin, y);
-            doc.text(`TMB: ${dados_nutricionais.tmb} kcal/dia`, margin, y + 6);
-            doc.text(`Consumo Calórico Recomendado: ${dados_nutricionais.consumo} kcal/dia`, margin, y + 12);
-            y += 20;
+            doc.text(`TMB: ${dados_nutricionais.tmb} kcal/dia`, margin, y + 8);
+            doc.text(`Consumo Calórico Recomendado: ${dados_nutricionais.consumo} kcal/dia`, margin, y + 16);
+            y += 25;
             
             // Aquecimento
-            if (y > doc.internal.pageSize.getHeight() - 40) {
+            if (y > pageHeight - 40) {
                 doc.addPage();
                 y = 15;
             }
-            doc.setFontSize(16);
+            doc.setFontSize(18); // Aumentado
             doc.setFont("helvetica", "bold");
             doc.setTextColor(30, 58, 95);
             doc.text("Aquecimento (5-10 minutos)", margin, y);
-            doc.line(margin, y + 1, pageWidth - margin, y + 1);
-            y += 6;
-            doc.setFontSize(14);
+            doc.line(margin, y + 2, pageWidth - margin, y + 2);
+            y += 8;
+            doc.setFontSize(16); // Aumentado
             doc.setFont("helvetica", "normal");
             doc.setTextColor(51, 51, 51);
-            doc.text("Inicie com 5 minutos de cardio leve (esteira, bicicleta) e depois faça alongamentos dinâmicos.", margin, y);
-            y += 12;
+            const aquecimentoText = "Inicie com 5 minutos de cardio leve (esteira, bicicleta) e depois faça alongamentos dinâmicos.";
+            const aquecimentoLinhas = doc.splitTextToSize(aquecimentoText, pageWidth - margin * 2);
+            doc.text(aquecimentoLinhas, margin, y);
+            y += (aquecimentoLinhas.length * 8) + 12;
             
             let tecnicasNoTreino = new Set();
             treino_semanal.forEach(dia => {
@@ -843,23 +815,23 @@
 
             // Geração das tabelas de treino
             treino_semanal.forEach(dia => {
-                if (y > doc.internal.pageSize.getHeight() - 60) {
+                if (y > pageHeight - 60) {
                     doc.addPage();
                     y = 15;
                 }
 
                 // Título do dia de treino
-                doc.setFontSize(16);
+                doc.setFontSize(18); // Aumentado
                 doc.setFont("helvetica", "bold");
                 doc.setTextColor(30, 58, 95);
                 doc.text(`Treino ${dia.nome_dia}`, margin, y);
-                doc.line(margin, y + 1, pageWidth - margin, y + 1);
-                y += 6;
-                doc.setFontSize(14);
+                doc.line(margin, y + 2, pageWidth - margin, y + 2);
+                y += 8;
+                doc.setFontSize(16); // Aumentado
                 doc.setFont("helvetica", "normal");
                 doc.setTextColor(51, 51, 51);
                 doc.text(`Grupos musculares: ${dia.grupos_musculares.join(', ')}`, margin, y);
-                y += 8;
+                y += 10;
 
                 const bodyData = [];
                 let exercicioNum = 1;
@@ -868,43 +840,42 @@
                     let reps = "Não definido";
                     let observacao = "";
                     let exercicioNome = "";
+                    let descricaoCompleta = "";
 
                     if (item.tipo === "bi-set") {
                         reps = `${item.ex1.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'} | ${item.ex2.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'}`;
                         observacao = "Bi-set";
                         exercicioNome = `${item.ex1.nome} + ${item.ex2.nome}`;
+                        descricaoCompleta = `1) ${item.ex1.descricao}\n2) ${item.ex2.descricao}`;
                     } else if (item.tipo === "superset") {
                         reps = `${item.ex1.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'} | ${item.ex2.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'}`;
                         observacao = "Superset";
                         exercicioNome = `${item.ex1.nome} + ${item.ex2.nome}`;
+                        descricaoCompleta = `1) ${item.ex1.descricao}\n2) ${item.ex2.descricao}`;
                     } else if (item.tipo === "pré-exaustão") {
                         reps = `${item.ex1.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'} | ${item.ex2.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'}`;
                         observacao = "Pré-exaustão";
                         exercicioNome = `${item.ex1.nome} + ${item.ex2.nome}`;
+                        descricaoCompleta = `1) Isolador: ${item.ex1.descricao}\n2) Composto: ${item.ex2.descricao}`;
                     } else if (item.tipo === "giant set") {
                         const repsText = item.exercicios.map(ex => ex.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A').join(' | ');
                         reps = repsText;
                         observacao = "Giant Set";
                         exercicioNome = item.exercicios.map(ex => ex.nome).join(' + ');
+                        descricaoCompleta = item.exercicios.map((ex, i) => `${i+1}) ${ex.descricao}`).join('\n');
                     } else {
                         reps = item.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A';
                         if (item.tecnicaAvancada) {
                            observacao = item.tecnicaAvancada.charAt(0).toUpperCase() + item.tecnicaAvancada.slice(1);
                         }
                         exercicioNome = item.nome;
+                        descricaoCompleta = item.descricao;
                     }
                     
                     bodyData.push([exercicioNum++, exercicioNome, reps, descanso, observacao]);
-
+                    
                     if (incluir_descricao) {
-                        if (item.tipo === "bi-set" || item.tipo === "superset" || item.tipo === "pré-exaustão") {
-                            bodyData.push([{ content: `Descrição: 1) ${item.ex1.descricao}\n2) ${item.ex2.descricao}`, colSpan: 5 }]);
-                        } else if (item.tipo === "giant set") {
-                             const descricoes = item.exercicios.map((ex, i) => `${i+1}) ${ex.descricao}`).join('\n');
-                             bodyData.push([{ content: `Descrição: ${descricoes}`, colSpan: 5 }]);
-                        } else {
-                            bodyData.push([{ content: `Descrição: ${item.descricao}`, colSpan: 5 }]);
-                        }
+                        bodyData.push([{ content: `Descrição: ${descricaoCompleta}`, colSpan: 5, styles: { fontSize: 10, fontStyle: 'italic' } }]);
                     }
                 });
 
@@ -913,7 +884,7 @@
                     head: [['#', 'Exercício', 'Séries/Reps', 'Descanso', 'Observações']],
                     body: bodyData,
                     theme: 'striped',
-                    headStyles: { fillColor: [30, 58, 95] },
+                    headStyles: { fillColor: [30, 58, 95], fontSize: 14 }, // Aumentado
                     alternateRowStyles: { fillColor: [248, 250, 252] },
                     styles: { fontSize: 12, cellPadding: 3, overflow: 'linebreak' },
                     columnStyles: {
@@ -930,91 +901,102 @@
             
             // Descrição das técnicas avançadas utilizadas
             if (tecnicasNoTreino.size > 0) {
-                if (y > doc.internal.pageSize.getHeight() - 40) {
+                if (y > pageHeight - 40) {
                     doc.addPage();
                     y = 15;
                 }
-                doc.setFontSize(16);
+                doc.setFontSize(18); // Aumentado
                 doc.setFont("helvetica", "bold");
                 doc.setTextColor(30, 58, 95);
                 doc.text("Técnicas Avançadas Utilizadas", margin, y);
-                doc.line(margin, y + 1, pageWidth - margin, y + 1);
-                y += 8;
+                doc.line(margin, y + 2, pageWidth - margin, y + 2);
+                y += 10;
                 
                 tecnicasNoTreino.forEach(tecnica => {
                     const desc = DESCRICOES_TECNICAS_AVANCADAS[tecnica];
                     const titulo = desc.split(':')[0];
                     const texto = desc.split(':')[1].trim();
 
+                    if (y > pageHeight - 25) {
+                        doc.addPage();
+                        y = 15;
+                    }
+
                     // Título da técnica em negrito
-                    doc.setFontSize(14);
+                    doc.setFontSize(16); // Aumentado
                     doc.setFont("helvetica", "bold");
                     doc.setTextColor(51, 51, 51);
                     doc.text(titulo, margin, y);
-                    y += 6;
+                    y += 8;
                     
                     // Descrição da técnica
                     doc.setFont("helvetica", "normal");
-                    doc.setFontSize(12);
+                    doc.setFontSize(14); // Aumentado
                     const linhas = doc.splitTextToSize(texto, pageWidth - margin * 2);
                     doc.text(linhas, margin, y);
-                    y += (linhas.length * 6) + 5;
+                    y += (linhas.length * 8) + 8;
                 });
             }
 
             // Dicas e alongamento
-            if (y > doc.internal.pageSize.getHeight() - 40) {
+            if (y > pageHeight - 40) {
                 doc.addPage();
                 y = 15;
             }
             
-            doc.setFontSize(16);
+            doc.setFontSize(18); // Aumentado
             doc.setFont("helvetica", "bold");
             doc.setTextColor(30, 58, 95);
             doc.text("Dicas para Maximizar seus Resultados", margin, y);
-            doc.line(margin, y + 1, pageWidth - margin, y + 1);
-            y += 8;
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.setTextColor(51, 51, 51);
-            doc.text("1. Alimentação e Hidratação", margin, y);
-            y += 6;
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(12);
-            doc.text("Consuma proteínas suficientes para a recuperação muscular e carboidratos para energia. Beba bastante água antes, durante e após o treino.", margin, y);
+            doc.line(margin, y + 2, pageWidth - margin, y + 2);
             y += 10;
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(14);
-            doc.text("2. Descanso e Recuperação", margin, y);
-            y += 6;
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(12);
-            doc.text("Dormir de 7 a 9 horas por noite é crucial para a recuperação muscular e produção hormonal. O crescimento acontece durante o descanso, não apenas no treino.", margin, y);
-            y += 10;
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(14);
-            doc.text("3. Progressão de Carga", margin, y);
-            y += 6;
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(12);
-            doc.text("Aumente a carga ou o número de repetições gradualmente. O progresso contínuo é a chave para a hipertrofia e aumento de força.", margin, y);
-            y += 10;
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(14);
-            doc.text("4. Execução e Conexão Mente-Músculo", margin, y);
-            y += 6;
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(12);
-            doc.text("Priorize a técnica perfeita em cada exercício. Sinta o músculo alvo contraindo e alongando para maximizar o estímulo.", margin, y);
-            y += 12;
 
-            doc.setFontSize(14);
+            const dicas = [
+                {
+                    titulo: "1. Alimentação e Hidratação",
+                    texto: "Consuma proteínas suficientes para a recuperação muscular e carboidratos para energia. Beba bastante água antes, durante e após o treino."
+                },
+                {
+                    titulo: "2. Descanso e Recuperação",
+                    texto: "Dormir de 7 a 9 horas por noite é crucial para a recuperação muscular e produção hormonal. O crescimento acontece durante o descanso, não apenas no treino."
+                },
+                {
+                    titulo: "3. Progressão de Carga",
+                    texto: "Aumente a carga ou o número de repetições gradualmente. O progresso contínuo é a chave para a hipertrofia e aumento de força."
+                },
+                {
+                    titulo: "4. Execução e Conexão Mente-Músculo",
+                    texto: "Priorize a técnica perfeita em cada exercício. Sinta o músculo alvo contraindo e alongando para maximizar o estímulo."
+                }
+            ];
+
+            dicas.forEach(dica => {
+                if (y > pageHeight - 30) {
+                    doc.addPage();
+                    y = 15;
+                }
+                doc.setFontSize(16); // Aumentado
+                doc.setFont("helvetica", "bold");
+                doc.setTextColor(51, 51, 51);
+                doc.text(dica.titulo, margin, y);
+                y += 8;
+                doc.setFont("helvetica", "normal");
+                doc.setFontSize(14); // Aumentado
+                const linhas = doc.splitTextToSize(dica.texto, pageWidth - margin * 2);
+                doc.text(linhas, margin, y);
+                y += (linhas.length * 8) + 8;
+            });
+            
+            if (y > pageHeight - 20) {
+                doc.addPage();
+                y = 15;
+            }
+            doc.setFontSize(16); // Aumentado
             doc.text("Finalize com alongamento estático (15-20s por músculo) para ajudar na flexibilidade.", margin, y);
-            y += 12;
-
+            y += 15;
 
             // Rodapé
-            doc.setFontSize(10);
+            doc.setFontSize(12); // Aumentado
             doc.setTextColor(150, 150, 150);
             doc.text(`Gerado por Your Trainer Partner para: ${dados_gerais.nome_aluno} em ${new Date().toLocaleDateString('pt-BR')}`, pageWidth / 2, doc.internal.pageSize.getHeight() - 10, { align: "center" });
             
