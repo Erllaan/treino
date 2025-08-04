@@ -303,155 +303,129 @@
     
     <script>
         const EXERCICIOS = [
-            // PEITO
-            {"nome": "Supino inclinado com barra reta", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Superior", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x8-10", "Avancado": "4x6"}, "descricao": "Deite no banco inclinado, segure a barra, desça até o peito e empurre para cima."},
-            {"nome": "Supino inclinado com halteres", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Superior", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Deite no banco inclinado, segure os halteres, desça até a altura dos ombros e empurre para cima."},
-            {"nome": "Press na máquina inclinado", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Superior", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Sente-se na máquina inclinada, segure as alças e empurre para frente, estendendo os braços."},
-            {"nome": "Crucifixo inclinado com halteres", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Superior", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Deite no banco inclinado, segure os halteres, abra os braços e retorne, sentindo o alongamento do peito superior."},
+            // PEITO (11)
+            {"nome": "Supino reto com barra", "grupoMuscular": "Peito", "subGrupo": "Médio", "estilo": "Press", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x8-10", "Avancado": "4x6"}, "descricao": "Deitado no banco reto, segure a barra, desça até o peito e empurre para cima.", "alternativa": ["Supino reto com halteres", "Supino reto na maquina"]},
+            {"nome": "Supino reto com halteres", "grupoMuscular": "Peito", "subGrupo": "Médio", "estilo": "Press", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Deitado no banco reto, segure um halter em cada mão, desça até a altura dos ombros e empurre para cima.", "alternativa": ["Supino reto com barra", "Supino reto na maquina"]},
+            {"nome": "Supino reto na maquina", "grupoMuscular": "Peito", "subGrupo": "Médio", "estilo": "Press", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sente-se na maquina, segure as alças e empurre para cima.", "alternativa": ["Supino reto com barra", "Supino reto com halteres"]},
+            {"nome": "Supino inclinado com barra", "grupoMuscular": "Peito", "subGrupo": "Superior", "estilo": "Press", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x8-10", "Avancado": "4x6"}, "descricao": "Deitado no banco inclinado, segure a barra, desça até o peito e empurre para cima.", "alternativa": ["Supino inclinado com halteres", "Supino inclinado na maquina"]},
+            {"nome": "Supino inclinado com halteres", "grupoMuscular": "Peito", "subGrupo": "Superior", "estilo": "Press", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Deitado no banco inclinado, segure os halteres, desça até a altura dos ombros e empurre para cima.", "alternativa": ["Supino inclinado com barra", "Supino inclinado na maquina"]},
+            {"nome": "Supino inclinado na maquina", "grupoMuscular": "Peito", "subGrupo": "Superior", "estilo": "Press", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sente-se na maquina, segure as alças e empurre para cima.", "alternativa": ["Supino inclinado com barra", "Supino inclinado com halteres"]},
+            {"nome": "Supino declinado com halteres", "grupoMuscular": "Peito", "subGrupo": "Inferior", "estilo": "Press", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Deitado no banco declinado, segure os halteres, desça até a altura dos ombros e empurre para cima."},
+            {"nome": "Crucifixo reto com halteres", "grupoMuscular": "Peito", "subGrupo": "Médio", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Deitado no banco reto, com os halteres, realize a abdução dos ombros, focando na extensão do peitoral.", "alternativa": ["Crossover médio na polia"]},
+            {"nome": "Crucifixo inclinado com halteres", "grupoMuscular": "Peito", "subGrupo": "Superior", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Deitado no banco inclinado, com os halteres, realize a abdução dos ombros, focando na extensão do peitoral superior.", "alternativa": ["Crossover baixo na polia"]},
+            {"nome": "Crossover alto na polia", "grupoMuscular": "Peito", "subGrupo": "Inferior", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique em pé no centro das polias, segure as alças altas e realize a adução dos braços para baixo."},
+            {"nome": "Crossover médio na polia", "grupoMuscular": "Peito", "subGrupo": "Médio", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique em pé no centro das polias, segure as alças médias e realize a adução dos braços em linha reta.", "alternativa": ["Crucifixo reto com halteres"]},
+            {"nome": "Crossover baixo na polia", "grupoMuscular": "Peito", "subGrupo": "Superior", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique em pé no centro das polias, segure as alças baixas e realize a adução dos braços para cima.", "alternativa": ["Crucifixo inclinado com halteres"]},
+            {"nome": "Flexão de braço", "grupoMuscular": "Peito", "subGrupo": "Médio", "estilo": "Press", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x10-12", "Intermediario": "4x12-15", "Avancado": "4x15+"}, "descricao": "Com as mãos no chão na largura dos ombros, abaixe o corpo e empurre para cima."},
 
-            {"nome": "Supino reto com barra reta", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Medial", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x8-10", "Avancado": "4x6"}, "descricao": "Deite no banco reto, segure a barra na largura dos ombros, desça até tocar o peito e empurre para cima."},
-            {"nome": "Supino reto com halteres", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Medial", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Deite no banco reto, segure um halter em cada mão, desça até a altura dos ombros e empurre para cima."},
-            {"nome": "Crucifixo na máquina peck deck", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Medial", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste a altura e junte as alças, contraindo o peito."},
-            {"nome": "Flexão de braço tradicional", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Medial", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x10-12", "Intermediario": "4x12-15", "Avancado": "4x15+"}, "descricao": "Com as mãos no chão na largura dos ombros, abaixe o corpo e empurre para cima."},
-            {"nome": "Press na máquina reto", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Medial", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Sente-se na máquina, segure as alças e empurre para frente, estendendo os braços."},
+            // COSTAS (8)
+            {"nome": "Puxada frente na polia (pegada aberta)", "grupoMuscular": "Costas", "estilo": "Puxada Vertical", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado, segure a barra com pegada aberta. Puxe em direção ao peito, contraindo as costas, e retorne controladamente.", "alternativa": ["Puxada frente na polia (pegada neutra)"]},
+            {"nome": "Puxada frente na polia (pegada neutra)", "grupoMuscular": "Costas", "estilo": "Puxada Vertical", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado, segure a barra com pegada neutra. Puxe em direção ao peito, contraindo as costas, e retorne controladamente.", "alternativa": ["Puxada frente na polia (pegada aberta)"]},
+            {"nome": "Pulldown com corda na polia", "grupoMuscular": "Costas", "estilo": "Puxada Vertical", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sentado, segure a corda e puxe para baixo, contraindo as costas."},
+            {"nome": "Remada curvada com barra", "grupoMuscular": "Costas", "estilo": "Puxada Horizontal", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x10", "Intermediario": "4x8-10", "Avancado": "5x6-8"}, "descricao": "Com o tronco curvado, segure a barra e puxe em direção ao abdômen, mantendo os cotovelos próximos ao corpo.", "alternativa": ["Remada curvada com halteres", "Remada cavalinho"]},
+            {"nome": "Remada curvada com halteres", "grupoMuscular": "Costas", "estilo": "Puxada Horizontal", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x10", "Intermediario": "4x8-10", "Avancado": "5x6-8"}, "descricao": "Com o tronco curvado, segure a barra e puxe em direção ao abdômen, mantendo os cotovelos próximos ao corpo.", "alternativa": ["Remada curvada com barra", "Remada cavalinho"]},
+            {"nome": "Remada unilateral com halteres", "grupoMuscular": "Costas", "estilo": "Puxada Horizontal", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Ajoelhado em um banco, puxe o halter com uma das mãos em direção ao tronco, focando na contração da lombar e dorsal."},
+            {"nome": "Remada baixa na polia", "grupoMuscular": "Costas", "estilo": "Puxada Horizontal", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado, puxe o triângulo em direção ao abdômen, mantendo os cotovelos próximos ao corpo.", "alternativa": ["Remada sentada na máquina"]},
+            {"nome": "Remada sentada na máquina", "grupoMuscular": "Costas", "estilo": "Puxada Horizontal", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado na máquina, puxe as alavancas em direção ao abdômen, mantendo os cotovelos próximos ao corpo.", "alternativa": ["Remada baixa na polia"]},
+            {"nome": "Remada cavalinho", "grupoMuscular": "Costas", "estilo": "Puxada Horizontal", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Com o tronco curvado, puxe a barra em direção ao abdômen, mantendo os cotovelos próximos ao corpo.", "alternativa": ["Remada curvada com barra", "Remada curvada com halteres"]},
 
-            {"nome": "Crossover na polia alta", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Inferior", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Segure os cabos da polia alta e puxe para baixo e para o centro, contraindo o peito inferior."},
-            {"nome": "Supino declinado com barra reta", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Inferior", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x8-10", "Avancado": "4x6"}, "descricao": "Deite no banco declinado, segure a barra, desça até o peito e empurre para cima."},
-            {"nome": "Supino declinado com halteres", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Inferior", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Deite no banco declinado, segure os halteres, desça até a altura dos ombros e empurre para cima."},
-            {"nome": "Crucifixo na polia baixa", "grupoMuscular": "Peito", "porcaoMuscular": "Peito Inferior", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Deite no banco reto, segure os cabos da polia e faça o movimento de crucifixo."},
+            // TRAPÉZIO (5)
+            {"nome": "Encolhimento com barra", "grupoMuscular": "Trapézio", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Segure a barra e encolha os ombros, elevando-os em direção às orelhas.", "alternativa": ["Encolhimento com halteres", "Encolhimento na barra guiada (Smith)"]},
+            {"nome": "Encolhimento com halteres", "grupoMuscular": "Trapézio", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Segure os halteres nas laterais do corpo e encolha os ombros, elevando-os em direção às orelhas.", "alternativa": ["Encolhimento com barra", "Encolhimento na barra guiada (Smith)"]},
+            {"nome": "Encolhimento na barra guiada (Smith)", "grupoMuscular": "Trapézio", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Ajuste a altura da barra e encolha os ombros, elevando-os em direção às orelhas.", "alternativa": ["Encolhimento com barra", "Encolhimento com halteres"]},
+            {"nome": "Remada alta com barra", "grupoMuscular": "Trapézio", "estilo": "Puxada", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Em pé, segure a barra à frente do corpo, puxe em direção ao queixo, mantendo os cotovelos para cima.", "alternativa": ["Remada alta com polia baixa"]},
+            {"nome": "Remada alta com polia baixa", "grupoMuscular": "Trapézio", "estilo": "Puxada", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure a alça da polia baixa e puxe em direção ao queixo, mantendo os cotovelos para cima.", "alternativa": ["Remada alta com barra"]},
 
-            // COSTAS
-            {"nome": "Puxada na polia alta com barra reta – pegada aberta", "grupoMuscular": "Costas", "porcaoMuscular": "Costas (largura - Dorsal)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado, segure a barra com pegada aberta. Puxe em direção ao peito, contraindo as costas, e retorne controladamente."},
-            {"nome": "Puxada na polia alta com barra neutra – pegada neutra", "grupoMuscular": "Costas", "porcaoMuscular": "Costas (largura - Dorsal)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure a barra neutra. Puxe em direção ao peito, mantendo os cotovelos próximos ao corpo."},
-            {"nome": "Puxada na frente com triangulo (neutra)", "grupoMuscular": "Costas", "porcaoMuscular": "Costas (largura - Dorsal)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado, segure o triângulo. Puxe em direção ao peito, mantendo os cotovelos próximos ao corpo."},
-            {"nome": "Pullover com halteres", "grupoMuscular": "Costas", "porcaoMuscular": "Costas (largura - Dorsal)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Deite no banco, segure o halter com as duas mãos e leve para trás da cabeça, sentindo o alongamento do dorsal."},
-            {"nome": "Pullover na polia alta com corda", "grupoMuscular": "Costas", "porcaoMuscular": "Costas (largura - Dorsal)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique em pé, de frente para a polia alta, segure a corda e puxe para baixo com os braços esticados."},
+            // OMBRO (11)
+            {"nome": "Elevação lateral com halteres", "grupoMuscular": "Ombro", "subGrupo": "Lateral", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Em pé, eleve os braços para os lados até a altura dos ombros.", "alternativa": ["Elevação lateral na polia baixa"]},
+            {"nome": "Elevação frontal com halteres", "grupoMuscular": "Ombro", "subGrupo": "Anterior", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Em pé, segure os halteres e eleve os braços para a frente até a altura dos ombros.", "alternativa": ["Elevação frontal com barra reta"]},
+            {"nome": "Elevação frontal com barra reta", "grupoMuscular": "Ombro", "subGrupo": "Anterior", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Em pé, segure a barra reta e eleve os braços para a frente até a altura dos ombros.", "alternativa": ["Elevação frontal com halteres"]},
+            {"nome": "Desenvolvimento com barra", "grupoMuscular": "Ombro", "subGrupo": "Anterior", "estilo": "Press", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Em pé ou sentado, segure a barra à altura dos ombros e empurre para cima.", "alternativa": ["Desenvolvimento com halteres", "Desenvolvimento na máquina"]},
+            {"nome": "Desenvolvimento com halteres", "grupoMuscular": "Ombro", "subGrupo": "Anterior", "estilo": "Press", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure os halteres à altura dos ombros e empurre para cima.", "alternativa": ["Desenvolvimento com barra", "Desenvolvimento na máquina", "Arnold press com halteres"]},
+            {"nome": "Desenvolvimento na máquina", "grupoMuscular": "Ombro", "subGrupo": "Anterior", "estilo": "Press", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sente-se na máquina, ajuste os braços e empurre para cima.", "alternativa": ["Desenvolvimento com barra", "Desenvolvimento com halteres", "Arnold press com halteres"]},
+            {"nome": "Arnold press com halteres", "grupoMuscular": "Ombro", "subGrupo": "Anterior", "estilo": "Press", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure os halteres com as palmas voltadas para o corpo, gire-os e empurre para cima.", "alternativa": ["Desenvolvimento com barra", "Desenvolvimento na máquina", "Desenvolvimento com halteres"]},
+            {"nome": "Elevação lateral na polia baixa", "grupoMuscular": "Ombro", "subGrupo": "Lateral", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Fique de lado para a polia, segure a alça e eleve o braço para o lado até a altura do ombro.", "alternativa": ["Elevação lateral com halteres"]},
+            {"nome": "Crucifixo inverso com halteres", "grupoMuscular": "Ombro", "subGrupo": "Posterior", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Incline o tronco para frente, segure os halteres e realize a abdução dos ombros.", "alternativa": ["Crucifixo inverso na máquina", "Crucifixo inverso na polia"]},
+            {"nome": "Crucifixo inverso na máquina", "grupoMuscular": "Ombro", "subGrupo": "Posterior", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Sente-se de frente para a máquina, segure as alças e empurre para trás.", "alternativa": ["Crucifixo inverso com halteres", "Crucifixo inverso na polia"]},
+            {"nome": "Crucifixo inverso na polia", "grupoMuscular": "Ombro", "subGrupo": "Posterior", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia, segure a alça e puxe para trás.", "alternativa": ["Crucifixo inverso com halteres", "Crucifixo inverso na máquina"]},
 
-            {"nome": "Remada curvada com barra reta", "grupoMuscular": "Costas", "porcaoMuscular": "Costas (espessura - Lombo)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x10", "Intermediario": "4x8-10", "Avancado": "5x6-8"}, "descricao": "Com o tronco curvado, segure a barra e puxe em direção ao abdômen, mantendo os cotovelos próximos ao corpo."},
-            {"nome": "Remada curvada com halteres", "grupoMuscular": "Costas", "porcaoMuscular": "Costas (espessura - Lombo)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Com o tronco curvado, puxe os halteres em direção ao tronco, focando na contração da lombar e dorsal."},
-            {"nome": "Remada unilateral com halteres", "grupoMuscular": "Costas", "porcaoMuscular": "Costas (espessura - Lombo)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Ajoelhado em um banco, puxe o halter com uma das mãos em direção ao tronco, focando na contração da lombar e dorsal."},
-            {"nome": "Remada baixa com triangulo na polia", "grupoMuscular": "Costas", "porcaoMuscular": "Costas (espessura - Lombo)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Sente-se na máquina, segure o triângulo e puxe em direção ao peito, contraindo as costas."},
-            {"nome": "Remada na máquina hammer unilateral", "grupoMuscular": "Costas", "porcaoMuscular": "Costas (espessura - Lombo)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Sente-se na máquina Hammer e puxe a alça unilateralmente, focando na contração das costas."},
+            // BÍCEPS (10)
+            {"nome": "Rosca direta com barra reta", "grupoMuscular": "Bíceps", "estilo": "Rosca", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure a barra com as mãos na largura dos ombros. Flexione os cotovelos para levantar a barra.", "alternativa": ["Rosca direta com barra W", "Rosca na polia baixa com barra reta", "Rosca alternada com halteres"]},
+            {"nome": "Rosca direta com barra W", "grupoMuscular": "Bíceps", "estilo": "Rosca", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure a barra W e flexione os cotovelos para levantar a barra.", "alternativa": ["Rosca direta com barra reta", "Rosca na polia baixa com barra reta", "Rosca alternada com halteres"]},
+            {"nome": "Rosca alternada com halteres", "grupoMuscular": "Bíceps", "estilo": "Rosca", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Fique em pé, segure os halteres e alterne os braços, levantando-os em direção aos ombros.", "alternativa": ["Rosca direta com barra reta", "Rosca direta com barra W"]},
+            {"nome": "Rosca martelo com halteres", "grupoMuscular": "Bíceps", "estilo": "Rosca Martelo", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Segure os halteres com as palmas das mãos voltadas uma para a outra e levante os braços."},
+            {"nome": "Rosca concentrada com halter", "grupoMuscular": "Bíceps", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sente-se, apoie o cotovelo na coxa e levante o halter em direção ao ombro."},
+            {"nome": "Rosca no banco inclinado com halteres", "grupoMuscular": "Bíceps", "estilo": "Rosca", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sente-se em um banco inclinado, segure os halteres e levante-os em direção aos ombros.", "alternativa": ["Rosca direta com halteres"]},
+            {"nome": "Rosca no banco scott com barra W", "grupoMuscular": "Bíceps", "estilo": "Rosca Scott", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure a barra W e levante-a.", "alternativa": ["Rosca no banco scott com barra reta"]},
+            {"nome": "Rosca no banco scott com barra reta", "grupoMuscular": "Bíceps", "estilo": "Rosca Scott", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure a barra reta e levante-a.", "alternativa": ["Rosca no banco scott com barra W"]},
+            {"nome": "Rosca na polia baixa com barra reta", "grupoMuscular": "Bíceps", "estilo": "Rosca na Polia", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Fique de frente para a polia, segure a barra reta e levante os braços.", "alternativa": ["Rosca na polia baixa com corda", "Rosca direta com barra reta", "Rosca direta com barra W"]},
+            {"nome": "Rosca na polia baixa com corda", "grupoMuscular": "Bíceps", "estilo": "Rosca na Polia", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Fique de frente para a polia, segure a corda e levante os braços.", "alternativa": ["Rosca na polia baixa com barra reta"]},
 
-            // OMBRO
-            {"nome": "Elevação frontal com halteres", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Anterior", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Em pé, segure os halteres e eleve os braços para a frente até a altura dos ombros."},
-            {"nome": "Elevação frontal com barra reta", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Anterior", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Em pé, segure a barra reta e eleve os braços para a frente até a altura dos ombros."},
-            {"nome": "Desenvolvimento com barra reta (sentado)", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Anterior", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediante": "4x8-10", "Avancado": "4x6-8"}, "descricao": "Sentado, segure a barra à frente dos ombros e empurre para cima até estender os braços."},
-            {"nome": "Desenvolvimento com halteres (sentado)", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Anterior", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Sentado, segure os halteres à altura dos ombros e empurre para cima até estender os braços."},
-            
-            {"nome": "Elevação lateral com halteres", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Medial", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Em pé, eleve os braços para os lados até a altura dos ombros, mantendo uma leve flexão nos cotovelos."},
-            {"nome": "Elevação lateral na máquina", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Medial", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Sente-se na máquina e eleve os braços para os lados, trabalhando o deltoide lateral."},
-            {"nome": "Remada alta com barra reta", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Medial", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure a barra reta e puxe em direção ao queixo, levantando os cotovelos."},
-            {"nome": "Remada alta com halteres", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Medial", "dificuldade": ["Iniciante", "Intermediario"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Segure os halteres e puxe em direção ao queixo, levantando os cotovelos."},
+            // TRÍCEPS (9)
+            {"nome": "Tríceps testa com barra W", "grupoMuscular": "Tríceps", "estilo": "Extensão de braço", "tipo": "isolador", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "5x8-10"}, "descricao": "Deitado, estenda a barra W acima da cabeça e flexione os cotovelos, levando-a em direção à testa.", "alternativa": ["Tríceps testa com barra reta"]},
+            {"nome": "Tríceps testa com barra reta", "grupoMuscular": "Tríceps", "estilo": "Extensão de braço", "tipo": "isolador", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "5x8-10"}, "descricao": "Deitado, estenda a barra reta acima da cabeça e flexione os cotovelos, levando-a em direção à testa.", "alternativa": ["Tríceps testa com barra W"]},
+            {"nome": "Tríceps francês unilateral com halter", "grupoMuscular": "Tríceps", "estilo": "Extensão de braço", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sentado ou em pé, segure um halter com uma das mãos e leve-o atrás da cabeça, estendendo o braço para cima.", "alternativa": ["Tríceps francês bilateral com halteres"]},
+            {"nome": "Tríceps francês bilateral com halteres", "grupoMuscular": "Tríceps", "estilo": "Extensão de braço", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sentado ou em pé, segure um halter com as duas mãos e leve-o atrás da cabeça, estendendo os braços para cima.", "alternativa": ["Tríceps francês unilateral com halter"]},
+            {"nome": "Tríceps corda na polia alta", "grupoMuscular": "Tríceps", "estilo": "Extensão de braço", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia alta, segure a corda e empurre para baixo.", "alternativa": ["Tríceps barra reta na polia alta"]},
+            {"nome": "Tríceps barra reta na polia alta", "grupoMuscular": "Tríceps", "estilo": "Extensão de braço", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia alta, segure a barra reta e empurre para baixo.", "alternativa": ["Tríceps corda na polia alta"]},
+            {"nome": "Tríceps banco (mergulho)", "grupoMuscular": "Tríceps", "estilo": "Extensão de braço", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x10-12", "Intermediario": "4x12-15", "Avancado": "4x15+"}, "descricao": "Apoie as mãos em um banco e o corpo no ar. Abaixe e suba o corpo, flexionando e estendendo os cotovelos."},
+            {"nome": "Tríceps coice com halteres", "grupoMuscular": "Tríceps", "estilo": "Extensão de braço", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Incline o tronco para frente, apoie uma mão no banco e estenda o braço com o halter para trás."},
+            {"nome": "Tríceps na máquina", "grupoMuscular": "Tríceps", "estilo": "Extensão de braço", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste os braços e empurre para baixo."},
 
-            {"nome": "Crucifixo invertido com halteres (posterior)", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Posterior", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Com o tronco curvado, abra os braços para os lados, focando na porção posterior do ombro."},
-            {"nome": "Crucifixo invertido na máquina (posterior)", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Posterior", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Sente-se de frente para a máquina, segure as alças e empurre para trás, trabalhando o deltoide posterior."},
-            {"nome": "Face pull com corda", "grupoMuscular": "Ombro", "porcaoMuscular": "Deltoide Posterior", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Segure a corda da polia alta e puxe em direção ao rosto, abrindo os cotovelos para os lados."},
+            // QUADRÍCEPS (10)
+            {"nome": "Agachamento livre com barra", "grupoMuscular": "Quadríceps", "subGrupo": "Completo", "estilo": "Agachamento", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x8-10", "Avancado": "5x6-8"}, "descricao": "Com a barra nas costas, desça o quadril até que as coxas fiquem paralelas ao chão.", "alternativa": ["Agachamento no Smith (barra guiada)"]},
+            {"nome": "Agachamento no Smith (barra guiada)", "grupoMuscular": "Quadríceps", "subGrupo": "Completo", "estilo": "Agachamento", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Com a barra nas costas, desça o quadril, como se fosse sentar, até que as coxas fiquem paralelas ao chão.", "alternativa": ["Agachamento livre com barra"]},
+            {"nome": "Leg press 45°", "grupoMuscular": "Quadríceps", "subGrupo": "Completo", "estilo": "Leg press", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste a carga e empurre a plataforma com os pés.", "alternativa": ["Leg press horizontal"]},
+            {"nome": "Leg press horizontal", "grupoMuscular": "Quadríceps", "subGrupo": "Completo", "estilo": "Leg press", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste a carga e empurre a plataforma com os pés.", "alternativa": ["Leg press 45°"]},
+            {"nome": "Cadeira extensora", "grupoMuscular": "Quadríceps", "subGrupo": "Completo", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste o rolo nas canelas e estenda as pernas."},
+            {"nome": "Cadeira adutora", "grupoMuscular": "Quadríceps", "subGrupo": "Adutor", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste as almofadas nas coxas e junte as pernas."},
+            {"nome": "Avanço com halteres", "grupoMuscular": "Quadríceps", "subGrupo": "Completo", "estilo": "Lunge", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Com os halteres nas mãos, dê um passo a frente e desça o quadril até a coxa ficar paralela ao chão.", "alternativa": ["Avanço com barra"]},
+            {"nome": "Avanço com barra", "grupoMuscular": "Quadríceps", "subGrupo": "Completo", "estilo": "Lunge", "tipo": "composto", "dificuldade": ["Intermediante", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Com a barra nas costas, dê um passo a frente e desça o quadril até a coxa ficar paralela ao chão.", "alternativa": ["Avanço com halteres"]},
+            {"nome": "Afundo com halteres", "grupoMuscular": "Quadríceps", "subGrupo": "Completo", "estilo": "Lunge", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Com os halteres nas mãos, dê um passo para trás e desça o quadril até a coxa ficar paralela ao chão.", "alternativa": ["Afundo com barra"]},
+            {"nome": "Afundo com barra", "grupoMuscular": "Quadríceps", "subGrupo": "Completo", "estilo": "Lunge", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Com a barra nas costas, dê um passo para trás e desça o quadril até a coxa ficar paralela ao chão.", "alternativa": ["Afundo com halteres"]},
 
-            // TRAPÉZIO
-            {"nome": "Encolhimento com halteres", "grupoMuscular": "Trapézio", "porcaoMuscular": "Trapézio (porção superior)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Segure os halteres nas laterais do corpo e encolha os ombros, elevando-os em direção às orelhas."},
-            {"nome": "Encolhimento com barra reta", "grupoMuscular": "Trapézio", "porcaoMuscular": "Trapézio (porção superior)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Segure a barra reta à frente do corpo e encolha os ombros, elevando-os em direção às orelhas."},
-            {"nome": "Encolhimento com barra W", "grupoMuscular": "Trapézio", "porcaoMuscular": "Trapézio (porção superior)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Segure a barra W à frente do corpo e encolha os ombros, elevando-os em direção às orelhas."},
+            // POSTERIOR DE COXA (7)
+            {"nome": "Mesa flexora (deitado)", "grupoMuscular": "Posterior de Coxa", "estilo": "Flexão", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Deitado na máquina, prenda os tornozelos no rolo e flexione as pernas.", "alternativa": ["Cadeira flexora (sentado)", "Flexora em pé"]},
+            {"nome": "Cadeira flexora (sentado)", "grupoMuscular": "Posterior de Coxa", "estilo": "Flexão", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, prenda os tornozelos no rolo e flexione as pernas.", "alternativa": ["Mesa flexora (deitado)", "Flexora em pé"]},
+            {"nome": "Flexora em pé", "grupoMuscular": "Posterior de Coxa", "estilo": "Flexão", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique em pé na máquina, prenda um tornozelo no rolo e flexione a perna.", "alternativa": ["Mesa flexora (deitado)", "Cadeira flexora (sentado)"]},
+            {"nome": "Stiff com halteres", "grupoMuscular": "Posterior de Coxa", "estilo": "Extensão", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure os halteres, mantenha as pernas esticadas e desça o tronco.", "alternativa": ["Stiff com barra", "Stiff com barra no Smith"]},
+            {"nome": "Stiff com barra", "grupoMuscular": "Posterior de Coxa", "estilo": "Extensão", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure a barra, mantenha as pernas esticadas e desça o tronco.", "alternativa": ["Stiff com halteres", "Stiff com barra no Smith"]},
+            {"nome": "Stiff com barra no Smith", "grupoMuscular": "Posterior de Coxa", "estilo": "Extensão", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Com a barra nas costas, mantenha as pernas esticadas e desça o tronco.", "alternativa": ["Stiff com halteres", "Stiff com barra"]},
+            {"nome": "Levantamento terra com barra", "grupoMuscular": "Posterior de Coxa", "estilo": "Extensão", "tipo": "composto", "dificuldade": ["Avancado"], "sugerirRepeticoes": {"Iniciante": "3x8", "Intermediario": "4x6", "Avancado": "5x5"}, "descricao": "Segure a barra com as mãos, mantenha as costas retas e levante o peso usando a força das pernas e glúteos."},
 
-            // BÍCEPS
-            {"nome": "Rosca direta com barra reta", "grupoMuscular": "Bíceps", "porcaoMuscular": "Bíceps (cabeça longa)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure a barra com as mãos na largura dos ombros. Flexione os cotovelos para levantar a barra em direção ao peito."},
-            {"nome": "Rosca direta com barra W", "grupoMuscular": "Bíceps", "porcaoMuscular": "Bíceps (cabeça longa)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure a barra W com as mãos na pegada fechada. Flexione os cotovelos para levantar a barra em direção ao peito."},
-            {"nome": "Rosca alternada com halteres", "grupoMuscular": "Bíceps", "porcaoMuscular": "Bíceps (cabeça longa)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Fique em pé, segure os halteres e alterne os braços, levantando-os em direção aos ombros."},
-            {"nome": "Rosca Scott com barra reta", "grupoMuscular": "Bíceps", "porcaoMuscular": "Bíceps (cabeça curta)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure a barra reta e levante-a, contraindo o bíceps."},
-            {"nome": "Rosca Scott com barra W", "grupoMuscular": "Bíceps", "porcaoMuscular": "Bíceps (cabeça curta)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Apoie os braços no banco Scott, segure a barra W e levante-a, contraindo o bíceps."},
-            {"nome": "Rosca concentrada com halteres", "grupoMuscular": "Bíceps", "porcaoMuscular": "Bíceps (pico)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado, apoie o cotovelo na coxa e levante o halter, contraindo o bíceps com foco."},
-            {"nome": "Rosca martelo com halteres", "grupoMuscular": "Bíceps", "porcaoMuscular": "Bíceps e Braquial", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Segure os halteres com as palmas das mãos voltadas uma para a outra e levante os braços."},
-            {"nome": "Rosca martelo com corda na polia baixa", "grupoMuscular": "Bíceps", "porcaoMuscular": "Bíceps e Braquial", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Fique de frente para a polia baixa, segure a corda e levante-a com as palmas das mãos voltadas uma para a outra."},
-            {"nome": "Rosca na polia baixa com barra reta", "grupoMuscular": "Bíceps", "porcaoMuscular": "Bíceps (cabeça longa)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia baixa, segure a barra reta e levante-a em direção aos ombros."},
-            {"nome": "Rosca na polia baixa com barra W", "grupoMuscular": "Bíceps", "porcaoMuscular": "Bíceps (cabeça curta)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12-15", "Intermediario": "4x12", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia baixa, segure a barra W e levante-a em direção aos ombros."},
+            // GLÚTEO (11)
+            {"nome": "Agachamento búlgaro", "grupoMuscular": "Glúteo", "estilo": "Agachamento", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Com um pé elevado em um banco e os halteres nas mãos, desça o quadril."},
+            {"nome": "Agachamento sumô com halteres", "grupoMuscular": "Glúteo", "estilo": "Agachamento", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Com os pés afastados, agache segurando um halter, focando a contração nos glúteos.", "alternativa": ["Agachamento sumô com barra"]},
+            {"nome": "Agachamento sumô com barra", "grupoMuscular": "Glúteo", "estilo": "Agachamento", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Com os pés afastados, agache segurando a barra, focando a contração nos glúteos.", "alternativa": ["Agachamento sumô com halteres"]},
+            {"nome": "Cadeira abdutora", "grupoMuscular": "Glúteo", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste as almofadas nas coxas e abra as pernas.", "alternativa": ["Cadeira abdutora com tronco inclinado"]},
+            {"nome": "Cadeira abdutora com tronco inclinado", "grupoMuscular": "Glúteo", "estilo": "Isolador", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste as almofadas nas coxas, incline o tronco para frente e abra as pernas.", "alternativa": ["Cadeira abdutora"]},
+            {"nome": "Elevação pélvica com barra", "grupoMuscular": "Glúteo", "estilo": "Elevação Pélvica", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "5x8-10"}, "descricao": "Com as costas apoiadas em um banco e a barra sobre o quadril, levante o quadril.", "alternativa": ["Elevação pélvica com halteres", "Elevação pélvica na máquina"]},
+            {"nome": "Elevação pélvica com halteres", "grupoMuscular": "Glúteo", "estilo": "Elevação Pélvica", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Com as costas apoiadas em um banco e o halter sobre o quadril, levante o quadril.", "alternativa": ["Elevação pélvica com barra", "Elevação pélvica na máquina"]},
+            {"nome": "Elevação pélvica na máquina", "grupoMuscular": "Glúteo", "estilo": "Elevação Pélvica", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Com as costas apoiadas em um banco e a barra do smith sobre o quadril, levante o quadril.", "alternativa": ["Elevação pélvica com barra", "Elevação pélvica com halteres"]},
+            {"nome": "Recuo na polia baixa", "grupoMuscular": "Glúteo", "estilo": "Extensão de quadril", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia, prenda a alça no tornozelo e estenda a perna para trás."},
+            {"nome": "Recuo com halteres", "grupoMuscular": "Glúteo", "estilo": "Extensão de quadril", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Com os halteres nas mãos, dê um passo para trás e desça o quadril.", "alternativa": ["Recuo com barra"]},
+            {"nome": "Levantamento terra sumô com barra", "grupoMuscular": "Glúteo", "estilo": "Extensão", "tipo": "composto", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Com os pés afastados, segure a barra e levante-a, mantendo as costas retas, focando no glúteo e posterior de coxa."},
 
-            // TRÍCEPS
-            {"nome": "Tríceps testa com barra reta", "grupoMuscular": "Tríceps", "porcaoMuscular": "Tríceps (cabeça longa)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "5x8-10"}, "descricao": "Deitado, estenda a barra acima da cabeça e flexione os cotovelos, levando-a em direção à testa."},
-            {"nome": "Tríceps francês com halteres", "grupoMuscular": "Tríceps", "porcaoMuscular": "Tríceps (cabeça longa)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado ou em pé, segure o halter atrás da cabeça e estenda o braço para cima."},
-            {"nome": "Tríceps francês com barra W", "grupoMuscular": "Tríceps", "porcaoMuscular": "Tríceps (cabeça longa)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Sentado ou em pé, segure a barra W atrás da cabeça e estenda os braços para cima."},
+            // PANTURRILHA (5)
+            {"nome": "Elevação de gêmeos em pé (com halteres)", "grupoMuscular": "Panturrilha", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Fique em pé e eleve o corpo usando a força das panturrilhas, fazendo uma pausa no ponto mais alto.", "alternativa": ["Elevação de gêmeos em pé no Smith", "Elevação de gêmeos em degrau"]},
+            {"nome": "Elevação de gêmeos em pé no Smith", "grupoMuscular": "Panturrilha", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Apoie os ombros na máquina e eleve o corpo usando a força das panturrilhas.", "alternativa": ["Elevação de gêmeos em pé (com halteres)", "Elevação de gêmeos em degrau"]},
+            {"nome": "Elevação de gêmeos sentado na máquina", "grupoMuscular": "Panturrilha", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Sente-se na máquina, ajuste a carga e eleve o corpo usando a força das panturrilhas."},
+            {"nome": "Elevação de gêmeos no leg press", "grupoMuscular": "Panturrilha", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Sente-se na máquina, ajuste a carga e eleve o corpo usando a força das panturrilhas."},
+            {"nome": "Elevação de gêmeos em degrau", "grupoMuscular": "Panturrilha", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Fique com a ponta dos pés em um degrau e eleve o corpo usando a força das panturrilhas.", "alternativa": ["Elevação de gêmeos em pé (com halteres)", "Elevação de gêmeos em pé no Smith"]},
 
-            {"nome": "Tríceps corda na polia alta", "grupoMuscular": "Tríceps", "porcaoMuscular": "Tríceps (cabeça lateral)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia alta, segure a corda e empurre para baixo, abrindo as mãos no final do movimento."},
-            {"nome": "Tríceps unilateral na polia", "grupoMuscular": "Tríceps", "porcaoMuscular": "Tríceps (cabeça lateral)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Fique de frente para a polia alta, segure a alça com uma mão e empurre para baixo, com o cotovelo fixo."},
-            {"nome": "Tríceps banco (mergulho)", "grupoMuscular": "Tríceps", "porcaoMuscular": "Tríceps (cabeça lateral)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x10-12", "Intermediario": "4x12-15", "Avancado": "4x15+"}, "descricao": "Apoie as mãos em um banco e o corpo no ar. Abaixe e suba o corpo, flexionando e estendendo os cotovelos."},
-            
-            {"nome": "Tríceps coice com halteres", "grupoMuscular": "Tríceps", "porcaoMuscular": "Tríceps (cabeça medial)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Com o tronco inclinado, estenda o braço para trás, contraindo o tríceps no topo."},
-            {"nome": "Tríceps barra reta na polia alta", "grupoMuscular": "Tríceps", "porcaoMuscular": "Tríceps (cabeça medial)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Fique de frente para a polia alta, segure a barra reta e empurre para baixo com os cotovelos fixos."},
+            // ANTEBRAÇO (5)
+            {"nome": "Rosca inversa com barra reta", "grupoMuscular": "Antebraço", "estilo": "Extensão de punho", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Sentado, apoie os antebraços na coxa, segure a barra reta com a palma da mão para baixo e flexione os punhos para cima.", "alternativa": ["Rosca inversa com barra W", "Rosca inversa com halteres"]},
+            {"nome": "Rosca inversa com barra W", "grupoMuscular": "Antebraço", "estilo": "Extensão de punho", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Sentado, apoie os antebraços na coxa, segure a barra W com a palma da mão para baixo e flexione os punhos para cima.", "alternativa": ["Rosca inversa com barra reta", "Rosca inversa com halteres"]},
+            {"nome": "Rosca inversa com halteres", "grupoMuscular": "Antebraço", "estilo": "Extensão de punho", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Sentado, apoie os antebraços na coxa, segure os halteres com a palma da mão para baixo e flexione os punhos para cima.", "alternativa": ["Rosca inversa com barra reta", "Rosca inversa com barra W"]},
+            {"nome": "Rosca punho (wrist curl) com barra", "grupoMuscular": "Antebraço", "estilo": "Flexão de punho", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Sentado, apoie os antebraços na coxa, segure a barra reta e flexione os punhos para cima.", "alternativa": ["Rosca punho com halteres"]},
+            {"nome": "Rosca punho com halteres", "grupoMuscular": "Antebraço", "estilo": "Flexão de punho", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Sentado, apoie os antebraços na coxa, segure os halteres e flexione os punhos para cima.", "alternativa": ["Rosca punho (wrist curl) com barra"]},
 
-            // QUADRÍCEPS
-            {"nome": "Agachamento livre com barra reta", "grupoMuscular": "Quadríceps", "porcaoMuscular": "Quadríceps Geral", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x8-10", "Avancado": "5x6-8"}, "descricao": "Com a barra nas costas, desça o quadril, como se fosse sentar, até que as coxas fiquem paralelas ao chão."},
-            {"nome": "Agachamento guiado no smith", "grupoMuscular": "Quadríceps", "porcaoMuscular": "Quadríceps Geral", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Com a barra no smith, desça o quadril, como se fosse sentar, até que as coxas fiquem paralelas ao chão."},
-            {"nome": "Leg press 45°", "grupoMuscular": "Quadríceps", "porcaoMuscular": "Quadríceps Geral", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste a carga e empurre a plataforma com os pés."},
-            {"nome": "Avanço com halteres", "grupoMuscular": "Quadríceps", "porcaoMuscular": "Quadríceps Geral", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8"}, "descricao": "Segure os halteres, dê um passo para frente e agache, mantendo o tronco reto."},
-
-            {"nome": "Cadeira extensora", "grupoMuscular": "Quadríceps", "porcaoMuscular": "Quadríceps (isolador)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste o rolo nas canelas e estenda as pernas, contraindo o quadríceps."},
-            {"nome": "Passada com halteres", "grupoMuscular": "Quadríceps", "porcaoMuscular": "Quadríceps (isolador)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12 (cada perna)", "Intermediario": "4x10-12 (cada perna)", "Avancado": "4x8-10 (cada perna)"}, "descricao": "Segure os halteres, dê um passo longo para frente e agache, como se estivesse caminhando."},
-
-            // POSTERIOR DE COXA
-            {"nome": "Mesa flexora deitada", "grupoMuscular": "Posterior de Coxa", "porcaoMuscular": "Posterior de Coxa (isolador)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Deite na máquina, prenda os tornozelos no rolo e flexione as pernas."},
-            {"nome": "Mesa flexora sentada", "grupoMuscular": "Posterior de Coxa", "porcaoMuscular": "Posterior de Coxa (isolador)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Sente-se na máquina, ajuste o rolo nos tornozelos e flexione as pernas."},
-            {"nome": "Mesa flexora em pé unilateral", "grupoMuscular": "Posterior de Coxa", "porcaoMuscular": "Posterior de Coxa (isolador)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Em pé na máquina, flexione uma perna de cada vez, contraindo o posterior de coxa."},
-
-            {"nome": "Stiff com barra reta", "grupoMuscular": "Posterior de Coxa", "porcaoMuscular": "Posterior de Coxa e Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure a barra reta, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
-            {"nome": "Stiff com halteres", "grupoMuscular": "Posterior de Coxa", "porcaoMuscular": "Posterior de Coxa e Glúteos", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Segure os halteres, mantenha as pernas esticadas e desça o tronco, sentindo o alongamento no posterior de coxa e glúteos."},
-            {"nome": "Good morning com barra reta", "grupoMuscular": "Posterior de Coxa", "porcaoMuscular": "Posterior de Coxa e Glúteos", "dificuldade": ["Avancado"], "sugerirRepeticoes": {"Iniciante": "3x10", "Intermediario": "4x10", "Avancado": "4x8-10"}, "descricao": "Com a barra nas costas, incline o tronco para frente, mantendo as pernas esticadas, e retorne."},
-            
-            // GLÚTEOS
-            {"nome": "Elevação pélvica com barra reta", "grupoMuscular": "Glúteos", "porcaoMuscular": "Glúteos (isolador)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "5x8-10"}, "descricao": "Com as costas apoiadas em um banco e a barra sobre o quadril, levante o quadril."},
-            {"nome": "Elevação pélvica com halteres", "grupoMuscular": "Glúteos", "porcaoMuscular": "Glúteos (isolador)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Com as costas apoiadas em um banco e o halter sobre o quadril, levante o quadril."},
-            {"nome": "Elevação pélvica no smith", "grupoMuscular": "Glúteos", "porcaoMuscular": "Glúteos (isolador)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Com as costas apoiadas em um banco e a barra do smith sobre o quadril, levante o quadril."},
-            {"nome": "Extensão de quadril na polia", "grupoMuscular": "Glúteos", "porcaoMuscular": "Glúteos (isolador)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Prenda a caneleira na polia baixa e empurre a perna para trás, contraindo o glúteo.", "sexo": "Feminino"},
-
-            {"nome": "Agachamento sumô com halteres", "grupoMuscular": "Glúteos", "porcaoMuscular": "Glúteos (composto)", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x10-12"}, "descricao": "Com os pés afastados, agache segurando um halter, focando a contração nos glúteos e quadríceps."},
-            {"nome": "Agachamento búlgaro com halteres", "grupoMuscular": "Glúteos", "porcaoMuscular": "Glúteos (composto)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Apoie um pé em um banco e agache com a perna da frente, segurando os halteres."},
-            {"nome": "Avanço com ênfase em glúteo", "grupoMuscular": "Glúteos", "porcaoMuscular": "Glúteos (composto)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Dê um passo bem longo à frente com o tronco reto, descendo o quadril e focando a força no glúteo da perna que está à frente."},
-            {"nome": "Stiff com ênfase no glúteo", "grupoMuscular": "Glúteos", "porcaoMuscular": "Glúteos (composto)", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x10-12", "Avancado": "4x8-10"}, "descricao": "Segure a barra ou halteres e desça o tronco, mantendo os joelhos levemente flexionados, focando no alongamento do glúteo."},
-
-            // PANTURRILHA
-            {"nome": "Elevação plantar em pé na máquina", "grupoMuscular": "Panturrilha", "porcaoMuscular": "Panturrilha", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Apoie os ombros na máquina e eleve o corpo usando a força das panturrilhas, fazendo uma pausa no ponto mais alto."},
-            {"nome": "Elevação plantar sentado na máquina", "grupoMuscular": "Panturrilha", "porcaoMuscular": "Panturrilha", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15-20", "Avancado": "4x15"}, "descricao": "Sente-se na máquina, coloque a parte da frente dos pés na plataforma e eleve o corpo."},
-            {"nome": "Elevação plantar no leg press", "grupoMuscular": "Panturrilha", "porcaoMuscular": "Panturrilha", "dificuldade": ["Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x15-20", "Avancado": "4x12-15"}, "descricao": "Sente-se na máquina de Leg Press, coloque a parte da frente dos pés na plataforma e empurre, contraindo as panturrilhas."},
-            
-            // ANTEBRAÇO
-            {"nome": "Rosca punho com barra reta", "grupoMuscular": "Antebraço", "porcaoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12-15"}, "descricao": "Sente-se, apoie os antebraços nas coxas, segure a barra e flexione os punhos para cima."},
-            {"nome": "Rosca reversa com barra reta", "grupoMuscular": "Antebraço", "porcaoMuscular": "Antebraço", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12", "Avancado": "4x10"}, "descricao": "Segure a barra com a palma das mãos virada para baixo e levante-a flexionando os cotovelos, ativando os antebraços."},
-
-            // FORTALECIMENTO (para preenchimento)
-            {"nome": "Abdominal (tradicional)", "grupoMuscular": "Core", "porcaoMuscular": "Abdominal", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x20", "Avancado": "4x25+"}, "descricao": "Deite de costas, joelhos flexionados, mãos atrás da cabeça e suba o tronco em direção aos joelhos."},
-            {"nome": "Prancha", "grupoMuscular": "Core", "porcaoMuscular": "Abdominal", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x30s", "Intermediario": "4x45s", "Avancado": "4x60s+"}, "descricao": "Apoie-se nos antebraços e pontas dos pés, mantendo o corpo reto como uma prancha."},
-            {"nome": "Elevação de pernas (abdominal)", "grupoMuscular": "Core", "porcaoMuscular": "Abdominal", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x15", "Avancado": "4x20"}, "descricao": "Deite de costas, levante as pernas esticadas e desça-as lentamente sem tocar o chão."},
+            // CORE (3)
+            {"nome": "Abdominal (tradicional)", "grupoMuscular": "Core", "estilo": "Flexão", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x20", "Avancado": "4x25+"}, "descricao": "Deite de costas, joelhos flexionados, mãos atrás da cabeça e suba o tronco em direção aos joelhos."},
+            {"nome": "Prancha", "grupoMuscular": "Core", "estilo": "Isometria", "tipo": "composto", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x30s", "Intermediario": "4x45s", "Avancado": "4x60s+"}, "descricao": "Apoie-se nos antebraços e pontas dos pés, mantendo o corpo reto como uma prancha."},
+            {"nome": "Elevação de pernas (abdominal)", "grupoMuscular": "Core", "estilo": "Flexão", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x12", "Intermediario": "4x15", "Avancado": "4x20"}, "descricao": "Deite de costas, levante as pernas esticadas e desça-as lentamente sem tocar o chão."},
         ];
 
-        const DESCRICOES_TECNICAS_AVANCADAS = {
-            "drop set": { titulo: "DROP SET", texto: "Realize uma série até a falha muscular. Em seguida, reduza a carga em 20-30% e continue as repetições até a próxima falha. Repita este processo de 2 a 3 vezes, sem descanso entre as reduções de peso." },
-            "bi-set": { titulo: "BI-SET", texto: "Execute dois exercícios consecutivos para o mesmo grupo muscular, sem descanso entre eles. O descanso de 30-60 segundos é feito somente após a conclusão da segunda série." },
-            "rest-pause": { titulo: "REST-PAUSE", texto: "Faça o máximo de repetições que conseguir. Ao atingir a falha, descanse por 10 a 15 segundos e faça o máximo de repetições novamente com a mesma carga. Repita este processo até completar o número de séries." },
-            "superset": { titulo: "SUPERSET", texto: "Realize dois exercícios consecutivos para grupos musculares opostos (antagonistas) sem descanso. Exemplo: Rosca direta (bíceps) seguida de Tríceps corda (tríceps)." },
-            "pré-exaustão": { titulo: "PRÉ-EXAUSTÃO", texto: "Execute um exercício isolador para um músculo até a falha. Imediatamente após, faça um exercício composto que trabalhe o mesmo músculo. Exemplo: Cadeira extensora (quadríceps) seguida de Leg press." },
-            "giant set": { titulo: "GIANT SET", texto: "Consiste em realizar três ou mais exercícios consecutivos para o mesmo grupo muscular, sem descanso entre eles. É uma técnica de altíssima intensidade para maximizar a exaustão muscular." }
-        };
-
-        const EXERCICIOS_ISOLADORES = {
-            "Peito": ["Crucifixo na máquina peck deck", "Crucifixo reto com halteres"],
-            "Costas": ["Pullover com halteres", "Pullover na polia alta com corda"],
-            "Ombro": ["Elevação lateral com halteres", "Crucifixo invertido na máquina (posterior)"],
-            "Quadríceps": ["Cadeira extensora"],
-            "Posterior de Coxa": ["Mesa flexora deitada", "Mesa flexora sentada"],
-            "Bíceps": ["Rosca concentrada com halteres", "Rosca Scott com barra W"],
-            "Tríceps": ["Tríceps coice com halteres", "Tríceps unilateral na polia"],
-            "Glúteos": ["Elevação pélvica com barra reta", "Extensão de quadril na polia"]
-        };
-        
-        const EXERCICIOS_COMPOSTOS = {
-            "Peito": ["Supino reto com barra reta", "Supino inclinado com halteres"],
-            "Costas": ["Puxada na polia alta com barra reta – pegada aberta", "Remada curvada com barra reta"],
-            "Ombro": ["Desenvolvimento com halteres (sentado)", "Desenvolvimento com barra reta (sentado)"],
-            "Quadríceps": ["Agachamento livre com barra reta", "Leg press 45°"],
-            "Posterior de Coxa": ["Stiff com barra reta", "Stiff com halteres"],
-            "Bíceps": ["Rosca direta com barra reta", "Rosca direta com halteres"],
-            "Tríceps": ["Tríceps testa com barra reta", "Tríceps barra reta na polia alta"],
-            "Glúteos": ["Agachamento sumô com halteres", "Avanço com ênfase em glúteo"]
-        };
-        
         const DICAS = [
             { titulo: "1. Alimentação e Hidratação", texto: "Consuma proteínas suficientes para a recuperação muscular e carboidratos para energia. Beba bastante água antes, durante e após o treino." },
             { titulo: "2. Descanso e Recuperação", texto: "Dormir de 7 a 9 horas por noite é crucial para a recuperação muscular e produção hormonal. O crescimento acontece durante o descanso, não apenas no treino." },
@@ -459,31 +433,123 @@
             { titulo: "4. Execução e Conexão Mente-Músculo", texto: "Priorize a técnica perfeita em cada exercício. Sinta o músculo alvo contraindo e alongando para maximizar o estímulo." }
         ];
 
+        const DESCRICOES_TECNICAS = {
+            "Drop set": "Após a falha muscular em uma série, reduza imediatamente a carga e continue o exercício até a nova falha. Pode ser feito várias vezes.",
+            "Rest-pause": "Faça uma série até a falha, descanse por um curto período (10-20 segundos), e continue com mais algumas repetições até a falha novamente. Repita 2-3 vezes.",
+            "Superset": "Execute dois exercícios consecutivos para o mesmo grupo muscular (biset) ou para grupos musculares opostos (agonista-antagonista) sem descanso entre eles. EX: Supino Reto + Crucifixo Reto.",
+            "Pré-Exaustão": "Realize um exercício isolador para o grupo muscular alvo até a falha, seguido imediatamente por um exercício composto que trabalhe o mesmo grupo. EX: Crucifixo Reto (isolador) + Supino Reto (composto).",
+            "Pirâmide crescente": "Comece com mais repetições e menos peso, e em cada série subsequente, aumente o peso e diminua as repetições.",
+            "Pirâmide decrescente": "Comece com menos repetições e mais peso, e em cada série subsequente, diminua o peso e aumente as repetições."
+        };
+        
+        const TECNICAS_DISPONIVEIS = [
+            "Superset", "Drop set", "Rest-pause", "Pré-Exaustão", "Pirâmide crescente", "Pirâmide decrescente"
+        ];
+        
+        const GRUPO_COMPOSICAO_EXERCICIOS = {
+            "Peito": ["Press", "Isolador"],
+            "Costas": ["Puxada Vertical", "Puxada Horizontal"],
+            "Ombro": ["Press", "Elevação", "Isolador"],
+            "Quadríceps": ["Agachamento", "Leg press", "Lunge", "Isolador"],
+            "Posterior de Coxa": ["Flexão", "Extensão"],
+            "Glúteo": ["Elevação Pélvica", "Agachamento", "Extensão", "Isolador"],
+            "Bíceps": ["Rosca", "Rosca Martelo", "Rosca Scott", "Rosca na Polia", "Isolador"],
+            "Tríceps": ["Extensão de braço"],
+            "Trapézio": ["Elevação", "Puxada"],
+            "Panturrilha": ["Elevação"],
+            "Antebraço": ["Flexão de punho", "Extensão de punho"],
+            "Core": ["Isometria", "Flexão"]
+        };
+
+
+        const LIMITES_TREINO_TOTAL = {
+            "Iniciante": { min: 4, max: 6 },
+            "Intermediario": { min: 6, max: 7 },
+            "Avancado": { min: 7, max: 8 }
+        };
+
+        const PESOS_GRUPOS = { 
+            1: 1.0, // Primeiro grupo principal
+            2: 0.8, // Segundo grupo
+            3: 0.5  // Terceiro e demais grupos
+        };
+
+        const GRUPOS_MUSCULARES_GRANDES = ["Peito", "Costas", "Quadríceps", "Glúteo", "Ombro"];
+
+        const LIMITES_ACESSORIOS = { // Máximo de exercícios para grupos musculares "acessórios"
+            "Panturrilha": 2,
+            "Trapézio": 2,
+            "Antebraço": 1,
+            "Core": 2
+        };
+
+        const GRUPOS_ANISTAS_ANTAGONISTAS = {
+            "Peito": "Costas",
+            "Costas": "Peito",
+            "Bíceps": "Tríceps",
+            "Tríceps": "Bíceps",
+            "Quadríceps": "Posterior de Coxa",
+            "Posterior de Coxa": "Quadríceps"
+        };
+        
+        const ESTILOS_COMPATIVEIS_SUPERSET = {
+            "Press": ["Isolador", "Press"],
+            "Puxada Vertical": ["Puxada Horizontal", "Isolador"],
+            "Puxada Horizontal": ["Puxada Vertical", "Isolador"],
+            "Agachamento": ["Isolador", "Lunge"],
+            "Elevação Pélvica": ["Extensão", "Agachamento", "Isolador"],
+            "Rosca": ["Isolador", "Rosca Martelo"],
+            "Extensão de braço": ["Isolador", "Extensão de braço"]
+        };
+
+
         let gruposDisponiveis = [...new Set(EXERCICIOS.map(ex => ex.grupoMuscular))].sort();
         let diaTreinoCount = 0;
 
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
+                [array[i], array[j]] = array[j];
             }
         }
         
-        function sortGruposMusculares(grupos) {
-            const ordemPredefinida = ["Peito", "Costas", "Ombro", "Glúteos", "Quadríceps", "Posterior de Coxa", "Bíceps", "Tríceps", "Panturrilha", "Antebraço", "Trapézio", "Core"];
-            return grupos.sort((a, b) => ordemPredefinida.indexOf(a) - ordemPredefinida.indexOf(b));
+        function sortGruposMuscularesParaSelecao(gruposSelecionados) {
+            // Remove 'Core' temporariamente para ordenação e o adiciona no final
+            const gruposSemCore = gruposSelecionados.filter(g => g !== "Core");
+            const corePresente = gruposSelecionados.includes("Core");
+
+            const sortedGrupos = gruposSemCore.sort((a, b) => {
+                const aGrande = GRUPOS_MUSCULARES_GRANDES.includes(a);
+                const bGrande = GRUPOS_MUSCULARES_GRANDES.includes(b);
+
+                if (aGrande && !bGrande) return -1; // A é grande, B não, A vem primeiro
+                if (!aGrande && bGrande) return 1;  // B é grande, A não, B vem primeiro
+                return 0; // Mantém a ordem original ou ordem alfabética se nenhum for grande
+            });
+
+            if (corePresente) {
+                sortedGrupos.push("Core"); // Core sempre por último
+            }
+            return sortedGrupos;
         }
-        
+
         function adicionarDiaTreino() {
             diaTreinoCount++;
             const diasDeTreinoContainer = document.getElementById('diasDeTreino');
             const diaTreinoDiv = document.createElement('div');
             diaTreinoDiv.classList.add('treino-dia');
             
-            const gruposParaCheckboxes = gruposDisponiveis.filter(g => g !== "Core").map(grupo => `
+            const gruposParaCheckboxes = gruposDisponiveis.map(grupo => `
                 <div class="checkbox-item">
                     <input type="checkbox" id="grupo_dia_${diaTreinoCount}_${grupo}" name="grupos_dia_${diaTreinoCount}" value="${grupo}">
                     <label for="grupo_dia_${diaTreinoCount}_${grupo}">${grupo}</label>
+                </div>
+            `).join('');
+            
+            const tecnicasParaCheckboxes = TECNICAS_DISPONIVEIS.map(tecnica => `
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tecnica_dia_${diaTreinoCount}_${tecnica.replace(/\s/g, '_')}" name="tecnicas_dia_${diaTreinoCount}" value="${tecnica}">
+                    <label for="tecnica_dia_${diaTreinoCount}_${tecnica.replace(/\s/g, '_')}">${tecnica}</label>
                 </div>
             `).join('');
 
@@ -492,170 +558,281 @@
                 <span class="remover" onclick="this.parentNode.remove()">x Remover</span>
                 <label for="nome_dia_${diaTreinoCount}">Nome do Treino (opcional):</label>
                 <input type="text" id="nome_dia_${diaTreinoCount}" name="nome_dia_${diaTreinoCount}" placeholder="Ex: Treino A">
-                <label>Grupos Musculares:</label>
+                <label>Grupos Musculares (selecione em ordem de prioridade):</label>
                 <div class="checkbox-group">
                     ${gruposParaCheckboxes}
                 </div>
-                <label>Técnicas Avançadas (Opcional):</label>
-                <div class="tecnicas-group">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="tecnica_dia_${diaTreinoCount}_drop-set" name="tecnicas_dia_${diaTreinoCount}" value="drop set">
-                        <label for="tecnica_dia_${diaTreinoCount}_drop-set">Drop Set</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="tecnica_dia_${diaTreinoCount}_bi-set" name="tecnicas_dia_${diaTreinoCount}" value="bi-set">
-                        <label for="tecnica_dia_${diaTreinoCount}_bi-set">Bi-set</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="tecnica_dia_${diaTreinoCount}_rest-pause" name="tecnicas_dia_${diaTreinoCount}" value="rest-pause">
-                        <label for="tecnica_dia_${diaTreinoCount}_rest-pause">Rest-pause</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="tecnica_dia_${diaTreinoCount}_superset" name="tecnicas_dia_${diaTreinoCount}" value="superset">
-                        <label for="tecnica_dia_${diaTreinoCount}_superset">Superset</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="tecnica_dia_${diaTreinoCount}_pre-exaustao" name="tecnicas_dia_${diaTreinoCount}" value="pré-exaustão">
-                        <label for="tecnica_dia_${diaTreinoCount}_pre-exaustao">Pré-exaustão</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="tecnica_dia_${diaTreinoCount}_giant-set" name="tecnicas_dia_${diaTreinoCount}" value="giant set">
-                        <label for="tecnica_dia_${diaTreinoCount}_giant-set">Giant set</label>
+                <div style="margin-top: 20px;">
+                    <label>Técnicas Avançadas (selecione as desejadas, máx. 2):</label>
+                    <div class="tecnicas-group">
+                        ${tecnicasParaCheckboxes}
                     </div>
                 </div>
             `;
             diasDeTreinoContainer.appendChild(diaTreinoDiv);
         }
         
-        function getOppositeMuscleGroup(grupo) {
-            const antagonistas = {
-                "Peito": "Costas",
-                "Costas": "Peito",
-                "Quadríceps": "Posterior de Coxa",
-                "Posterior de Coxa": "Quadríceps",
-                "Bíceps": "Tríceps",
-                "Tríceps": "Bíceps"
-            };
-            return antagonistas[grupo];
-        }
-
-        function getExerciciosParaGrupo(grupo, dificuldade, sexo, exerciciosJaUsadosNomes) {
+        function getExerciciosParaGrupo(grupo, dificuldade) {
             return EXERCICIOS.filter(ex => 
                 ex.grupoMuscular === grupo && 
-                ex.dificuldade.includes(dificuldade) &&
-                (!ex.sexo || ex.sexo === sexo) &&
-                !exerciciosJaUsadosNomes.has(ex.nome)
+                ex.dificuldade.includes(dificuldade)
             );
         }
-
-        function gerarTreinoAutomatico(dificuldade, grupos_musculares, sexo, tecnicas_avancadas) {
-            const numTotalExerciciosMap = {
-                "Iniciante": 5,
-                "Intermediario": 6,
-                "Avancado": 7
-            };
-            const numTotalExercicios = numTotalExerciciosMap[dificuldade];
-            
+        
+        function gerarTreinoAutomatico(dificuldade, grupos_musculares_selecionados, tecnicasSelecionadas) {
             let exerciciosSelecionados = [];
-            let exerciciosJaUsadosNomes = new Set();
-            let tecnicasDisponiveis = [...tecnicas_avancadas];
-            shuffleArray(tecnicasDisponiveis);
+            let exerciciosNomesUsados = new Set();
+            const limitesNivel = LIMITES_TREINO_TOTAL[dificuldade];
+            
+            let grupos_principais_sem_core = grupos_musculares_selecionados.filter(g => g !== "Core");
+            const core_selecionado = grupos_musculares_selecionados.includes("Core");
 
-            // Tenta aplicar as técnicas multi-exercícios primeiro
-            const tecnicasMultiExercicios = tecnicasDisponiveis.filter(t => ["superset", "pré-exaustão", "giant set"].includes(t));
-            tecnicasMultiExercicios.forEach(tecnica => {
-                if (exerciciosSelecionados.length >= numTotalExercicios) return;
+            // Reordena os grupos selecionados (sem o Core) para dar prioridade aos grandes
+            let grupos_musculares_ordenados = sortGruposMuscularesParaSelecao(grupos_principais_sem_core);
+            
+            // Define o número total de exercícios para o dia
+            let numTotalExercicios = Math.min(Math.max(grupos_musculares_ordenados.length * 2, limitesNivel.min), limitesNivel.max);
+            
+            // Calcula a soma dos pesos para normalização
+            const pesosAtivos = grupos_musculares_ordenados.map((_, index) => PESOS_GRUPOS[Math.min(index + 1, 3)] || PESOS_GRUPOS[3]);
+            const somaPesos = pesosAtivos.reduce((a, b) => a + b, 0);
+
+            // Calcula o número de exercícios para cada grupo com base nos pesos
+            const numExerciciosPorGrupo = {};
+            grupos_musculares_ordenados.forEach((grupo, index) => {
+                let num = Math.round((pesosAtivos[index] / somaPesos) * numTotalExercicios);
+                numExerciciosPorGrupo[grupo] = num > 0 ? num : 1; // Garante pelo menos 1
+            });
+            
+            // Corrige para o limite de exercícios para músculos pequenos (exceto Core, que é tratado separadamente)
+            grupos_musculares_ordenados.forEach(grupo => {
+                if (LIMITES_ACESSORIOS[grupo] && grupo !== "Core") {
+                    numExerciciosPorGrupo[grupo] = Math.min(numExerciciosPorGrupo[grupo], LIMITES_ACESSORIOS[grupo]);
+                }
+            });
+
+            // Reajusta o total se necessário após os limites de acessórios
+            let somaAtual = Object.values(numExerciciosPorGrupo).reduce((a, b) => a + b, 0);
+            while (somaAtual > numTotalExercicios) {
+                const grupoMaior = Object.keys(numExerciciosPorGrupo).reduce((a, b) => numExerciciosPorGrupo[a] > numExerciciosPorGrupo[b] ? a : b);
+                if (numExerciciosPorGrupo[grupoMaior] > 1 && !LIMITES_ACESSORIOS[grupoMaior]) { // Só diminui se não for acessório e maior que 1
+                    numExerciciosPorGrupo[grupoMaior]--;
+                    somaAtual--;
+                } else { // Se não pode diminuir mais, pare
+                    break;
+                }
+            }
+            while (somaAtual < numTotalExercicios) {
+                const grupoMenor = Object.keys(numExerciciosPorGrupo).reduce((a, b) => numExerciciosPorGrupo[a] < numExerciciosPorGrupo[b] ? a : b);
+                if (!LIMITES_ACESSORIOS[grupoMenor] || numExerciciosPorGrupo[grupoMenor] < LIMITES_ACESSORIOS[grupoMenor]) { // Só aumenta se não atingiu o limite de acessório
+                    numExerciciosPorGrupo[grupoMenor]++;
+                    somaAtual++;
+                } else { // Se não pode aumentar mais, pegue outro grupo aleatório para aumentar
+                    const gruposParaAumentar = grupos_musculares_ordenados.filter(g => !LIMITES_ACESSORIOS[g] || numExerciciosPorGrupo[g] < LIMITES_ACESSORIOS[g]);
+                    if (gruposParaAumentar.length > 0) {
+                        numExerciciosPorGrupo[gruposParaAumentar[Math.floor(Math.random() * gruposParaAumentar.length)]]++;
+                        somaAtual++;
+                    } else {
+                        break; // Nenhum grupo pode ser aumentado
+                    }
+                }
+            }
+            
+            // Seleciona os exercícios para cada grupo
+            for (const grupo of grupos_musculares_ordenados) {
+                const numParaAdicionar = numExerciciosPorGrupo[grupo];
+                let exerciciosDoGrupo = getExerciciosParaGrupo(grupo, dificuldade);
                 
-                let grupo1, grupo2, ex1, ex2;
-                if (tecnica === "superset") {
-                    grupo1 = grupos_musculares.find(g => getOppositeMuscleGroup(g) && grupos_musculares.includes(getOppositeMuscleGroup(g)));
-                    if (grupo1 && exerciciosSelecionados.length <= numTotalExercicios - 2) {
-                        grupo2 = getOppositeMuscleGroup(grupo1);
-                        ex1 = EXERCICIOS.find(e => e.grupoMuscular === grupo1 && e.dificuldade.includes(dificuldade) && !exerciciosJaUsadosNomes.has(e.nome));
-                        ex2 = EXERCICIOS.find(e => e.grupoMuscular === grupo2 && e.dificuldade.includes(dificuldade) && !exerciciosJaUsadosNomes.has(e.nome));
-                        if (ex1 && ex2) {
-                            exerciciosSelecionados.push({ tipo: "superset", ex1: ex1, ex2: ex2 });
-                            exerciciosJaUsadosNomes.add(ex1.nome);
-                            exerciciosJaUsadosNomes.add(ex2.nome);
-                            tecnicasDisponiveis = tecnicasDisponiveis.filter(t => t !== tecnica);
-                        }
-                    }
-                } else if (tecnica === "pré-exaustão") {
-                    grupo1 = grupos_musculares.find(g => EXERCICIOS_ISOLADORES[g] && EXERCICIOS_COMPOSTOS[g]);
-                    if (grupo1 && exerciciosSelecionados.length <= numTotalExercicios - 2) {
-                         const isoladorNome = EXERCICIOS_ISOLADORES[grupo1][0];
-                         const compostoNome = EXERCICIOS_COMPOSTOS[grupo1][0];
-                         ex1 = EXERCICIOS.find(e => e.nome === isoladorNome && e.dificuldade.includes(dificuldade) && !exerciciosJaUsadosNomes.has(e.nome));
-                         ex2 = EXERCICIOS.find(e => e.nome === compostoNome && e.dificuldade.includes(dificuldade) && !exerciciosJaUsadosNomes.has(e.nome));
-                         if (ex1 && ex2) {
-                             exerciciosSelecionados.push({ tipo: "pré-exaustão", ex1: ex1, ex2: ex2 });
-                             exerciciosJaUsadosNomes.add(ex1.nome);
-                             exerciciosJaUsadosNomes.add(ex2.nome);
-                             tecnicasDisponiveis = tecnicasDisponiveis.filter(t => t !== tecnica);
-                         }
-                    }
-                } else if (tecnica === "giant set") {
-                    grupo1 = grupos_musculares.find(g => EXERCICIOS.filter(e => e.grupoMuscular === g && e.dificuldade.includes(dificuldade)).length >= 3);
-                    if (grupo1 && exerciciosSelecionados.length <= numTotalExercicios - 3) {
-                        const exs = EXERCICIOS.filter(e => e.grupoMuscular === grupo1 && e.dificuldade.includes(dificuldade) && !exerciciosJaUsadosNomes.has(e.nome));
-                        shuffleArray(exs);
-                        if (exs.length >= 3) {
-                            const set = [exs[0], exs[1], exs[2]];
-                            exerciciosSelecionados.push({ tipo: "giant set", exercicios: set });
-                            set.forEach(e => exerciciosJaUsadosNomes.add(e.nome));
-                            tecnicasDisponiveis = tecnicasDisponiveis.filter(t => t !== tecnica);
+                // Filtra exercícios que já estão na lista de exercícios selecionados
+                let exerciciosDisponiveis = exerciciosDoGrupo.filter(ex => !exerciciosNomesUsados.has(ex.nome));
+
+                // Organiza os exercícios por estilo para uma progressão lógica
+                const estilosDoGrupo = GRUPO_COMPOSICAO_EXERCICIOS[grupo] || [];
+                let tempExerciciosAdicionados = [];
+
+                for (const estilo of estilosDoGrupo) {
+                    const exerciciosDoEstilo = exerciciosDisponiveis.filter(ex => ex.estilo === estilo);
+                    shuffleArray(exerciciosDoEstilo);
+
+                    while (tempExerciciosAdicionados.length < numParaAdicionar && exerciciosDoEstilo.length > 0) {
+                        const exercicio = exerciciosDoEstilo.shift();
+                        // Evita alternativas já adicionadas
+                        if (!exercicio.alternativa || !exercicio.alternativa.some(alt => exerciciosNomesUsados.has(alt))) {
+                            tempExerciciosAdicionados.push(exercicio);
+                            exerciciosNomesUsados.add(exercicio.nome);
                         }
                     }
                 }
-            });
-
-            // Adiciona exercícios simples, priorizando a distribuição equitativa entre os grupos
-            const gruposPrioridade = sortGruposMusculares([...grupos_musculares]);
-            
-            while (exerciciosSelecionados.length < numTotalExercicios) {
-                let exercicioAdicionado = false;
-                for (const grupo of gruposPrioridade) {
-                    if (exerciciosSelecionados.length >= numTotalExercicios) break;
-
-                    const exerciciosDisponiveis = getExerciciosParaGrupo(grupo, dificuldade, sexo, exerciciosJaUsadosNomes);
-                    
-                    if (exerciciosDisponiveis.length > 0) {
-                        const exercicio = exerciciosDisponiveis[Math.floor(Math.random() * exerciciosDisponiveis.length)];
-                        
-                        let tecnicaSimples = tecnicasDisponiveis.find(t => !["superset", "pré-exaustão", "giant set"].includes(t));
-                        if (tecnicaSimples) {
-                            exercicio.tecnicaAvancada = tecnicaSimples;
-                            tecnicasDisponiveis = tecnicasDisponiveis.filter(t => t !== tecnicaSimples);
+                
+                // Se ainda faltam exercícios, adicione os restantes de forma aleatória, respeitando alternativas
+                let restantes = exerciciosDisponiveis.filter(ex => !exerciciosNomesUsados.has(ex.nome));
+                shuffleArray(restantes);
+                while (tempExerciciosAdicionados.length < numParaAdicionar && restantes.length > 0) {
+                     const exercicio = restantes.shift();
+                      if (!exercicio.alternativa || !exercicio.alternativa.some(alt => exerciciosNomesUsados.has(alt))) {
+                            tempExerciciosAdicionados.push(exercicio);
+                            exerciciosNomesUsados.add(exercicio.nome);
                         }
-
-                        exerciciosSelecionados.push(exercicio);
-                        exerciciosJaUsadosNomes.add(exercicio.nome);
-                        exercicioAdicionado = true;
-                    }
                 }
-                if (!exercicioAdicionado) break; // Se não houver mais exercícios para nenhum grupo, sai do loop
-            }
-
-            // Se ainda faltarem exercícios, adiciona fortalecimento de core
-            const coreExercicios = getExerciciosParaGrupo("Core", dificuldade, sexo, exerciciosJaUsadosNomes);
-            shuffleArray(coreExercicios);
-
-            while (exerciciosSelecionados.length < numTotalExercicios && coreExercicios.length > 0) {
-                const exercicio = coreExercicios.shift();
-                exerciciosSelecionados.push(exercicio);
-                exerciciosJaUsadosNomes.add(exercicio.nome);
+                
+                exerciciosSelecionados = exerciciosSelecionados.concat(tempExerciciosAdicionados);
             }
             
-            // Re-ordena os exercícios com base na ordem dos grupos musculares
-            exerciciosSelecionados.sort((a, b) => {
-                let grupoA = a.grupoMuscular || a.exercicios[0].grupoMuscular || a.ex1.grupoMuscular;
-                let grupoB = b.grupoMuscular || b.exercicios[0].grupoMuscular || b.ex1.grupoMuscular;
-                const ordemPredefinida = ["Peito", "Costas", "Ombro", "Glúteos", "Quadríceps", "Posterior de Coxa", "Bíceps", "Tríceps", "Panturrilha", "Antebraço", "Trapézio", "Core"];
-                return ordemPredefinida.indexOf(grupoA) - ordemPredefinida.indexOf(grupoB);
+            // Adiciona exercícios de Core por último se selecionado
+            if (core_selecionado) {
+                const numCore = LIMITES_ACESSORIOS["Core"];
+                let exerciciosCore = getExerciciosParaGrupo("Core", dificuldade);
+                shuffleArray(exerciciosCore);
+                exerciciosSelecionados = exerciciosSelecionados.concat(exerciciosCore.slice(0, numCore));
+            }
+
+            // Aplica técnicas avançadas (opcional)
+            if (tecnicasSelecionadas && tecnicasSelecionadas.length > 0) {
+                aplicarTecnicasAvancadas(exerciciosSelecionados, dificuldade, tecnicasSelecionadas);
+            }
+
+            // Garante que o Core esteja no final
+            const treinoPrincipal = exerciciosSelecionados.filter(ex => ex.grupoMuscular !== "Core");
+            const treinoCore = exerciciosSelecionados.filter(ex => ex.grupoMuscular === "Core");
+
+            treinoPrincipal.sort((a, b) => {
+                const ordemA = grupos_musculares_ordenados.indexOf(a.grupoMuscular);
+                const ordemB = grupos_musculares_ordenados.indexOf(b.grupoMuscular);
+                
+                if (ordemA !== ordemB) {
+                    return ordemA - ordemB;
+                }
+
+                const estiloOrdemA = (GRUPO_COMPOSICAO_EXERCICIOS[a.grupoMuscular] || []).indexOf(a.estilo);
+                const estiloOrdemB = (GRUPO_COMPOSICAO_EXERCICIOS[b.grupoMuscular] || []).indexOf(b.estilo);
+                return estiloOrdemA - estiloOrdemB;
             });
             
-            return exerciciosSelecionados;
+            return treinoPrincipal.concat(treinoCore); // Core sempre no final
         }
+
+        function aplicarTecnicasAvancadas(treino, dificuldade, tecnicasDesejadas) {
+            let exerciciosComTecnicas = 0;
+            const MAX_TECNICAS_POR_TREINO = 2;
+            
+            // Embaralha uma cópia do treino para seleção aleatória de exercícios
+            const treinoParaTecnicas = [...treino].filter(ex => ex.grupoMuscular !== "Core" && !ex.tecnica);
+            shuffleArray(treinoParaTecnicas);
+
+            for (const tecnica of tecnicasDesejadas) {
+                if (exerciciosComTecnicas >= MAX_TECNICAS_POR_TREINO) break;
+
+                if (tecnica === "Superset") {
+                    let supersetAplicado = false;
+                    for (let i = 0; i < treinoParaTecnicas.length; i++) {
+                        if (exerciciosComTecnicas >= MAX_TECNICAS_POR_TREINO) break;
+                        const ex1 = treinoParaTecnicas[i];
+                        if (ex1.tecnica) continue;
+
+                        const estiloCompativeis = ESTILOS_COMPATIVEIS_SUPERSET[ex1.estilo];
+                        if (!estiloCompativeis) continue;
+
+                        let ex2 = null;
+
+                        // 1. Mesmo grupo muscular (mas diferente estilo/subgrupo para complementar)
+                        const possiveisEx2MesmoGrupo = EXERCICIOS.filter(e => 
+                            e.grupoMuscular === ex1.grupoMuscular &&
+                            e.dificuldade.includes(dificuldade) &&
+                            e.nome !== ex1.nome &&
+                            !treino.some(t => t.nome === e.nome && t.tecnica) &&
+                            estiloCompativeis.includes(e.estilo)
+                        );
+                        shuffleArray(possiveisEx2MesmoGrupo);
+                        if (possiveisEx2MesmoGrupo.length > 0) {
+                            ex2 = possiveisEx2MesmoGrupo[0];
+                        }
+
+                        // 2. Grupo muscular antagonista
+                        if (!ex2 && GRUPOS_ANISTAS_ANTAGONISTAS[ex1.grupoMuscular]) {
+                            const grupoAntagonista = GRUPOS_ANISTAS_ANTAGONISTAS[ex1.grupoMuscular];
+                            const possiveisEx2Antagonista = EXERCICIOS.filter(e =>
+                                e.grupoMuscular === grupoAntagonista &&
+                                e.dificuldade.includes(dificuldade) &&
+                                !treino.some(t => t.nome === e.nome && t.tecnica) &&
+                                estiloCompativeis.includes(e.estilo)
+                            );
+                            shuffleArray(possiveisEx2Antagonista);
+                            if (possiveisEx2Antagonista.length > 0) {
+                                ex2 = possiveisEx2Antagonista[0];
+                            }
+                        }
+
+                        if (ex2) {
+                            const indexEx1 = treino.findIndex(e => e.nome === ex1.nome);
+                            if (indexEx1 !== -1) {
+                                treino[indexEx1].tecnica = "Superset";
+                                treino[indexEx1].supersetCom = {
+                                    nome: ex2.nome,
+                                    grupoMuscular: ex2.grupoMuscular,
+                                    sugerirRepeticoes: ex2.sugerirRepeticoes[dificuldade] || 'N/A'
+                                };
+                                exerciciosComTecnicas++;
+                                supersetAplicado = true;
+                                break; // Aplica um superset e passa para a próxima técnica ou sai
+                            }
+                        }
+                    }
+                    if (supersetAplicado) continue; // Se aplicou superset, já conta como 1 técnica e passa para a próxima da lista
+                } 
+                else if (tecnica === "Pré-Exaustão") {
+                    let preExaustaoAplicada = false;
+                    for (let i = 0; i < treinoParaTecnicas.length; i++) {
+                        if (exerciciosComTecnicas >= MAX_TECNICAS_POR_TREINO) break;
+
+                        const isolador = treinoParaTecnicas[i];
+                        if (isolador.tecnica || isolador.tipo !== "isolador" || isolador.grupoMuscular === "Core") continue;
+
+                        const composto = EXERCICIOS.find(e => 
+                            e.grupoMuscular === isolador.grupoMuscular &&
+                            e.tipo === "composto" &&
+                            e.dificuldade.includes(dificuldade) &&
+                            !treino.some(t => t.nome === e.nome && t.tecnica)
+                        );
+
+                        if (composto) {
+                            const indexIsolador = treino.findIndex(e => e.nome === isolador.nome);
+                            const indexComposto = treino.findIndex(e => e.nome === composto.nome);
+
+                            if (indexIsolador !== -1 && indexComposto === -1) { // Garante que o composto não esteja no treino ainda
+                                treino[indexIsolador].tecnica = "Pré-Exaustão";
+                                treino[indexIsolador].preExaustaoCom = {
+                                    nome: composto.nome,
+                                    grupoMuscular: composto.grupoMuscular,
+                                    sugerirRepeticoes: composto.sugerirRepeticoes[dificuldade] || 'N/A'
+                                };
+                                // Adiciona o composto logo após o isolador na lista de treino
+                                treino.splice(indexIsolador + 1, 0, composto); 
+                                exerciciosComTecnicas++;
+                                preExaustaoAplicada = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (preExaustaoAplicada) continue;
+                }
+                else { // Demais técnicas simples
+                    for (let i = 0; i < treinoParaTecnicas.length; i++) {
+                        if (exerciciosComTecnicas >= MAX_TECNICAS_POR_TREINO) break;
+
+                        const ex = treinoParaTecnicas[i];
+                        if (ex.tecnica || ex.grupoMuscular === "Core") continue; 
+
+                        const indexEx = treino.findIndex(e => e.nome === ex.nome);
+                        if (indexEx !== -1) {
+                            treino[indexEx].tecnica = tecnica;
+                            exerciciosComTecnicas++;
+                            break; 
+                        }
+                    }
+                }
+            }
+        }
+
 
         function calcularIMC(peso, altura) {
             const alturaMetros = altura / 100;
@@ -749,14 +926,6 @@
             doc.text(aquecimentoLinhas, margin, y);
             y += (aquecimentoLinhas.length * 8) + 12;
             
-            let tecnicasNoTreino = new Set();
-            treino_semanal.forEach(dia => {
-                dia.treino.forEach(item => {
-                    if (item.tipo) tecnicasNoTreino.add(item.tipo);
-                    if (item.tecnicaAvancada) tecnicasNoTreino.add(item.tecnicaAvancada);
-                });
-            });
-
             treino_semanal.forEach(dia => {
                 if (y > pageHeight - 60) {
                     doc.addPage();
@@ -779,45 +948,21 @@
                 let exercicioNum = 1;
                 dia.treino.forEach((item) => {
                     const descanso = { "Iniciante": "60-90s", "Intermediario": "60s", "Avancado": "30-60s" }[dados_gerais.dificuldade];
-                    let reps = "Não definido";
-                    let observacao = "";
-                    let exercicioNome = "";
-                    let descricaoCompleta = "";
-
-                    if (item.tipo === "bi-set") {
-                        reps = `${item.ex1.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'} | ${item.ex2.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'}`;
-                        observacao = "Bi-set";
-                        exercicioNome = `${item.ex1.nome} + ${item.ex2.nome}`;
-                        descricaoCompleta = `1) ${item.ex1.descricao}\n2) ${item.ex2.descricao}`;
-                    } else if (item.tipo === "superset") {
-                        reps = `${item.ex1.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'} | ${item.ex2.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'}`;
-                        observacao = "Superset";
-                        exercicioNome = `${item.ex1.nome} + ${item.ex2.nome}`;
-                        descricaoCompleta = `1) ${item.ex1.descricao}\n2) ${item.ex2.descricao}`;
-                    } else if (item.tipo === "pré-exaustão") {
-                        reps = `${item.ex1.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'} | ${item.ex2.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A'}`;
-                        observacao = "Pré-exaustão";
-                        exercicioNome = `${item.ex1.nome} + ${item.ex2.nome}`;
-                        descricaoCompleta = `1) Isolador: ${item.ex1.descricao}\n2) Composto: ${item.ex2.descricao}`;
-                    } else if (item.tipo === "giant set") {
-                        const repsText = item.exercicios.map(ex => ex.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A').join(' | ');
-                        reps = repsText;
-                        observacao = "Giant Set";
-                        exercicioNome = item.exercicios.map(ex => ex.nome).join(' + ');
-                        descricaoCompleta = item.exercicios.map((ex, i) => `${i+1}) ${ex.descricao}`).join('\n');
-                    } else {
-                        reps = item.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A';
-                        if (item.tecnicaAvancada) {
-                           observacao = item.tecnicaAvancada.charAt(0).toUpperCase() + item.tecnicaAvancada.slice(1);
-                        }
-                        exercicioNome = item.nome;
-                        descricaoCompleta = item.descricao;
-                    }
+                    const reps = item.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A';
                     
-                    bodyData.push([exercicioNum++, exercicioNome, reps, descanso, observacao]);
+                    let obs = '';
+                    if (item.tecnica === "Superset" && item.supersetCom) {
+                        obs = `Técnica: Superset com ${item.supersetCom.nome} (${item.supersetCom.sugerirRepeticoes}) `;
+                    } else if (item.tecnica === "Pré-Exaustão" && item.preExaustaoCom) {
+                        obs = `Técnica: Pré-Exaustão com ${item.preExaustaoCom.nome} (${item.preExaustaoCom.sugerirRepeticoes})`;
+                    } else if (item.tecnica) {
+                        obs = `Técnica: ${item.tecnica}`;
+                    }
+
+                    bodyData.push([exercicioNum++, item.nome, reps, descanso, obs]);
                     
                     if (incluir_descricao) {
-                        bodyData.push([{ content: `Descrição: ${descricaoCompleta}`, colSpan: 5, styles: { fontSize: 10, fontStyle: 'italic' } }]);
+                        bodyData.push([{ content: `Descrição: ${item.descricao}`, colSpan: 5, styles: { fontSize: 10, fontStyle: 'italic' } }]);
                     }
                 });
 
@@ -841,41 +986,7 @@
                 y = doc.lastAutoTable.finalY + 10;
             });
             
-            if (tecnicasNoTreino.size > 0) {
-                if (y > pageHeight - 40) {
-                    doc.addPage();
-                    y = 15;
-                }
-                doc.setFontSize(18);
-                doc.setFont("helvetica", "bold");
-                doc.setTextColor(30, 58, 95);
-                doc.text("Técnicas Avançadas Utilizadas", margin, y);
-                doc.line(margin, y + 2, pageWidth - margin, y + 2);
-                y += 10;
-
-                const tecnicasBody = Array.from(tecnicasNoTreino).map(t => {
-                    const info = DESCRICOES_TECNICAS_AVANCADAS[t];
-                    return [info.titulo, info.texto];
-                });
-                
-                doc.autoTable({
-                    startY: y,
-                    head: [['Técnica', 'Descrição']],
-                    body: tecnicasBody,
-                    theme: 'striped',
-                    headStyles: { fillColor: [30, 58, 95], fontSize: 14 },
-                    alternateRowStyles: { fillColor: [248, 250, 252] },
-                    styles: { fontSize: 12, cellPadding: 3, overflow: 'linebreak' },
-                    columnStyles: {
-                        0: { cellWidth: 40 },
-                        1: { cellWidth: pageWidth - margin * 2 - 40 }
-                    }
-                });
-                
-                y = doc.lastAutoTable.finalY + 10;
-            }
-
-            if (y > pageHeight - 40) {
+            if (y > pageHeight - 100) { // Ajuste para garantir espaço para as dicas
                 doc.addPage();
                 y = 15;
             }
@@ -904,15 +1015,60 @@
             });
             
             y = doc.lastAutoTable.finalY + 10;
-            
-            if (y > pageHeight - 20) {
-                doc.addPage();
-                y = 15;
-            }
-            doc.setFontSize(16);
-            doc.text("Finalize com alongamento estático (15-20s por músculo) para ajudar na flexibilidade.", margin, y);
-            y += 15;
 
+            // Seções para descrições das técnicas avançadas
+            const tecnicasAplicadasNesteTreino = new Set();
+            treino_semanal.forEach(dia => {
+                dia.treino.forEach(exercicio => {
+                    if (exercicio.tecnica) {
+                        // Para Superset e Pré-Exaustão, a técnica já está no nome do primeiro exercício
+                        if (exercicio.tecnica === "Superset" && exercicio.supersetCom) {
+                            tecnicasAplicadasNesteTreino.add(exercicio.tecnica);
+                        } else if (exercicio.tecnica === "Pré-Exaustão" && exercicio.preExaustaoCom) {
+                            tecnicasAplicadasNesteTreino.add(exercicio.tecnica);
+                        } else {
+                            tecnicasAplicadasNesteTreino.add(exercicio.tecnica);
+                        }
+                    }
+                });
+            });
+
+            if (tecnicasAplicadasNesteTreino.size > 0) {
+                if (y > pageHeight - (tecnicasAplicadasNesteTreino.size * 30 + 40)) { // Estimativa de espaço necessário
+                    doc.addPage();
+                    y = 15;
+                }
+
+                doc.setFontSize(18);
+                doc.setFont("helvetica", "bold");
+                doc.setTextColor(30, 58, 95);
+                doc.text("Entendendo as Técnicas Avançadas", margin, y);
+                doc.line(margin, y + 2, pageWidth - margin, y + 2);
+                y += 10;
+
+                const tecnicasBody = [];
+                tecnicasAplicadasNesteTreino.forEach(tecnica => {
+                    if (DESCRICOES_TECNICAS[tecnica]) {
+                        tecnicasBody.push([tecnica, DESCRICOES_TECNICAS[tecnica]]);
+                    }
+                });
+
+                doc.autoTable({
+                    startY: y,
+                    head: [['Técnica', 'Descrição']],
+                    body: tecnicasBody,
+                    theme: 'striped',
+                    headStyles: { fillColor: [30, 58, 95], fontSize: 14 },
+                    alternateRowStyles: { fillColor: [248, 250, 252] },
+                    styles: { fontSize: 12, cellPadding: 3, overflow: 'linebreak' },
+                    columnStyles: {
+                        0: { cellWidth: 50 },
+                        1: { cellWidth: pageWidth - margin * 2 - 50 }
+                    }
+                });
+                y = doc.lastAutoTable.finalY + 10;
+            }
+            
             doc.setFontSize(12);
             doc.setTextColor(150, 150, 150);
             doc.text(`Gerado por Your Trainer Partner para: ${dados_gerais.nome_aluno} em ${new Date().toLocaleDateString('pt-BR')}`, pageWidth / 2, doc.internal.pageSize.getHeight() - 10, { align: "center" });
@@ -935,6 +1091,11 @@
                 const dificuldade = document.getElementById('dificuldade').value;
                 const objetivo = document.getElementById('objetivo').value;
                 const incluir_descricao = document.getElementById('incluir_descricao').checked;
+                
+                if (isNaN(peso) || isNaN(altura) || isNaN(idade)) {
+                    alert("Por favor, preencha todos os campos numéricos com valores válidos.");
+                    return;
+                }
 
                 const imc = calcularIMC(peso, altura);
                 const { tmb, consumo } = calcularTMB(peso, altura, idade, sexo, fator_atividade);
@@ -953,6 +1114,7 @@
                     return;
                 }
 
+                let formularioValido = true;
                 diasTreino.forEach((dia, index) => {
                     let nomeDia = dia.querySelector('input[type="text"]').value;
                     if (!nomeDia) {
@@ -961,29 +1123,48 @@
 
                     const gruposMusculares = Array.from(dia.querySelectorAll('input[name^="grupos_dia_"]:checked'))
                                                  .map(checkbox => checkbox.value);
-                    const tecnicasAvancadas = Array.from(dia.querySelectorAll('input[name^="tecnicas_dia_"]:checked'))
-                                                 .map(checkbox => checkbox.value);
                     
                     if (gruposMusculares.length === 0) {
                          alert(`Por favor, selecione pelo menos um grupo muscular para o treino "${nomeDia}".`);
-                         throw new Error("Grupos musculares não selecionados.");
+                         formularioValido = false;
+                         return;
                     }
+
+                    const tecnicasSelecionadas = Array.from(dia.querySelectorAll('input[name^="tecnicas_dia_"]:checked'))
+                                                       .map(checkbox => checkbox.value);
                     
-                    const treinoDoDia = gerarTreinoAutomatico(dificuldade, gruposMusculares, sexo, tecnicasAvancadas);
+                    if (tecnicasSelecionadas.length > 2) {
+                        alert(`No treino "${nomeDia}", você selecionou ${tecnicasSelecionadas.length} técnicas. Por favor, selecione no máximo 2 técnicas por treino.`);
+                        formularioValido = false;
+                        return;
+                    }
+
+                    const treinoDoDia = gerarTreinoAutomatico(dificuldade, gruposMusculares, tecnicasSelecionadas);
+                    
                     treinoSemanal.push({
                         nome_dia: nomeDia,
                         grupos_musculares: gruposMusculares,
+                        tecnicas_selecionadas: tecnicasSelecionadas,
                         treino: treinoDoDia
                     });
                 });
-
-                const dadosGerais = {
-                    nome_aluno,
-                    dificuldade,
-                    objetivo
-                };
                 
-                gerarPdfTreinoSemanal(treinoSemanal, dadosGerais, incluir_descricao, dadosNutricionais);
+                if (!formularioValido) {
+                    return; // Interrompe o envio se o formulário não for válido
+                }
+
+                // Verifica se todos os treinos foram gerados sem problemas (ou se houve alertas específicos)
+                if (treinoSemanal.length === diasTreino.length && !treinoSemanal.some(dia => dia.treino.length === 0)) {
+                    const dadosGerais = {
+                        nome_aluno,
+                        dificuldade,
+                        objetivo
+                    };
+                    
+                    gerarPdfTreinoSemanal(treinoSemanal, dadosGerais, incluir_descricao, dadosNutricionais);
+                } else if (treinoSemanal.length > 0) {
+                    alert("Houve um problema ao gerar um ou mais treinos. Verifique as seleções de grupos musculares e o nível de dificuldade. Pode ser que não haja exercícios suficientes para a combinação escolhida.");
+                }
             });
         };
     </script>
