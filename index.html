@@ -210,6 +210,103 @@
             box-shadow: 0 8px 20px rgba(56, 193, 114, 0.4);
         }
         
+        /* Modal de pré-visualização */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #161b22;
+            padding: 25px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            color: #58a6ff;
+            text-align: center;
+            margin-top: 0;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        
+        .modal-content h3 {
+             color: #58a6ff;
+        }
+
+        .modal-body {
+            font-size: 16px;
+            color: #c9d1d9;
+        }
+        
+        .modal-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .modal-body th, .modal-body td {
+            border: 1px solid #30363d;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .modal-body th {
+            background-color: #1c2128;
+            color: #58a6ff;
+            font-weight: 600;
+        }
+        
+        .modal-footer {
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        .close-button, .gerar-pdf-modal-button {
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            border: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .close-button {
+            background-color: #f87171;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .close-button:hover {
+            background-color: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .gerar-pdf-modal-button {
+            background-color: #38c172;
+            color: #fff;
+        }
+        
+        .gerar-pdf-modal-button:hover {
+            background-color: #2b9e59;
+            transform: translateY(-2px);
+        }
+
         /* Media Queries para responsividade */
         @media (max-width: 768px) {
             .container {
@@ -299,6 +396,18 @@
             <button type="button" class="add-dia" onclick="adicionarDiaTreino()">+ Adicionar Dia de Treino</button>
             <button type="submit">Gerar PDF do Treino</button>
         </form>
+    </div>
+
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Pré-visualização do Treino</h2>
+            <div id="modalBody" class="modal-body">
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="close-button" onclick="fecharModal()">Fechar</button>
+                <button type="button" class="gerar-pdf-modal-button" onclick="gerarPdfDoPreview()">Gerar PDF</button>
+            </div>
+        </div>
     </div>
     
     <script>
@@ -411,7 +520,7 @@
             {"nome": "Elevação de gêmeos em pé no Smith", "grupoMuscular": "Panturrilha", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Apoie os ombros na máquina e eleve o corpo usando a força das panturrilhas.", "alternativa": ["Elevação de gêmeos em pé (com halteres)", "Elevação de gêmeos em degrau"]},
             {"nome": "Elevação de gêmeos sentado na máquina", "grupoMuscular": "Panturrilha", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Sente-se na máquina, ajuste a carga e eleve o corpo usando a força das panturrilhas."},
             {"nome": "Elevação de gêmeos no leg press", "grupoMuscular": "Panturrilha", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Sente-se na máquina, ajuste a carga e eleve o corpo usando a força das panturrilhas."},
-            {"nome": "Elevação de gêmeos em degrau", "grupoMuscular": "Panturrilha", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Fique com a ponta dos pés em um degrau e eleve o corpo usando a força das panturrilhas.", "alternativa": ["Elevação de gêmeos em pé (com halteres)", "Elevação de gêmeos em pé no Smith"]},
+            {"nome": "Elevação de gêmeos em degrau", "grupoMuscular": "Panturrilha", "estilo": "Elevação", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15-20", "Intermediario": "4x15", "Avancado": "4x12"}, "descricao": "Fique com a ponta dos pés em um degrau e eleve o corpo usando a força das panturrilhas.", "alternativa": ["Elevação de gêmeos em pé (com halteres)", "Elevação de gêmeos em degrau"]},
 
             // ANTEBRAÇO (5)
             {"nome": "Rosca inversa com barra reta", "grupoMuscular": "Antebraço", "estilo": "Extensão de punho", "tipo": "isolador", "dificuldade": ["Iniciante", "Intermediario", "Avancado"], "sugerirRepeticoes": {"Iniciante": "3x15", "Intermediario": "4x12-15", "Avancado": "4x12"}, "descricao": "Sentado, apoie os antebraços na coxa, segure a barra reta com a palma da mão para baixo e flexione os punhos para cima.", "alternativa": ["Rosca inversa com barra W", "Rosca inversa com halteres"]},
@@ -505,6 +614,11 @@
 
         let gruposDisponiveis = [...new Set(EXERCICIOS.map(ex => ex.grupoMuscular))].sort();
         let diaTreinoCount = 0;
+        let treinoGerado = null;
+        let dadosGerais = null;
+        let dadosNutricionais = null;
+        let incluirDescricao = false;
+
 
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
@@ -1021,7 +1135,6 @@
             treino_semanal.forEach(dia => {
                 dia.treino.forEach(exercicio => {
                     if (exercicio.tecnica) {
-                        // Para Superset e Pré-Exaustão, a técnica já está no nome do primeiro exercício
                         if (exercicio.tecnica === "Superset" && exercicio.supersetCom) {
                             tecnicasAplicadasNesteTreino.add(exercicio.tecnica);
                         } else if (exercicio.tecnica === "Pré-Exaustão" && exercicio.preExaustaoCom) {
@@ -1034,7 +1147,7 @@
             });
 
             if (tecnicasAplicadasNesteTreino.size > 0) {
-                if (y > pageHeight - (tecnicasAplicadasNesteTreino.size * 30 + 40)) { // Estimativa de espaço necessário
+                if (y > pageHeight - (tecnicasAplicadasNesteTreino.size * 30 + 40)) {
                     doc.addPage();
                     y = 15;
                 }
@@ -1076,6 +1189,88 @@
             doc.save(`treino_semanal_${dados_gerais.nome_aluno}.pdf`);
         }
 
+        function exibirModal(treino_semanal, dados_gerais, incluir_descricao, dados_nutricionais) {
+            const modal = document.getElementById('previewModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            let htmlContent = '';
+
+            // Adiciona dados gerais e nutricionais
+            htmlContent += `
+                <h3>Informações do Aluno</h3>
+                <p><strong>Nome:</strong> ${dados_gerais.nome_aluno}</p>
+                <p><strong>Nível:</strong> ${dados_gerais.dificuldade}</p>
+                <p><strong>Objetivo:</strong> ${dados_gerais.objetivo}</p>
+                <p><strong>IMC:</strong> ${dados_nutricionais.imc} (${getIMCClassificacao(dados_nutricionais.imc)})</p>
+                <p><strong>TMB:</strong> ${dados_nutricionais.tmb} kcal/dia</p>
+                <p><strong>Consumo Calórico Recomendado:</strong> ${dados_nutricionais.consumo} kcal/dia</p>
+                <hr style="border: 1px solid #30363d; margin: 20px 0;">
+            `;
+
+            treino_semanal.forEach(dia => {
+                htmlContent += `
+                    <h3>Treino ${dia.nome_dia}</h3>
+                    <p><strong>Grupos:</strong> ${dia.grupos_musculares.join(', ')}</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercício</th>
+                                <th>Séries/Reps</th>
+                                <th>Descanso</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                dia.treino.forEach(ex => {
+                    const descanso = { "Iniciante": "60-90s", "Intermediario": "60s", "Avancado": "30-60s" }[dados_gerais.dificuldade];
+                    const reps = ex.sugerirRepeticoes[dados_gerais.dificuldade] || 'N/A';
+                    let obs = '';
+                    if (ex.tecnica === "Superset" && ex.supersetCom) {
+                        obs = `Técnica: Superset com ${ex.supersetCom.nome} (${ex.supersetCom.sugerirRepeticoes})`;
+                    } else if (ex.tecnica === "Pré-Exaustão" && ex.preExaustaoCom) {
+                        obs = `Técnica: Pré-Exaustão com ${ex.preExaustaoCom.nome} (${ex.preExaustaoCom.sugerirRepeticoes})`;
+                    } else if (ex.tecnica) {
+                        obs = `Técnica: ${ex.tecnica}`;
+                    }
+
+                    htmlContent += `
+                        <tr>
+                            <td>${ex.nome}</td>
+                            <td>${reps}</td>
+                            <td>${descanso}</td>
+                            <td>${obs}</td>
+                        </tr>
+                    `;
+                });
+
+                htmlContent += `
+                        </tbody>
+                    </table>
+                `;
+            });
+
+            modalBody.innerHTML = htmlContent;
+            modal.style.display = 'flex';
+
+            treinoGerado = treino_semanal; // Armazena o treino para o PDF
+            incluirDescricao = incluir_descricao; // Armazena a opção para o PDF
+        }
+
+        function fecharModal() {
+            const modal = document.getElementById('previewModal');
+            modal.style.display = 'none';
+        }
+
+        function gerarPdfDoPreview() {
+            if (treinoGerado) {
+                 gerarPdfTreinoSemanal(treinoGerado, dadosGerais, incluirDescricao, dadosNutricionais);
+                 fecharModal();
+            } else {
+                alert("Nenhum treino foi gerado para criar o PDF.");
+            }
+        }
+
         window.onload = function() {
             adicionarDiaTreino();
             document.getElementById('treinoForm').addEventListener('submit', function(e) {
@@ -1092,18 +1287,24 @@
                 const objetivo = document.getElementById('objetivo').value;
                 const incluir_descricao = document.getElementById('incluir_descricao').checked;
                 
-                if (isNaN(peso) || isNaN(altura) || isNaN(idade)) {
-                    alert("Por favor, preencha todos os campos numéricos com valores válidos.");
+                if (nome_aluno.trim() === "" || isNaN(peso) || isNaN(altura) || isNaN(idade)) {
+                    alert("Por favor, preencha todos os campos obrigatórios com valores válidos.");
                     return;
                 }
 
                 const imc = calcularIMC(peso, altura);
                 const { tmb, consumo } = calcularTMB(peso, altura, idade, sexo, fator_atividade);
 
-                const dadosNutricionais = {
+                dadosNutricionais = {
                     imc,
                     tmb,
                     consumo
+                };
+                
+                dadosGerais = {
+                    nome_aluno,
+                    dificuldade,
+                    objetivo
                 };
                 
                 const diasTreino = document.querySelectorAll('.treino-dia');
@@ -1150,18 +1351,11 @@
                 });
                 
                 if (!formularioValido) {
-                    return; // Interrompe o envio se o formulário não for válido
+                    return;
                 }
 
-                // Verifica se todos os treinos foram gerados sem problemas (ou se houve alertas específicos)
                 if (treinoSemanal.length === diasTreino.length && !treinoSemanal.some(dia => dia.treino.length === 0)) {
-                    const dadosGerais = {
-                        nome_aluno,
-                        dificuldade,
-                        objetivo
-                    };
-                    
-                    gerarPdfTreinoSemanal(treinoSemanal, dadosGerais, incluir_descricao, dadosNutricionais);
+                    exibirModal(treinoSemanal, dadosGerais, incluir_descricao, dadosNutricionais);
                 } else if (treinoSemanal.length > 0) {
                     alert("Houve um problema ao gerar um ou mais treinos. Verifique as seleções de grupos musculares e o nível de dificuldade. Pode ser que não haja exercícios suficientes para a combinação escolhida.");
                 }
