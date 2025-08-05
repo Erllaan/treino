@@ -15,10 +15,11 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Alinhado ao topo para melhor visualização */
             min-height: 100vh;
             background-image: linear-gradient(135deg, #0d1117 0%, #171d2b 100%);
             font-size: 18px;
+            padding: 20px;
         }
 
         .container {
@@ -30,6 +31,7 @@
             max-width: 900px;
             box-sizing: border-box;
             border: 1px solid #30363d;
+            margin-top: 20px;
         }
 
         h1 {
@@ -53,8 +55,9 @@
         
         h3 {
              font-size: 1.5em;
+             margin-bottom: 10px;
         }
-
+        
         label {
             display: block;
             margin-bottom: 8px;
@@ -78,7 +81,7 @@
             transition: border-color 0.3s, box-shadow 0.3s;
             font-size: 1em;
         }
-
+        
         input[type="text"]:focus,
         input[type="number"]:focus,
         select:focus,
@@ -215,7 +218,7 @@
         .btn-primary:hover {
             background-color: #2b9e59;
             transform: translateY(-2px);
-            box-shadow: 8px 20px rgba(56, 193, 114, 0.4);
+            box-shadow: 0 8px 20px rgba(56, 193, 114, 0.4);
         }
         
         .btn-secondary {
@@ -236,37 +239,54 @@
         
         #treinoPreview .form-section {
             background: #1c2128;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid #30363d;
         }
-        
-        .treino-container h4 {
-            color: #8b949e;
-            margin-top: 25px;
-            font-size: 1.3em;
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+
+        /* --- Estilos da Pré-Visualização (Melhorados) --- */
+        .treino-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            padding-bottom: 20px;
         }
         
         .treino-item {
-            background: #0d1117;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            background: #161b22;
+            padding: 20px;
+            border-radius: 10px;
             border: 1px solid #30363d;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        
+
+        .treino-item:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
         .treino-item.dragging {
             opacity: 0.5;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .treino-item .remover {
+            position: absolute;
             top: 10px;
             right: 10px;
+            color: #f87171;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: color 0.3s;
         }
         
         .treino-item .remover:hover {
@@ -276,83 +296,119 @@
         .treino-item-header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #30363d;
         }
         
         .treino-item-header h4 {
-             margin: 0;
-             flex-grow: 1;
-             color: #58a6ff;
-             border-bottom: none;
-             font-size: 1em;
-        }
-        
-        .treino-item-header input {
-            font-size: 1em;
-            width: 100%;
+            margin: 0;
             flex-grow: 1;
+            color: #58a6ff;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .treino-item-header input[type="text"] {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #c9d1d9;
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
         }
         
         .treino-item-body {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
+            align-items: flex-end;
         }
         
-        .treino-item-body label {
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
-        
-        .treino-item-body input, .treino-item-body select {
-            width: 100px;
-            padding: 8px;
-        }
-        
-        .treino-item .grip-handle {
-            cursor: grab;
-            padding: 5px;
+        .treino-item-body .input-group {
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            flex-basis: 150px;
+            flex-grow: 1;
+        }
+
+        .treino-item-body label {
+            font-size: 0.9em;
+            color: #8b949e;
+            margin-bottom: 5px;
+        }
+
+        .treino-item-body input {
+            padding: 10px;
+            margin: 0;
+            font-size: 1em;
+            background: #0d1117;
         }
         
+        .treino-item textarea {
+            width: 100%;
+            min-height: 80px;
+            resize: vertical;
+            padding: 10px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            background: #0d1117;
+            color: #c9d1d9;
+            font-size: 1em;
+        }
+
+        .treino-item .grip-handle {
+            cursor: grab;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 5px;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+
+        .treino-item .grip-handle:hover {
+            opacity: 1;
+        }
+
         .treino-item .grip-handle::before, .treino-item .grip-handle::after, .treino-item .grip-handle span {
             content: '';
             display: block;
             width: 20px;
             height: 2px;
             background: #8b949e;
+            border-radius: 1px;
         }
         
         .adicionar-exercicio-btn {
             background-color: #58a6ff;
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 12px 20px;
             font-size: 1em;
             border-radius: 8px;
             cursor: pointer;
             width: auto;
             margin-top: 10px;
-            transition: background-color 0.3s;
+            align-self: flex-start;
+            transition: background-color 0.3s, transform 0.2s;
         }
         
         .adicionar-exercicio-btn:hover {
             background-color: #3b82f6;
+            transform: translateY(-1px);
         }
-
-        .treino-container .tecnica-info {
+        
+        .tecnica-info {
             font-size: 0.9em;
             font-style: italic;
             color: #8b949e;
-            padding-left: 10px;
-            border-left: 2px solid #58a6ff;
-            margin-top: 5px;
-        }
-        
-        .treino-item textarea {
-             min-height: 100px;
+            padding: 10px;
+            border-left: 3px solid #58a6ff;
+            margin-top: 10px;
+            background: #11151a;
+            border-radius: 4px;
         }
         
         /* Media Queries para responsividade */
@@ -377,6 +433,13 @@
             }
             .add-dia, .btn-primary, .btn-secondary {
                  font-size: 1em;
+            }
+            .treino-item-body {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .treino-item-body .input-group {
+                flex-basis: auto;
             }
         }
     </style>
@@ -1134,21 +1197,27 @@
         
         function renderizarExercicio(exercicio, container, diaIndex, exercicioIndex) {
             const exercicioDiv = document.createElement('div');
-            exercicioDiv.classList.add('treino-item', 'draggable');
+            exercicioDiv.classList.add('treino-item');
             exercicioDiv.setAttribute('draggable', true);
             exercicioDiv.dataset.diaIndex = diaIndex;
             exercicioDiv.dataset.exercicioIndex = exercicioIndex;
             exercicioDiv.dataset.grupoMuscular = exercicio.grupoMuscular;
 
             exercicioDiv.ondragstart = (event) => drag(event, diaIndex, exercicioIndex);
+            exercicioDiv.ondragenter = (event) => { event.target.closest('.treino-item')?.classList.add('drag-over'); };
+            exercicioDiv.ondragleave = (event) => { event.target.closest('.treino-item')?.classList.remove('drag-over'); };
+            exercicioDiv.ondragend = (event) => {
+                const items = document.querySelectorAll('.treino-item');
+                items.forEach(item => item.classList.remove('dragging', 'drag-over'));
+            };
 
             let tecnicasHTML = '';
             if (exercicio.tecnica) {
                 const descricaoTecnica = DESCRICOES_TECNICAS[exercicio.tecnica] || '';
                 tecnicasHTML = `
                     <p class="tecnica-info">
-                        Técnica: ${exercicio.tecnica}
-                        ${descricaoTecnica ? `<br><small>${descricaoTecnica}</small>` : ''}
+                        Técnica: ${exercicio.tecnica}<br>
+                        <small>${descricaoTecnica}</small>
                     </p>
                 `;
             }
@@ -1156,17 +1225,17 @@
             exercicioDiv.innerHTML = `
                 <span class="remover" onclick="removerExercicio(this)">x</span>
                 <div class="treino-item-header">
-                    <span class="grip-handle"><span></span></span>
+                    <span class="grip-handle"><span></span><span></span><span></span></span>
                     <h4><span class="exercicio-nome">${exercicio.nome}</span></h4>
                 </div>
                 <div class="treino-item-body">
-                    <div>
+                    <div class="input-group">
                         <label>Séries/Reps:</label>
-                        <input type="text" class="exercicio-reps" value="${exercicio.sugerirRepeticoes[document.getElementById('dificuldade').value] || 'N/A'}" placeholder="Séries x Reps">
+                        <input type="text" class="exercicio-reps" value="${exercicio.sugerirRepeticoes[document.getElementById('dificuldade').value] || 'N/A'}" placeholder="Ex: 3x12">
                     </div>
-                    <div>
+                    <div class="input-group">
                         <label>Descanso:</label>
-                        <input type="text" class="exercicio-descanso" value="${exercicio.descanso || ''}" placeholder="Ex: 60-90s">
+                        <input type="text" class="exercicio-descanso" value="${exercicio.descanso || '60-90s'}" placeholder="Ex: 60-90s">
                     </div>
                 </div>
                 <div>
@@ -1177,13 +1246,13 @@
             `;
             container.appendChild(exercicioDiv);
             
-            // Adiciona listener para edição de nome
             const nomeSpan = exercicioDiv.querySelector('.exercicio-nome');
             nomeSpan.onclick = () => {
                 const nomeAtual = nomeSpan.textContent;
                 const input = document.createElement('input');
                 input.type = 'text';
                 input.value = nomeAtual;
+                input.classList.add('exercicio-nome');
                 input.onblur = () => {
                     nomeSpan.textContent = input.value;
                     nomeSpan.style.display = 'inline';
@@ -1211,8 +1280,8 @@
             const dificuldade = document.getElementById('dificuldade').value;
             exercicioModelo.sugerirRepeticoes[dificuldade] = "3x12";
             
+            const novoIndex = treinoSemanalGerado[diaIndex].treino.length;
             treinoSemanalGerado[diaIndex].treino.push(exercicioModelo);
-            const novoIndex = treinoSemanalGerado[diaIndex].treino.length - 1;
             
             const addBtn = container.querySelector('.adicionar-exercicio-btn');
             renderizarExercicio(exercicioModelo, container, diaIndex, novoIndex);
@@ -1220,12 +1289,15 @@
         }
 
         function removerExercicio(btn) {
-            const exercicioDiv = btn.parentNode;
-            const container = exercicioDiv.parentNode;
+            const exercicioDiv = btn.closest('.treino-item');
             const diaIndex = parseInt(exercicioDiv.dataset.diaIndex);
             const exercicioIndex = parseInt(exercicioDiv.dataset.exercicioIndex);
             
-            exercicioDiv.remove();
+            if (treinoSemanalGerado[diaIndex] && treinoSemanalGerado[diaIndex].treino[exercicioIndex]) {
+                 treinoSemanalGerado[diaIndex].treino.splice(exercicioIndex, 1);
+            }
+
+            renderizarPreview(treinoSemanalGerado);
         }
 
         function voltarParaFormulario() {
@@ -1236,10 +1308,19 @@
 
         function drag(event, diaIndex, exercicioIndex) {
             event.dataTransfer.setData("text/plain", JSON.stringify({ diaIndex, exercicioIndex }));
+            setTimeout(() => {
+                event.target.classList.add('dragging');
+            }, 0);
         }
 
         function allowDrop(event) {
             event.preventDefault();
+            const targetElement = event.target.closest('.treino-item');
+            if (targetElement && !targetElement.classList.contains('drag-over')) {
+                const items = document.querySelectorAll('.treino-item.drag-over');
+                items.forEach(item => item.classList.remove('drag-over'));
+                targetElement.classList.add('drag-over');
+            }
         }
         
         function drop(event, targetDiaIndex) {
@@ -1251,36 +1332,26 @@
             
             let targetElement = event.target.closest('.treino-item');
             let targetIndex;
-            let targetContainer;
             
             if (targetElement) {
-                targetContainer = targetElement.parentNode;
-                targetIndex = Array.from(targetContainer.children).indexOf(targetElement);
+                targetIndex = Array.from(targetElement.parentNode.children).indexOf(targetElement);
             } else {
-                targetContainer = event.target.closest('.treino-container');
-                if (!targetContainer) return;
                 targetIndex = treinoSemanalGerado[targetDiaIndex].treino.length;
                 if (event.target.classList.contains('adicionar-exercicio-btn')) {
-                    targetIndex--; // Insere antes do botão de adicionar
+                    targetIndex--;
                 }
             }
-
-            const sourceDiv = document.querySelector(`[data-dia-index='${sourceDiaIndex}'][data-exercicio-index='${sourceExercicioIndex}']`);
-            if (sourceDiv.parentNode === targetContainer && sourceExercicioIndex === targetIndex) return;
-
-            // Remove o item da lista de origem
+            
             const [movedItem] = treinoSemanalGerado[sourceDiaIndex].treino.splice(sourceExercicioIndex, 1);
             
-            // Adiciona o item na nova posição na lista de destino
             if (sourceDiaIndex === targetDiaIndex && targetIndex > sourceExercicioIndex) {
-                targetIndex--; // Ajusta o índice se o item foi movido para baixo no mesmo dia
+                targetIndex--;
             }
             treinoSemanalGerado[targetDiaIndex].treino.splice(targetIndex, 0, movedItem);
 
-            // Re-renderiza o preview
             renderizarPreview(treinoSemanalGerado);
         }
-
+        
         function gerarPdfTreinoSemanal(treino_semanal, dados_gerais, incluir_descricao, dados_nutricionais) {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF({ orientation: 'p', format: 'a4' });
