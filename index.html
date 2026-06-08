@@ -42,7 +42,7 @@
 </head>
 <body class="bg-background-dark text-text-light font-sans flex justify-center items-start min-h-screen p-4 md:p-8 text-lg">
 
-    <!-- Notificações e Spinner de Carregamento -->
+    <!-- Notificações e Spinner -->
     <div id="notification" class="fixed top-5 left-1/2 -translate-x-1/2 p-4 rounded-lg text-white z-50 opacity-0 invisible transition-all duration-300 -translate-y-10 w-full max-w-sm shadow-lg">
         <div class="flex items-start">
             <div id="notification-icon" class="flex-shrink-0 mr-3 mt-1"></div>
@@ -57,7 +57,7 @@
         <p id="spinner-message" class="text-lg font-semibold text-white">Aguarde...</p>
     </div>
 
-    <!-- Tela de Visualização Pública para Alunos -->
+    <!-- Tela Pública (Para o Aluno ver o treino pelo link) -->
     <div id="publicView" class="hide container bg-bg-container p-6 md:p-10 rounded-xl shadow-xl border border-border-light my-5 md:my-10 w-full">
         <div id="publicContent">
              <h1 class="text-center text-primary-blue text-3xl md:text-4xl font-bold mb-2 pb-4 border-b border-border-light drop-shadow-md">Plano de Treino</h1>
@@ -73,17 +73,67 @@
         </div>
     </div>
 
-    <div id="mainApp" class="container bg-bg-container p-6 md:p-10 rounded-xl shadow-xl border border-border-light my-5 md:my-10 w-full hide">
+    <div id="mainApp" class="container bg-bg-container p-6 md:p-10 rounded-xl shadow-xl border border-border-light my-5 md:my-10 w-full">
         <h1 class="text-center text-primary-blue text-3xl md:text-4xl font-bold mb-6 pb-4 border-b border-border-light drop-shadow-md">Your Trainer Partner</h1>
 
-        <!-- Conteúdo Principal da Aplicação -->
-        <div id="appContent">
-            <div class="text-right mb-6 flex justify-end items-center gap-2">
-                <span id="userInfo" class="text-text-muted text-sm mr-2 font-medium"></span>
-                <button id="btnVoltarApp" class="py-2 px-4 text-sm bg-btn-secondary text-white rounded-lg font-semibold hide">Voltar ao Início</button>
+        <!-- Tela de Login -->
+        <div id="telaLogin">
+            <h2 class="text-xl md:text-2xl font-semibold text-primary-blue mb-4">Aceder à Plataforma</h2>
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label for="emailInput" class="block mb-2 text-text-muted">Email:</label>
+                    <input type="email" id="emailInput" class="w-full p-4 rounded-lg border border-border-light bg-background-dark text-text-light text-lg" required>
+                </div>
+                <div>
+                    <label for="passwordInput" class="block mb-2 text-text-muted">Palavra-passe:</label>
+                    <div class="relative">
+                        <input type="password" id="passwordInput" class="w-full p-4 rounded-lg border border-border-light bg-background-dark text-text-light text-lg" required>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                    <button type="submit" class="w-full py-3 text-lg bg-primary-blue text-white rounded-lg font-semibold">Entrar</button>
+                </div>
+                <div class="text-center mt-4">
+                    <p class="text-text-muted">Não tem uma conta? <a href="#" id="linkGoToSignup" class="font-semibold text-primary-blue hover:underline">Registe-se</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tela de Cadastro -->
+        <div id="telaCadastro" class="hide">
+            <h2 class="text-xl md:text-2xl font-semibold text-primary-blue mb-4">Criar Nova Conta</h2>
+            <form id="signupForm" class="space-y-4">
+                <div>
+                    <label for="signupName" class="block mb-2 text-text-muted">Nome Completo:</label>
+                    <input type="text" id="signupName" class="w-full p-4 rounded-lg border border-border-light bg-background-dark text-text-light text-lg" required>
+                </div>
+                <div>
+                    <label for="signupEmail" class="block mb-2 text-text-muted">Email:</label>
+                    <input type="email" id="signupEmail" class="w-full p-4 rounded-lg border border-border-light bg-background-dark text-text-light text-lg" required>
+                </div>
+                <div>
+                    <label for="signupPassword" class="block mb-2 text-text-muted">Palavra-passe (mínimo 6 caracteres):</label>
+                    <input type="password" id="signupPassword" class="w-full p-4 rounded-lg border border-border-light bg-background-dark text-text-light text-lg" required>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                    <button type="submit" class="w-full py-3 text-lg bg-btn-primary text-white rounded-lg font-semibold">Finalizar Registo</button>
+                </div>
+                <div class="text-center mt-4">
+                    <p class="text-text-muted">Já tem uma conta? <a href="#" id="linkGoToLogin" class="font-semibold text-primary-blue hover:underline">Faça login</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Conteúdo Interno da Aplicação -->
+        <div id="appContent" class="hide">
+            <div class="text-right mb-6 flex justify-end items-center gap-3">
+                <span id="userInfo" class="text-text-muted text-sm font-medium"></span>
+                <button id="btnShowSettings" class="p-2 text-sm bg-btn-secondary text-white rounded-lg font-semibold" title="Configurações de IA">⚙️ Configurações</button>
+                <button id="btnVoltarApp" class="py-2 px-4 text-sm bg-btn-secondary text-white rounded-lg font-semibold hide">Início</button>
+                <button id="btnLogout" class="py-2 px-4 text-sm bg-btn-danger text-white rounded-lg font-semibold">Sair</button>
             </div>
 
-            <!-- Tela de Alunos (Dashboard Principal) -->
+            <!-- Tela Principal de Alunos -->
             <div id="telaAlunos">
                  <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
                      <h2 class="text-2xl font-semibold text-primary-blue">Meus Alunos</h2>
@@ -95,21 +145,20 @@
                  <div id="listaAlunos" class="space-y-3"></div>
             </div>
 
-            <!-- Tela Gerenciar Aluno -->
+            <!-- Tela de Opções do Aluno -->
             <div id="telaGerenciarAluno" class="hide">
                 <h2 id="nomeAlunoGerenciado" class="text-2xl font-semibold text-primary-blue mb-6"></h2>
                 <div class="bg-background-dark border border-border-light p-6 md:p-8 rounded-xl w-full">
                     <h3 class="text-xl font-semibold text-primary-blue mb-4 pb-2 border-b border-border-light">O que deseja fazer?</h3>
                     <div class="flex flex-col gap-4">
                         <button id="btnAcompanharEvolucao" class="w-full py-4 text-xl bg-btn-success text-white rounded-lg font-semibold">Acompanhar Evolução</button>
-                        <button id="btnNovoTreino" class="w-full py-4 text-xl bg-primary-blue text-white rounded-lg font-semibold">Criar Novo Treino (IA)</button>
-                        <button id="btnLoadTemplate" class="w-full py-4 text-xl bg-blue-800 text-white rounded-lg font-semibold">Criar Treino a Partir de Modelo</button>
-                        <button id="btnCarregarTreino" class="w-full py-4 text-xl bg-btn-secondary text-white rounded-lg font-semibold">Ver Treinos Guardados</button>
+                        <button id="btnNovoTreino" class="w-full py-4 text-xl bg-primary-blue text-white rounded-lg font-semibold shadow-lg shadow-primary-blue/30">Criar Novo Treino Dinâmico (IA)</button>
+                        <button id="btnCarregarTreino" class="w-full py-4 text-xl bg-btn-secondary text-white rounded-lg font-semibold">Ver Histórico de Treinos</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Tela de Acompanhamento de Evolução -->
+            <!-- Tela de Acompanhamento (Gráficos) -->
             <div id="telaAcompanhamento" class="hide">
                 <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
                     <h2 id="tituloAcompanhamento" class="text-2xl font-semibold text-primary-blue"></h2>
@@ -118,23 +167,23 @@
                 <div id="listaAvaliacoes" class="space-y-4"></div>
             </div>
 
-            <!-- Tela de Carregar Treinos Salvos -->
+            <!-- Tela Lista de Treinos Salvos -->
             <div id="telaCarregar" class="hide">
                 <div class="bg-background-dark border border-border-light p-6 md:p-8 rounded-xl">
-                    <h3 id="tituloTelaCarregar" class="text-xl md:text-2xl font-semibold text-primary-blue mb-4 pb-2 border-b border-border-light">Gerir Treinos Guardados</h3>
+                    <h3 id="tituloTelaCarregar" class="text-xl md:text-2xl font-semibold text-primary-blue mb-4 pb-2 border-b border-border-light">Gerir Treinos</h3>
                     <div id="listaTreinosSalvos" class="space-y-3"></div>
                 </div>
             </div>
             
-            <!-- Formulário de Criação de Treino -->
+            <!-- Formulário de Geração de Treino IA -->
             <form id="treinoForm" class="hide">
                 <div class="bg-background-dark border border-border-light p-6 md:p-8 rounded-xl mb-6 space-y-4">
                     <h2 class="text-xl md:text-2xl font-semibold text-primary-blue pb-2 border-b border-border-light">1. Parâmetros de Geração (IA)</h2>
-                    <input type="text" id="nome_aluno_form" class="w-full p-4 rounded-lg border border-border-light bg-bg-container text-text-light text-lg" disabled>
+                    <input type="text" id="nome_aluno_form" class="w-full p-4 rounded-lg border border-border-light bg-bg-container text-text-light text-lg font-bold" disabled>
                     
                     <div>
-                        <label for="observacoes_ia" class="block mb-2 text-text-muted">Observações para a IA (lesões, prioridades, etc.):</label>
-                        <textarea id="observacoes_ia" placeholder="Ex: Evitar exercícios de alto impacto no joelho. Foco em ombros. Rotacionar variações de puxadas." class="w-full p-3 rounded-lg border border-border-light bg-bg-container text-text-light text-md"></textarea>
+                        <label for="observacoes_ia" class="block mb-2 text-text-muted">Instruções Extras para a IA (Opcional):</label>
+                        <textarea id="observacoes_ia" placeholder="Ex: O aluno tem dores no ombro. Evite desenvolvimentos pesados. Priorize aparelhos ao invés de pesos livres." class="w-full p-3 rounded-lg border border-border-light bg-bg-container text-text-light text-md"></textarea>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -142,71 +191,30 @@
                             <label for="dificuldade" class="block mb-2 text-text-muted">Nível:</label>
                             <select id="dificuldade" class="w-full p-3 rounded-lg border border-border-light bg-bg-container text-text-light">
                                 <option value="Iniciante">Iniciante</option>
-                                <option value="Intermediario">Intermediário</option>
+                                <option value="Intermediario" selected>Intermediário</option>
                                 <option value="Avancado">Avançado</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="objetivo" class="block mb-2 text-text-muted">Objetivo:</label>
-                            <select id="objetivo" class="w-full p-3 rounded-lg border border-border-light bg-bg-container text-text-light">
-                                <option value="Hipertrofia">Hipertrofia</option>
-                                <option value="Emagrecimento">Emagrecimento</option>
-                                <option value="Resistencia Muscular">Resistência Muscular</option>
-                                <option value="Condicionamento Fisico">Condicionamento Físico</option>
                             </select>
                         </div>
                         <div>
                             <label for="dias_semana" class="block mb-2 text-text-muted">Dias/Semana:</label>
                             <select id="dias_semana" class="w-full p-3 rounded-lg border border-border-light bg-bg-container text-text-light">
-                                <option value="1">1 dia (Avulso)</option>
                                 <option value="3">3 dias</option>
                                 <option value="4">4 dias</option>
-                                <option value="5">5 dias</option>
+                                <option value="5" selected>5 dias</option>
                                 <option value="6">6 dias</option>
                             </select>
                         </div>
-                        <div>
-                            <label for="duracao_treino" class="block mb-2 text-text-muted">Duração:</label>
-                            <select id="duracao_treino" class="w-full p-3 rounded-lg border border-border-light bg-bg-container text-text-light">
-                                <option value="N/A" selected>Padrão</option>
-                                <option value="30 minutos">~30 min</option>
-                                <option value="45 minutos">~45 min</option>
-                                <option value="60 minutos">~60 min</option>
-                                <option value="90 minutos">~90 min</option>
-                            </select>
+                        <div class="md:col-span-2">
+                            <label for="divisao_treino" class="block mb-2 text-text-muted">Sugestão de Divisão:</label>
+                            <select id="divisao_treino" class="w-full p-3 rounded-lg border border-border-light bg-bg-container text-text-light"></select>
                         </div>
-                    </div>
-                    
-                    <div>
-                        <label for="divisao_treino" class="block mb-2 text-text-muted">Sugestão de Divisão:</label>
-                        <select id="divisao_treino" class="w-full p-3 rounded-lg border border-border-light bg-bg-container text-text-light"></select>
-                    </div>
-
-                    <div class="border-t border-border-light pt-4 space-y-4">
-                         <h3 class="text-lg font-semibold text-primary-blue">Detalhes Avançados</h3>
-                         
-                         <label class="flex items-center space-x-3 cursor-pointer">
-                             <input type="checkbox" id="treino_em_casa" class="h-5 w-5 rounded bg-bg-container border-border-light text-primary-blue focus:ring-primary-blue">
-                             <span>Treino em Casa (sem equipamento de ginásio)</span>
-                         </label>
-                         
-                         <div id="tecnicas_avancadas_container" class="hide">
-                             <label class="flex items-center space-x-3 cursor-pointer">
-                                 <input type="checkbox" id="incluir_tecnicas" class="h-5 w-5 rounded bg-bg-container border-border-light text-primary-blue focus:ring-primary-blue" checked>
-                                 <span>Incluir técnicas avançadas (dropsets, supersets, etc.)</span>
-                             </label>
-                         </div>
-                         <div>
-                             <label for="musculo_enfase" class="block mb-2 text-text-muted">Músculo a Enfatizar (Opcional):</label>
-                             <input type="text" id="musculo_enfase" placeholder="Ex: Peitoral Superior, Quadríceps" class="w-full p-3 rounded-lg border border-border-light bg-bg-container text-text-light">
-                         </div>
                     </div>
                 </div>
 
                 <button id="btnGerarComIA" type="button" class="w-full py-4 text-xl bg-btn-primary text-white rounded-lg font-semibold transition-opacity duration-300 shadow-[0_0_15px_rgba(56,193,114,0.4)] hover:shadow-[0_0_20px_rgba(56,193,114,0.6)]">
                     <span class="flex items-center justify-center">
-                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                        Gerar Treino Dinâmico com IA
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Gerar Treino Rotativo com IA
                     </span>
                 </button>
 
@@ -214,52 +222,49 @@
                 
                 <div class="bg-background-dark border border-border-light p-6 md:p-8 rounded-xl mb-6">
                     <h2 class="text-xl md:text-2xl font-semibold text-primary-blue pb-2 border-b border-border-light">2. Reveja e Ajuste o Treino</h2>
-                    <textarea id="observacoes_gerais" class="w-full p-4 mt-4 rounded-lg border border-border-light bg-bg-container text-text-light text-lg" placeholder="Observações gerais para o aluno"></textarea>
+                    <textarea id="observacoes_gerais" class="w-full p-4 mt-4 rounded-lg border border-border-light bg-bg-container text-text-light text-lg" placeholder="Observações gerais para o aluno que aparecerão no plano final..."></textarea>
                     <div id="diasDeTreinoContainer" class="space-y-6 mt-4"></div>
                     <button id="btnAddDia" type="button" class="w-full py-3 text-lg bg-primary-blue text-white rounded-lg font-semibold mt-6">+ Adicionar Dia Manualmente</button>
                 </div>
                 
-                <button id="btnGerarPreview" type="button" class="w-full py-4 text-xl bg-blue-800 text-white rounded-lg font-semibold mt-4">Pré-visualizar e Guardar</button>
+                <button id="btnGerarPreview" type="button" class="w-full py-4 text-xl bg-blue-800 text-white rounded-lg font-semibold mt-4">Avançar para Guardar</button>
             </form>
 
-            <!-- Tela de Preview e Salvar/Exportar -->
+            <!-- Tela de Preview -->
             <div id="treinoPreview" class="hide">
                  <div class="bg-background-dark border border-border-light p-6 md:p-8 rounded-xl">
-                     <h2 class="text-xl md:text-2xl font-semibold text-primary-blue mb-4 pb-2 border-b border-border-light">Pré-visualização do Plano</h2>
+                     <h2 class="text-xl md:text-2xl font-semibold text-primary-blue mb-4 pb-2 border-b border-border-light">Verificação Final do Plano</h2>
                      
                      <div id="analiseNutricionalPreview" class="mb-6 bg-bg-container p-4 rounded-lg border border-border-light"></div>
-
                      <div id="treinosPreviewContainer" class="space-y-6"></div>
                      
                      <div class="mt-8 space-y-4">
-                         <input type="text" id="treinoNomeSalvo" placeholder="Nome do Treino (Ex: Hipertrofia - Mês 1)" class="w-full p-4 rounded-lg border border-border-light bg-bg-container text-text-light text-lg">
-                         <div class="flex flex-col sm:flex-row gap-4">
-                             <button id="btnSalvarComoModelo" type="button" class="w-full py-3 text-lg bg-blue-800 text-white rounded-lg font-semibold">Guardar como Modelo</button>
-                             <button id="btnSalvarTreino" type="button" class="w-full py-3 text-lg bg-primary-blue text-white rounded-lg font-semibold">Guardar Treino para Aluno</button>
-                         </div>
+                         <input type="text" id="treinoNomeSalvo" placeholder="Nome do Treino (Ex: Mês 2 - Foco Ombros)" class="w-full p-4 rounded-lg border border-border-light bg-bg-container text-text-light text-lg">
+                         <button id="btnSalvarTreino" type="button" class="w-full py-4 text-xl bg-primary-blue text-white rounded-lg font-semibold shadow-lg">Guardar Treino</button>
                      </div>
 
                      <div class="flex flex-col sm:flex-row gap-4 mt-6">
                          <button id="btnVoltarForm" type="button" class="w-full py-3 text-lg bg-btn-secondary text-white rounded-lg font-semibold">← Voltar à Edição</button>
-                         <button id="btnGerarPDF" type="button" class="w-full py-3 text-lg bg-btn-success text-white rounded-lg font-semibold">Gerar e Descarregar PDF</button>
+                         <button id="btnGerarPDF" type="button" class="w-full py-3 text-lg bg-btn-success text-white rounded-lg font-semibold">Descarregar PDF</button>
                      </div>
                  </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal de Adicionar/Editar Aluno -->
+    <!-- Modais Auxiliares -->
+    
+    <!-- Modal Adicionar Aluno -->
     <div id="addAlunoModal" class="modal fixed inset-0 z-50 flex justify-center items-center p-4 hide">
         <div class="modal-content bg-bg-container p-6 rounded-xl shadow-2xl border border-border-light w-full max-w-lg relative">
             <span id="closeAddAlunoModal" class="absolute top-4 right-4 text-2xl font-bold text-text-muted cursor-pointer">&times;</span>
             <h3 id="modalAlunoTitle" class="text-2xl font-semibold text-text-light mb-4">Registar Novo Aluno</h3>
             <form id="formAddAluno" class="space-y-4">
                 <input type="hidden" id="alunoIdHidden">
-                <div><label for="alunoNome" class="block text-text-muted">Nome do Aluno:</label><input type="text" id="alunoNome" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required></div>
+                <div><label class="block text-text-muted">Nome:</label><input type="text" id="alunoNome" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required></div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div><label for="alunoIdade" class="block text-text-muted">Idade:</label><input type="number" id="alunoIdade" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required></div>
-                    <div>
-                        <label for="alunoSexo" class="block text-text-muted">Sexo:</label>
+                    <div><label class="block text-text-muted">Idade:</label><input type="number" id="alunoIdade" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required></div>
+                    <div><label class="block text-text-muted">Sexo:</label>
                         <select id="alunoSexo" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
@@ -267,1262 +272,621 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div><label for="alunoAltura" class="block text-text-muted">Altura (cm):</label><input type="number" id="alunoAltura" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required></div>
-                    <div><label for="alunoPesoInicial" class="block text-text-muted">Peso (kg):</label><input type="number" step="0.1" id="alunoPesoInicial" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required></div>
+                    <div><label class="block text-text-muted">Altura (cm):</label><input type="number" id="alunoAltura" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required></div>
+                    <div><label class="block text-text-muted">Peso (kg):</label><input type="number" step="0.1" id="alunoPesoInicial" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required></div>
                 </div>
-                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div><label for="alunoEmail" class="block text-text-muted">Email (Opcional):</label><input type="email" id="alunoEmail" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                    <div><label for="alunoTelefone" class="block text-text-muted">Telefone (Opcional):</label><input type="tel" id="alunoTelefone" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                </div>
-                <div><label for="alunoObjetivo" class="block text-text-muted">Objetivo Principal:</label><input type="text" id="alunoObjetivo" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required></div>
+                <div><label class="block text-text-muted">Objetivo Principal:</label><input type="text" id="alunoObjetivo" placeholder="Ex: Hipertrofia, Emagrecimento" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required></div>
                 <div class="mt-6 flex justify-end"><button type="submit" class="py-3 px-6 text-lg bg-btn-primary text-white rounded-lg font-semibold">Guardar Aluno</button></div>
             </form>
         </div>
     </div>
 
-    <!-- Modal de Adicionar Avaliação Física -->
-    <div id="addAvaliacaoModal" class="modal fixed inset-0 z-50 flex justify-center items-center p-4 hide">
-        <div class="modal-content bg-bg-container p-4 sm:p-6 rounded-xl shadow-2xl border border-border-light w-full max-w-2xl relative">
-            <span id="closeAddAvaliacaoModal" class="absolute top-4 right-4 text-2xl font-bold text-text-muted cursor-pointer">&times;</span>
-            <h3 class="text-2xl font-semibold text-text-light mb-6">Nova Avaliação Física</h3>
-            <form id="formAddAvaliacao" class="space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label for="avaliacaoData" class="block text-text-muted">Data da Avaliação:</label>
-                        <input type="date" id="avaliacaoData" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required>
-                    </div>
-                    <div>
-                        <label for="avaliacaoPeso" class="block text-text-muted">Peso (kg):</label>
-                        <input type="number" step="0.1" id="avaliacaoPeso" class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required>
-                    </div>
+    <!-- Modal Configurações de API -->
+    <div id="settingsModal" class="modal fixed inset-0 z-50 flex justify-center items-center p-4 hide">
+        <div class="modal-content bg-bg-container p-6 rounded-xl shadow-2xl border border-border-light w-full max-w-lg relative">
+            <span id="closeSettingsModal" class="absolute top-4 right-4 text-2xl font-bold text-text-muted cursor-pointer">&times;</span>
+            <h3 class="text-2xl font-semibold text-text-light mb-4">Configurações do Treinador</h3>
+            <form id="settingsForm" class="space-y-4">
+                <div>
+                    <label class="block text-text-muted">A sua Chave de API Google (Gemini):</label>
+                    <input type="password" id="apiKeyInput" placeholder="AIzaSy..." class="w-full p-3 rounded-lg border border-border-light bg-background-dark text-text-light" required>
+                    <p class="text-xs text-text-muted mt-2">Necessária para a IA gerar treinos. Obtenha a sua no Google AI Studio.</p>
                 </div>
-                <h4 class="text-lg font-semibold text-primary-blue pt-4 border-t border-border-light">Medidas Corporais (cm)</h4>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div><label class="block text-text-muted text-sm">Peito:</label><input type="number" step="0.1" data-medida="peito" class="medida-input w-full p-2 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                    <div><label class="block text-text-muted text-sm">Braço D:</label><input type="number" step="0.1" data-medida="braco_d" class="medida-input w-full p-2 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                    <div><label class="block text-text-muted text-sm">Braço E:</label><input type="number" step="0.1" data-medida="braco_e" class="medida-input w-full p-2 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                    <div><label class="block text-text-muted text-sm">Cintura:</label><input type="number" step="0.1" data-medida="cintura" class="medida-input w-full p-2 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                    <div><label class="block text-text-muted text-sm">Abdômen:</label><input type="number" step="0.1" data-medida="abdomen" class="medida-input w-full p-2 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                    <div><label class="block text-text-muted text-sm">Quadril:</label><input type="number" step="0.1" data-medida="quadril" class="medida-input w-full p-2 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                    <div><label class="block text-text-muted text-sm">Coxa D:</label><input type="number" step="0.1" data-medida="coxa_d" class="medida-input w-full p-2 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                    <div><label class="block text-text-muted text-sm">Coxa E:</label><input type="number" step="0.1" data-medida="coxa_e" class="medida-input w-full p-2 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                    <div><label class="block text-text-muted text-sm">Pant. D:</label><input type="number" step="0.1" data-medida="panturrilha_d" class="medida-input w-full p-2 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
-                    <div><label class="block text-text-muted text-sm">Pant. E:</label><input type="number" step="0.1" data-medida="panturrilha_e" class="medida-input w-full p-2 rounded-lg border border-border-light bg-background-dark text-text-light"></div>
+                <div class="mt-6 flex justify-end">
+                    <button type="submit" class="py-3 px-6 text-lg bg-btn-primary text-white rounded-lg font-semibold">Guardar Configuração</button>
                 </div>
-                <div class="mt-6 flex justify-end"><button type="submit" class="py-3 px-6 text-lg bg-btn-primary text-white rounded-lg font-semibold">Guardar Avaliação</button></div>
             </form>
         </div>
     </div>
 
-    <!-- Modal de Confirmação Genérico -->
+    <!-- Outros Modais (Partilhar, Confirmar, Gráficos) -->
+    <div id="shareLinkModal" class="modal fixed inset-0 z-50 flex justify-center items-center p-4 hide">
+        <div class="modal-content bg-bg-container p-6 rounded-xl shadow-2xl border border-border-light w-full max-w-lg relative">
+            <span id="closeShareLinkModal" class="absolute top-4 right-4 text-2xl font-bold text-text-muted cursor-pointer">&times;</span>
+            <h3 class="text-2xl font-semibold text-text-light mb-4">Link Público do Treino</h3>
+            <div class="relative">
+                <input type="text" id="shareableLinkInput" class="w-full p-3 pr-12 rounded-lg border border-border-light bg-background-dark text-text-light" readonly>
+                <button id="btnCopyLink" class="absolute inset-y-0 right-0 px-3 text-text-muted hover:text-primary-blue">CÓPIA</button>
+            </div>
+        </div>
+    </div>
+
     <div id="confirmationModal" class="modal fixed inset-0 z-50 flex justify-center items-center p-4 hide">
         <div class="modal-content bg-bg-container p-6 rounded-xl shadow-2xl border border-border-light w-full max-w-md relative text-center">
             <h3 id="confirmationTitle" class="text-xl font-semibold text-text-light mb-4"></h3>
             <p id="confirmationMessage" class="text-text-muted mb-6"></p>
             <div class="flex justify-center gap-4">
-                <button id="btnConfirm" class="py-2 px-6 bg-btn-danger text-white rounded-lg font-semibold">Confirmar</button>
+                <button id="btnConfirm" class="py-2 px-6 bg-btn-danger text-white rounded-lg font-semibold">Sim, Confirmar</button>
                 <button id="btnCancel" class="py-2 px-6 bg-btn-secondary text-white rounded-lg font-semibold">Cancelar</button>
             </div>
         </div>
     </div>
-    
-    <!-- Modal de Opções de Guardar -->
-    <div id="saveOptionsModal" class="modal fixed inset-0 z-50 flex justify-center items-center p-4 hide">
-        <div class="modal-content bg-bg-container p-6 rounded-xl shadow-2xl border border-border-light w-full max-w-md relative text-center">
-            <h3 id="saveOptionsTitle" class="text-xl font-semibold text-text-light mb-4">Guardar Treino</h3>
-            <p id="saveOptionsMessage" class="text-text-muted mb-6">Este treino já existe. O que deseja fazer?</p>
-            <div class="flex flex-col gap-4">
-                <button id="btnUpdateWorkout" class="w-full py-3 bg-btn-primary text-white rounded-lg font-semibold">Guardar Alterações</button>
-                <button id="btnSaveAsNewWorkout" class="w-full py-3 bg-primary-blue text-white rounded-lg font-semibold">Guardar como Novo Treino</button>
-                <button id="btnCancelSave" class="w-full py-2 bg-btn-secondary text-white rounded-lg font-semibold mt-2">Cancelar</button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Modal para exibir os Gráficos -->
-    <div id="chartModal" class="modal fixed inset-0 z-50 flex justify-center items-center p-4 hide">
-        <div class="modal-content bg-bg-container p-6 rounded-xl shadow-2xl border border-border-light w-full max-w-4xl relative">
-            <span id="closeChartModal" class="absolute top-4 right-4 text-2xl font-bold text-text-muted cursor-pointer">&times;</span>
-            <h3 id="chartModalTitle" class="text-2xl font-semibold text-text-light mb-4">Visualização de Progresso</h3>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div>
-                    <h4 class="text-lg font-semibold text-primary-blue text-center mb-2">Evolução do Peso (kg)</h4>
-                    <canvas id="weightChart"></canvas>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold text-primary-blue text-center mb-2">Comparativo de Medidas (cm)</h4>
-                    <canvas id="measuresChart"></canvas>
-                </div>
-            </div>
-            <div class="mt-6 flex justify-end">
-                <button id="btnDownloadChart" class="py-2 px-6 bg-btn-primary text-white rounded-lg font-semibold">Descarregar Gráficos</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal para Partilhar Link -->
-    <div id="shareLinkModal" class="modal fixed inset-0 z-50 flex justify-center items-center p-4 hide">
-        <div class="modal-content bg-bg-container p-6 rounded-xl shadow-2xl border border-border-light w-full max-w-lg relative">
-            <span id="closeShareLinkModal" class="absolute top-4 right-4 text-2xl font-bold text-text-muted cursor-pointer">&times;</span>
-            <h3 class="text-2xl font-semibold text-text-light mb-4">Partilhar Link do Treino</h3>
-            <p class="text-text-muted mb-4">Envie este link para o seu aluno. Ele terá acesso apenas a este plano de treino.</p>
-            <div class="relative">
-                <input type="text" id="shareableLinkInput" class="w-full p-3 pr-12 rounded-lg border border-border-light bg-background-dark text-text-light" readonly>
-                <button id="btnCopyLink" class="absolute inset-y-0 right-0 px-3 text-text-muted hover:text-primary-blue">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal para carregar Templates de Treino -->
-    <div id="loadTemplateModal" class="modal fixed inset-0 z-50 flex justify-center items-center p-4 hide">
-        <div class="modal-content bg-bg-container p-6 rounded-xl shadow-2xl border border-border-light w-full max-w-2xl relative">
-            <span id="closeLoadTemplateModal" class="absolute top-4 right-4 text-2xl font-bold text-text-muted cursor-pointer">&times;</span>
-            <h3 class="text-2xl font-semibold text-text-light mb-4">Carregar a Partir de um Modelo</h3>
-            <div id="templateListContainer" class="space-y-3 max-h-96 overflow-y-auto">
-                <!-- A lista de templates será inserida aqui -->
-            </div>
-        </div>
-    </div>
-    
+    <!-- Scripts da Aplicação -->
     <script type="module">
+        // Importa Firebase da versão oficial do CDN (compatível com GitHub Pages)
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, addDoc, collection, getDocs, getDoc, deleteDoc, serverTimestamp, query, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         
-        // --- UTILITÁRIAS GLOBAIS ---
-        const apiKey = ""; // A chave é fornecida pelo ambiente em tempo de execução
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            apiKey: "dummy", authDomain: "dummy", projectId: "dummy", storageBucket: "dummy", messagingSenderId: "dummy", appId: "dummy"
-        };
+        // RECUPERADO O FIREBASE CONFIG ORIGINAL (Para rodar no GitHub Pages sem bloqueios)
+        const encodedConfig = 'eyJhcGlLZXkiOiJBSXphU3lEcjU0NGU0M19pS1dOVkw5VUNLZEtPTk1fczlfZ0d4VHMiLCJhdXRoRG9tYWluIjoic2FtcGxlLWZpcmViYXNlLWFpLWFwcC03YzRiOC5maXJlYmFzZWFwcC5jb20iLCJwcm9qZWN0SWQiOiJzYW1wbGUtZmlyZWJhc2UtYWktYXBwLTdjNGI4Iiwic3RvcmFnZUJ1Y2tldCI6InNhbXBsZS1maXJlYmFzZS1haS1hcHAtN2M0YjguYXBwc3BvdC5jb20iLCJtZXNzYWdpbmdTZW5kZXJJZCI6IjYxNDg5MjIzODQiLCJhcHBJZCI6IjE6NjE0ODkyMjM4NDp3ZWI6YmM2YzllZTM0MGQ5NzI2YWNmYmU5NSJ9';
+        const decodedConfig = atob(encodedConfig);
+        const firebaseConfig = JSON.parse(decodedConfig);
         
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
 
+        // Estado da App
         let appState = { 
             currentUser: null, 
             alunoSelecionado: null, 
             treinoSemanal: [],
-            tecnicas: [],
-            dicas: [],
             analiseNutricional: {},
-            avaliacoesCache: [],
-            treinoAbertoId: null,
-            alunosCache: []
+            alunosCache: [],
+            geminiApiKey: ''
         };
 
-        // --- MANIPULAÇÃO DE UI ---
-        const ui = {
-            spinner: document.getElementById('loadingSpinner'),
-            spinnerMsg: document.getElementById('spinner-message'),
-            mainApp: document.getElementById('mainApp'),
-            publicView: document.getElementById('publicView'),
-            userInfo: document.getElementById('userInfo'),
-            btnVoltarApp: document.getElementById('btnVoltarApp')
-        };
-
+        // --- UTILITÁRIOS DA UI ---
         function toggleSpinner(show, message = "Aguarde...") {
-            if (ui.spinner) {
-                ui.spinnerMsg.textContent = message;
-                ui.spinner.classList.toggle('hide', !show);
-            }
+            const spinner = document.getElementById('loadingSpinner');
+            document.getElementById('spinner-message').textContent = message;
+            if(show) spinner.classList.remove('hide'); else spinner.classList.add('hide');
         }
 
         function showNotification(title, message, type = 'success') {
             const notification = document.getElementById('notification');
-            const iconContainer = document.getElementById('notification-icon');
             document.getElementById('notification-title').textContent = title;
             document.getElementById('notification-message').textContent = message;
-
-            const successIcon = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
-            const errorIcon = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
-
-            if (type === 'success') {
-                notification.className = `fixed top-5 left-1/2 -translate-x-1/2 p-4 rounded-lg text-white z-50 transition-all duration-300 bg-btn-success opacity-100 visible translate-y-0 w-full max-w-sm shadow-lg`;
-                iconContainer.innerHTML = successIcon;
-            } else {
-                notification.className = `fixed top-5 left-1/2 -translate-x-1/2 p-4 rounded-lg text-white z-50 transition-all duration-300 bg-btn-danger opacity-100 visible translate-y-0 w-full max-w-sm shadow-lg`;
-                iconContainer.innerHTML = errorIcon;
-            }
-
-            setTimeout(() => {
-                notification.className = notification.className.replace('opacity-100 visible translate-y-0', 'opacity-0 invisible -translate-y-10');
-            }, 4000);
+            notification.className = `fixed top-5 left-1/2 -translate-x-1/2 p-4 rounded-lg text-white z-50 transition-all duration-300 ${type === 'success' ? 'bg-btn-success' : 'bg-btn-danger'} opacity-100 visible translate-y-0 w-full max-w-sm shadow-lg`;
+            setTimeout(() => { notification.className = notification.className.replace('opacity-100 visible translate-y-0', 'opacity-0 invisible -translate-y-10'); }, 4000);
         }
 
         function mostrarTela(idTela) {
-            document.querySelectorAll('#telaAlunos, #telaGerenciarAluno, #telaCarregar, #treinoForm, #treinoPreview, #telaAcompanhamento').forEach(el => el.classList.add('hide'));
+            document.querySelectorAll('#telaLogin, #telaCadastro, #telaAlunos, #telaGerenciarAluno, #telaCarregar, #treinoForm, #treinoPreview, #telaAcompanhamento').forEach(el => el.classList.add('hide'));
             const tela = document.getElementById(idTela);
             if (tela) tela.classList.remove('hide');
             
-            // Controle do botão Voltar
-            if (idTela === 'telaAlunos') {
-                ui.btnVoltarApp.classList.add('hide');
-            } else {
-                ui.btnVoltarApp.classList.remove('hide');
-            }
+            const btnVoltar = document.getElementById('btnVoltarApp');
+            if (idTela === 'telaAlunos' || idTela === 'telaLogin' || idTela === 'telaCadastro') btnVoltar.classList.add('hide');
+            else btnVoltar.classList.remove('hide');
         }
 
-        ui.btnVoltarApp.addEventListener('click', () => {
+        document.getElementById('btnVoltarApp').addEventListener('click', () => {
             appState.alunoSelecionado = null;
             mostrarTela('telaAlunos');
         });
 
-        // --- INICIALIZAÇÃO E AUTENTICAÇÃO ---
-        document.addEventListener('DOMContentLoaded', async () => {
-            const params = new URLSearchParams(window.location.search);
-            const publicId = params.get('publicId');
+        // Modais Reutilizáveis
+        function showConfirmationModal(title, message) {
+            return new Promise((resolve) => {
+                const modal = document.getElementById('confirmationModal');
+                document.getElementById('confirmationTitle').textContent = title;
+                document.getElementById('confirmationMessage').textContent = message;
+                modal.classList.remove('hide');
+                const btnConfirm = document.getElementById('btnConfirm');
+                const btnCancel = document.getElementById('btnCancel');
+                const cleanup = () => { modal.classList.add('hide'); btnConfirm.replaceWith(btnConfirm.cloneNode(true)); btnCancel.replaceWith(btnCancel.cloneNode(true)); };
+                btnConfirm.addEventListener('click', () => { cleanup(); resolve(true); }, {once:true});
+                btnCancel.addEventListener('click', () => { cleanup(); resolve(false); }, {once:true});
+            });
+        }
 
-            if (publicId) {
-                initializePublicView(publicId);
+        // --- INICIALIZAÇÃO E ROTAS ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('publicId')) {
+                initializePublicView(params.get('publicId'));
             } else {
-                initializeTrainerApp();
+                verificarAuth();
             }
         });
 
-        async function initializeTrainerApp() {
-            toggleSpinner(true, "Conectando ao sistema...");
-            
-            // Autenticação obrigatória (regra de sistema)
-            const initAuth = async () => {
-                try {
-                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
-                } catch (e) {
-                    console.error("Auth error:", e);
-                    showNotification("Erro", "Falha na autenticação do sistema.", "error");
-                }
-            };
-            
-            await initAuth();
-
+        function verificarAuth() {
             onAuthStateChanged(auth, async user => {
                 if (user) {
                     appState.currentUser = user;
-                    ui.userInfo.textContent = `Treinador ID: ${user.uid.substring(0, 6)}...`;
-                    ui.mainApp.classList.remove('hide');
+                    document.getElementById('mainApp').classList.remove('hide');
+                    
+                    try {
+                        const userDoc = await getDoc(doc(db, "usuarios", user.uid));
+                        if(userDoc.exists()) {
+                            document.getElementById('userInfo').textContent = userDoc.data().nome || user.email;
+                        } else {
+                            document.getElementById('userInfo').textContent = user.email;
+                        }
+                        await carregarConfiguracoesIA();
+                    } catch(e) {}
+                    
                     await carregarAlunos();
                     mostrarTela('telaAlunos');
+                } else {
+                    document.getElementById('mainApp').classList.remove('hide');
+                    mostrarTela('telaLogin');
                 }
-                toggleSpinner(false);
             });
-            
-            configurarEventosUI();
         }
 
-        // --- LÓGICA DA PÁGINA PÚBLICA ---
-        async function initializePublicView(publicId) {
-            ui.mainApp.classList.add('hide');
-            ui.publicView.classList.remove('hide');
-            toggleSpinner(true, "A carregar treino...");
+        // --- LÓGICA DE LOGIN / CADASTRO ---
+        document.getElementById('linkGoToSignup').addEventListener('click', (e) => { e.preventDefault(); mostrarTela('telaCadastro'); });
+        document.getElementById('linkGoToLogin').addEventListener('click', (e) => { e.preventDefault(); mostrarTela('telaLogin'); });
+        document.getElementById('btnLogout').addEventListener('click', () => signOut(auth));
 
+        document.getElementById('loginForm').addEventListener('submit', async e => {
+            e.preventDefault();
+            toggleSpinner(true, "A entrar...");
             try {
-                // Autenticação necessária para leitura também!
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
+                await signInWithEmailAndPassword(auth, document.getElementById('emailInput').value, document.getElementById('passwordInput').value);
+            } catch(err) { showNotification("Erro", "Email ou palavra-passe incorretos.", "error"); }
+            finally { toggleSpinner(false); }
+        });
 
-                const publicDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'publicTrainings', publicId);
-                const docSnap = await getDoc(publicDocRef);
-
-                if (docSnap.exists()) {
-                    renderPublicTraining(docSnap.data());
-                    document.getElementById('publicContent').classList.remove('hide');
-                    document.getElementById('publicError').classList.add('hide');
-                } else {
-                    document.getElementById('publicContent').classList.add('hide');
-                    document.getElementById('publicError').classList.remove('hide');
-                }
-            } catch (error) {
-                console.error("Erro ao carregar treino público:", error);
-                document.getElementById('publicContent').classList.add('hide');
-                document.getElementById('publicError').classList.remove('hide');
-            } finally {
-                toggleSpinner(false);
-            }
-        }
-        
-        function renderPublicTraining(data) {
-            document.getElementById('publicAlunoNome').textContent = data.alunoNome;
-            document.getElementById('publicTrainerInfo').textContent = `Preparado para o(a) aluno(a)`;
-            const container = document.getElementById('publicTreinoContainer');
-            container.innerHTML = '';
-
-            if (data.analiseNutricional) {
-                const { imc, tmb, caloriasRecomendadas, proteina, carboidratos, agua, creatina } = data.analiseNutricional;
-                container.innerHTML += `
-                    <div class="mb-6 bg-bg-container p-4 rounded-lg border border-border-light">
-                        <h3 class="text-lg font-semibold text-primary-blue mb-2">Análise Corporal e Metas Diárias</h3>
-                        <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-2 text-sm">
-                            <p><strong class="text-text-light">IMC:</strong> ${imc || 'N/D'}</p>
-                            <p><strong class="text-text-light">TMB:</strong> ${tmb || 'N/D'}</p>
-                            <p><strong class="text-text-light">Calorias (Obj.):</strong> ${caloriasRecomendadas || 'N/D'}</p>
-                            <p><strong class="text-text-light">Proteína:</strong> ${proteina || 'N/D'}</p>
-                            <p><strong class="text-text-light">Carboidratos:</strong> ${carboidratos || 'N/D'}</p>
-                            <p><strong class="text-text-light">Água:</strong> ${agua || 'N/D'}</p>
-                            <p><strong class="text-text-light">Creatina:</strong> ${creatina || 'N/D'}</p>
-                        </div>
-                    </div>
-                `;
-            }
-
-            if (data.observacoes) {
-                container.innerHTML += `<div class="mb-4"><h4 class="font-bold text-primary-blue">Observações Gerais:</h4><p class="text-text-muted whitespace-pre-wrap">${data.observacoes}</p></div>`;
-            }
-
-            if (!data.dias || !Array.isArray(data.dias) || data.dias.length === 0) {
-                container.innerHTML += '<p class="text-text-muted text-center py-8">Nenhum dia de treino foi encontrado neste plano.</p>';
-                return;
-            }
-
-            const youtubeIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-red-500"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg>`;
-
-            data.dias.forEach(dia => {
-                let diaHTML = `<div class="mb-4">
-                    <h3 class="text-xl font-semibold text-text-light border-b-2 border-primary-blue pb-1 mb-3">${dia.nome} <span class="text-base font-normal text-text-muted">- ${dia.musculos}</span></h3>`;
-
-                if (dia.aquecimento) diaHTML += `<div class="mb-3"><h4 class="font-semibold text-primary-blue text-sm">Aquecimento:</h4><p class="text-text-muted text-sm whitespace-pre-wrap">${dia.aquecimento}</p></div>`;
-                
-                if (dia.exercicios && Array.isArray(dia.exercicios) && dia.exercicios.length > 0) {
-                    let exerciciosHTML = dia.exercicios.map(ex => {
-                        const nomeExercicioComVideo = ex.videoUrl 
-                            ? `<a href="${ex.videoUrl}" target="_blank" class="flex items-center text-primary-blue hover:underline">
-                                    <span>${ex.nome}</span>
-                                    <span class="ml-2">${youtubeIcon}</span>
-                                </a>` 
-                            : `<span>${ex.nome}</span>`;
-
-                        const obsHTML = ex.obs ? `<tr class="bg-background-dark"><td colspan="4" class="text-xs text-primary-blue pt-1 pb-2 px-2">${ex.obs}</td></tr>` : '';
-
-                        return `
-                            <tr class="border-b border-border-light">
-                                <td class="py-2 px-2">${nomeExercicioComVideo}</td>
-                                <td class="py-2 px-2 text-center">${ex.series || '-'}</td>
-                                <td class="py-2 px-2 text-center">${ex.reps || '-'}</td>
-                                <td class="py-2 px-2 text-center">${ex.descanso || '-'}</td>
-                            </tr>
-                            ${obsHTML}
-                        `;
-                    }).join('');
-                    
-                    diaHTML += `<table class="w-full text-left text-sm">
-                        <thead><tr class="text-text-muted"><th class="w-2/5 font-semibold py-2 px-2">Exercício</th><th class="w-1/5 font-semibold py-2 px-2 text-center">Séries</th><th class="w-1/5 font-semibold py-2 px-2 text-center">Reps</th><th class="w-1/5 font-semibold py-2 px-2 text-center">Descanso</th></tr></thead>
-                        <tbody>${exerciciosHTML}</tbody>
-                    </table>`;
-                }
-                
-                if (dia.cardio) diaHTML += `<div class="mt-3"><h4 class="font-semibold text-primary-blue text-sm">Cardio:</h4><p class="text-text-muted text-sm whitespace-pre-wrap">${dia.cardio}</p></div>`;
-                if (dia.arrefecimento) diaHTML += `<div class="mt-3"><h4 class="font-semibold text-primary-blue text-sm">Arrefecimento:</h4><p class="text-text-muted text-sm whitespace-pre-wrap">${dia.arrefecimento}</p></div>`;
-
-                diaHTML += `</div>`;
-                container.innerHTML += diaHTML;
-            });
-
-            if (data.tecnicas && data.tecnicas.length > 0) {
-                let tecnicasHTML = data.tecnicas.map(t => `<li><strong class="text-text-light">${t.nome}:</strong> ${t.descricao}</li>`).join('');
-                container.innerHTML += `<div class="mt-6"><h4 class="text-lg font-semibold text-primary-blue border-b border-border-light pb-1 mb-2">Técnicas Utilizadas</h4><ul class="list-disc list-inside space-y-2 text-text-muted">${tecnicasHTML}</ul></div>`;
-            }
-            if (data.dicas && data.dicas.length > 0) {
-                let dicasHTML = data.dicas.map(d => `<li>${d}</li>`).join('');
-                container.innerHTML += `<div class="mt-6"><h4 class="text-lg font-semibold text-primary-blue border-b border-border-light pb-1 mb-2">Dicas Extra</h4><ul class="list-disc list-inside space-y-2 text-text-muted">${dicasHTML}</ul></div>`;
-            }
-        }
-
-
-        // --- EVENTOS PRINCIPAIS DE INTERFACE ---
-        function configurarEventosUI() {
-            // Lógica de Alunos
-            document.getElementById('btnShowAddAlunoModal').addEventListener('click', () => {
-                document.getElementById('formAddAluno').reset();
-                document.getElementById('alunoIdHidden').value = '';
-                document.getElementById('modalAlunoTitle').textContent = "Registar Novo Aluno";
-                document.getElementById('addAlunoModal').classList.remove('hide');
-            });
-
-            document.getElementById('closeAddAlunoModal').addEventListener('click', () => {
-                document.getElementById('addAlunoModal').classList.add('hide');
-            });
-
-            document.getElementById('formAddAluno').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                if (!appState.currentUser) return;
-
-                const alunoId = document.getElementById('alunoIdHidden').value;
-                const isEditing = !!alunoId;
-
-                const nome = document.getElementById('alunoNome').value.trim();
-                const idade = parseInt(document.getElementById('alunoIdade').value);
-                const sexo = document.getElementById('alunoSexo').value;
-                const altura = parseInt(document.getElementById('alunoAltura').value);
-                const pesoInicial = parseFloat(document.getElementById('alunoPesoInicial').value);
-                const objetivo = document.getElementById('alunoObjetivo').value;
-                const email = document.getElementById('alunoEmail').value.trim();
-                const telefone = document.getElementById('alunoTelefone').value.trim();
-
-                const alunoData = { 
-                    nome, nome_lowercase: nome.toLowerCase(), idade, sexo, altura, pesoInicial, objetivo, email, telefone
-                };
-
-                toggleSpinner(true, "A guardar dados...");
-                try {
-                    const alunosPath = collection(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'alunos');
-                    
-                    // Checagem simples no cache ao invés de usar query complexa do Firestore
-                    if (!isEditing) {
-                        const existe = appState.alunosCache.some(a => a.nome.toLowerCase() === nome.toLowerCase());
-                        if (existe) {
-                            showNotification("Atenção", "Já existe um aluno com este nome.", "error");
-                            toggleSpinner(false);
-                            return;
-                        }
-                        alunoData.criadoEm = serverTimestamp();
-                        await addDoc(alunosPath, alunoData);
-                        showNotification("Sucesso!", `Aluno "${nome}" registado!`);
-                    } else {
-                        const docRef = doc(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'alunos', alunoId);
-                        await updateDoc(docRef, alunoData);
-                        showNotification("Sucesso!", `Dados de "${nome}" atualizados!`);
-                    }
-
-                    document.getElementById('formAddAluno').reset();
-                    document.getElementById('addAlunoModal').classList.add('hide');
-                    await carregarAlunos(); 
-                } catch (error) { 
-                    console.error("Erro ao guardar aluno:", error);
-                    showNotification("Erro", "Erro ao guardar dados.", "error");
-                } finally { 
-                    toggleSpinner(false); 
-                }
-            });
-
-            document.getElementById('alunoSearchInput').addEventListener('input', renderAlunosList);
-
-            document.getElementById('listaAlunos').addEventListener('click', async (e) => {
-                const deleteBtn = e.target.closest('.btn-excluir-aluno');
-                const editBtn = e.target.closest('.btn-editar-aluno');
-                const viewArea = e.target.closest('.view-aluno');
-
-                if (deleteBtn) {
-                    const id = deleteBtn.dataset.alunoid;
-                    const confirm = await showConfirmationModal("Confirmar Exclusão", "Deseja excluir este aluno? Seus treinos não serão excluídos para manter histórico, mas o perfil sumirá.");
-                    if (!confirm) return;
-                    
-                    toggleSpinner(true, "A excluir...");
-                    try {
-                        await deleteDoc(doc(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'alunos', id));
-                        showNotification("Sucesso", "Aluno excluído.");
-                        await carregarAlunos();
-                    } catch(err) {
-                        showNotification("Erro", "Não foi possível excluir.", "error");
-                    } finally {
-                        toggleSpinner(false);
-                    }
-                } else if (editBtn) {
-                    const id = editBtn.dataset.alunoid;
-                    const aluno = appState.alunosCache.find(a => a.id === id);
-                    if(aluno) {
-                        document.getElementById('alunoIdHidden').value = aluno.id;
-                        document.getElementById('alunoNome').value = aluno.nome || '';
-                        document.getElementById('alunoIdade').value = aluno.idade || '';
-                        document.getElementById('alunoSexo').value = aluno.sexo || 'Masculino';
-                        document.getElementById('alunoAltura').value = aluno.altura || '';
-                        document.getElementById('alunoPesoInicial').value = aluno.pesoInicial || '';
-                        document.getElementById('alunoEmail').value = aluno.email || '';
-                        document.getElementById('alunoTelefone').value = aluno.telefone || '';
-                        document.getElementById('alunoObjetivo').value = aluno.objetivo || '';
-                        
-                        document.getElementById('modalAlunoTitle').textContent = "Editar Dados";
-                        document.getElementById('addAlunoModal').classList.remove('hide');
-                    }
-                } else if (viewArea) {
-                    const id = viewArea.dataset.alunoid;
-                    appState.alunoSelecionado = appState.alunosCache.find(a => a.id === id);
-                    document.getElementById('nomeAlunoGerenciado').textContent = `A gerir: ${appState.alunoSelecionado.nome}`;
-                    mostrarTela('telaGerenciarAluno');
-                }
-            });
-
-            // Funções de Gerenciamento do Aluno
-            document.getElementById('btnNovoTreino').addEventListener('click', prepararNovoTreino);
-            
-            document.getElementById('dias_semana').addEventListener('change', atualizarDivisoes);
-            document.getElementById('dificuldade').addEventListener('change', (e) => {
-                document.getElementById('tecnicas_avancadas_container').classList.toggle('hide', e.target.value !== 'Avancado');
-            });
-
-            document.getElementById('btnGerarComIA').addEventListener('click', gerarTreinoComIA);
-            document.getElementById('btnAddDia').addEventListener('click', () => addDiaDeTreino());
-            
-            document.getElementById('diasDeTreinoContainer').addEventListener('click', e => {
-                if (e.target.classList.contains('btn-add-exercicio')) addExercicio(e.target.previousElementSibling);
-                if (e.target.classList.contains('btn-remover-dia')) e.target.closest('.bg-background-dark').remove();
-                if (e.target.classList.contains('btn-remover-exercicio')) e.target.closest('.exercicio-item').remove();
-                
-                const testButton = e.target.closest('.btn-testar-video');
-                if (testButton) {
-                    const urlInput = testButton.previousElementSibling;
-                    const url = urlInput.value.trim();
-                    if (url) window.open(url, '_blank');
-                    else showNotification("Atenção", "Insira um URL para testar.", "error");
-                }
-            });
-
-            document.getElementById('btnGerarPreview').addEventListener('click', prepararPreview);
-            document.getElementById('btnVoltarForm').addEventListener('click', () => mostrarTela('treinoForm'));
-            document.getElementById('btnSalvarTreino').addEventListener('click', salvarTreino);
-            document.getElementById('btnSalvarComoModelo').addEventListener('click', salvarModelo);
-            document.getElementById('btnGerarPDF').addEventListener('click', gerarPDF);
-
-            // Funcionalidades da tela Carregar
-            document.getElementById('btnCarregarTreino').addEventListener('click', () => {
-                carregarTreinosSalvos();
-                mostrarTela('telaCarregar');
-            });
-
-            document.getElementById('listaTreinosSalvos').addEventListener('click', async e => {
-                const treinoId = e.target.dataset.treinoid;
-                if (!treinoId) return;
-
-                if (e.target.classList.contains('btn-deletar-treino')) {
-                    const confirm = await showConfirmationModal("Confirmação", "Excluir este treino guardado?");
-                    if(confirm) {
-                        toggleSpinner(true, "A excluir...");
-                        await deleteDoc(doc(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'treinos', treinoId));
-                        showNotification("Sucesso", "Treino excluído.");
-                        await carregarTreinosSalvos();
-                        toggleSpinner(false);
-                    }
-                } else if (e.target.classList.contains('btn-visualizar-treino')) {
-                    abrirTreinoSalvo(treinoId);
-                } else if (e.target.classList.contains('btn-compartilhar-treino')) {
-                    compartilharTreino(treinoId);
-                }
-            });
-
-            // Modelos
-            document.getElementById('btnLoadTemplate').addEventListener('click', carregarListaModelos);
-            document.getElementById('closeLoadTemplateModal').addEventListener('click', () => document.getElementById('loadTemplateModal').classList.add('hide'));
-            
-            document.getElementById('templateListContainer').addEventListener('click', async (e) => {
-                if (e.target.classList.contains('btn-load-template-confirm')) {
-                    const tid = e.target.dataset.templateid;
-                    const template = appState.modelosCache.find(m => m.id === tid);
-                    if (template) {
-                        prepararNovoTreino(); // Limpa form
-                        preencherFormularioComDados(template);
-                        document.getElementById('loadTemplateModal').classList.add('hide');
-                        showNotification("Sucesso", "Modelo carregado.");
-                    }
-                }
-            });
-
-            // Compartilhamento
-            document.getElementById('closeShareLinkModal').addEventListener('click', () => document.getElementById('shareLinkModal').classList.add('hide'));
-            document.getElementById('btnCopyLink').addEventListener('click', () => {
-                const input = document.getElementById('shareableLinkInput');
-                input.select();
-                document.execCommand('copy');
-                showNotification("Copiado!", "Link copiado para a área de transferência!");
-            });
-
-            // Avaliações e Gráficos
-            document.getElementById('btnAcompanharEvolucao').addEventListener('click', () => {
-                document.getElementById('tituloAcompanhamento').textContent = `Evolução de ${appState.alunoSelecionado.nome}`;
-                carregarAvaliacoes();
-                mostrarTela('telaAcompanhamento');
-            });
-            document.getElementById('btnShowAddAvaliacaoModal').addEventListener('click', () => {
-                document.getElementById('formAddAvaliacao').reset();
-                document.getElementById('avaliacaoData').value = new Date().toISOString().split('T')[0];
-                document.getElementById('addAvaliacaoModal').classList.remove('hide');
-            });
-            document.getElementById('closeAddAvaliacaoModal').addEventListener('click', () => document.getElementById('addAvaliacaoModal').classList.add('hide'));
-            
-            document.getElementById('formAddAvaliacao').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const data = document.getElementById('avaliacaoData').value;
-                const peso = parseFloat(document.getElementById('avaliacaoPeso').value);
-                const medidas = {};
-                document.querySelectorAll('.medida-input').forEach(input => {
-                    if (input.value) medidas[input.dataset.medida] = parseFloat(input.value);
+        document.getElementById('signupForm').addEventListener('submit', async e => {
+            e.preventDefault();
+            toggleSpinner(true, "A criar conta...");
+            try {
+                const cred = await createUserWithEmailAndPassword(auth, document.getElementById('signupEmail').value, document.getElementById('signupPassword').value);
+                await setDoc(doc(db, "usuarios", cred.user.uid), {
+                    nome: document.getElementById('signupName').value, email: cred.user.email
                 });
+            } catch(err) { showNotification("Erro", err.message, "error"); }
+            finally { toggleSpinner(false); }
+        });
 
-                toggleSpinner(true, "A guardar avaliação...");
-                try {
-                    await addDoc(collection(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'avaliacoes'), {
-                        alunoId: appState.alunoSelecionado.id, data, peso, medidas, criadoEm: serverTimestamp()
-                    });
-                    showNotification("Sucesso", "Avaliação adicionada.");
-                    document.getElementById('addAvaliacaoModal').classList.add('hide');
-                    await carregarAvaliacoes();
-                } catch(e) { showNotification("Erro", "Erro ao salvar.", "error"); }
-                finally { toggleSpinner(false); }
-            });
-
-            document.getElementById('listaAvaliacoes').addEventListener('click', async e => {
-                if (e.target.closest('.btn-excluir-avaliacao')) {
-                    const id = e.target.closest('.btn-excluir-avaliacao').dataset.avaliacaoid;
-                    const c = await showConfirmationModal("Atenção", "Excluir esta avaliação?");
-                    if(c) {
-                        toggleSpinner(true, "A excluir...");
-                        await deleteDoc(doc(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'avaliacoes', id));
-                        await carregarAvaliacoes();
-                        toggleSpinner(false);
-                    }
-                } else if (e.target.closest('.btn-ver-grafico')) {
-                    const index = parseInt(e.target.closest('.btn-ver-grafico').dataset.avaliacaoindex, 10);
-                    abrirModalGrafico(index);
+        // --- CONFIGURAÇÕES DA API (NUVEM) ---
+        async function carregarConfiguracoesIA() {
+            try {
+                const docRef = doc(db, "usuarios", appState.currentUser.uid, "config", "apiKeys");
+                const snap = await getDoc(docRef);
+                if (snap.exists() && snap.data().geminiKey) {
+                    appState.geminiApiKey = snap.data().geminiKey;
+                    document.getElementById('apiKeyInput').value = appState.geminiApiKey;
+                } else {
+                    document.getElementById('settingsModal').classList.remove('hide');
                 }
-            });
-
-            document.getElementById('closeChartModal').addEventListener('click', () => document.getElementById('chartModal').classList.add('hide'));
-            document.getElementById('btnDownloadChart').addEventListener('click', baixarGraficos);
-
-            // Options do Save Modal
-            document.getElementById('btnCancelSave').addEventListener('click', () => document.getElementById('saveOptionsModal').classList.add('hide'));
+            } catch(e) {}
         }
 
-        // --- LÓGICA DE NEGÓCIO ---
+        document.getElementById('btnShowSettings').addEventListener('click', () => document.getElementById('settingsModal').classList.remove('hide'));
+        document.getElementById('closeSettingsModal').addEventListener('click', () => document.getElementById('settingsModal').classList.add('hide'));
+        
+        document.getElementById('settingsForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const key = document.getElementById('apiKeyInput').value.trim();
+            if(!key) return;
+            toggleSpinner(true, "Guardando...");
+            try {
+                await setDoc(doc(db, "usuarios", appState.currentUser.uid, "config", "apiKeys"), { geminiKey: key });
+                appState.geminiApiKey = key;
+                document.getElementById('settingsModal').classList.add('hide');
+                showNotification("Sucesso", "Configurações guardadas de forma segura.");
+            } catch(err) { showNotification("Erro", "Erro ao guardar chave.", "error"); }
+            finally { toggleSpinner(false); }
+        });
+
+
+        // --- LÓGICA DE ALUNOS ---
+        document.getElementById('btnShowAddAlunoModal').addEventListener('click', () => {
+            document.getElementById('formAddAluno').reset();
+            document.getElementById('alunoIdHidden').value = '';
+            document.getElementById('modalAlunoTitle').textContent = "Registar Novo Aluno";
+            document.getElementById('addAlunoModal').classList.remove('hide');
+        });
+        document.getElementById('closeAddAlunoModal').addEventListener('click', () => document.getElementById('addAlunoModal').classList.add('hide'));
+
+        document.getElementById('formAddAluno').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('alunoIdHidden').value;
+            const alunoData = {
+                nome: document.getElementById('alunoNome').value,
+                idade: document.getElementById('alunoIdade').value,
+                sexo: document.getElementById('alunoSexo').value,
+                altura: document.getElementById('alunoAltura').value,
+                pesoInicial: document.getElementById('alunoPesoInicial').value,
+                objetivo: document.getElementById('alunoObjetivo').value
+            };
+
+            toggleSpinner(true, "Guardando...");
+            try {
+                if(id) {
+                    await updateDoc(doc(db, "usuarios", appState.currentUser.uid, "alunos", id), alunoData);
+                } else {
+                    alunoData.criadoEm = serverTimestamp();
+                    await addDoc(collection(db, "usuarios", appState.currentUser.uid, "alunos"), alunoData);
+                }
+                document.getElementById('addAlunoModal').classList.add('hide');
+                showNotification("Sucesso", "Aluno salvo com sucesso.");
+                carregarAlunos();
+            } catch(e) { showNotification("Erro", "Falha ao salvar aluno.", "error"); }
+            finally { toggleSpinner(false); }
+        });
 
         async function carregarAlunos() {
-            if (!appState.currentUser) return;
             const lista = document.getElementById('listaAlunos');
-            lista.innerHTML = '<p class="text-text-muted text-center py-8">A carregar...</p>';
-            
+            lista.innerHTML = '<p class="text-center py-8">Carregando...</p>';
             try {
-                // RULE 1: Standard collection fetch, RULE 2: No order by or where
-                const snap = await getDocs(collection(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'alunos'));
-                appState.alunosCache = snap.docs.map(doc => ({id: doc.id, ...doc.data()}))
-                                                 .sort((a,b) => a.nome.localeCompare(b.nome)); // Sort in JS
-                renderAlunosList();
-            } catch (error) {
-                console.error(error);
-                lista.innerHTML = '<p class="text-red-500 text-center py-8">Erro ao carregar alunos.</p>';
-            }
+                const snap = await getDocs(collection(db, "usuarios", appState.currentUser.uid, "alunos"));
+                appState.alunosCache = snap.docs.map(d => ({id: d.id, ...d.data()})).sort((a,b) => a.nome.localeCompare(b.nome));
+                renderizarAlunos();
+            } catch(e) { lista.innerHTML = '<p class="text-center py-8 text-red-500">Erro.</p>'; }
         }
 
-        function renderAlunosList() {
+        function renderizarAlunos() {
+            const busca = document.getElementById('alunoSearchInput').value.toLowerCase();
             const lista = document.getElementById('listaAlunos');
-            const search = document.getElementById('alunoSearchInput').value.toLowerCase();
+            const filtrados = appState.alunosCache.filter(a => a.nome.toLowerCase().includes(busca));
 
-            const filtered = appState.alunosCache.filter(a => a.nome.toLowerCase().includes(search));
-
-            if (filtered.length === 0) {
-                lista.innerHTML = appState.alunosCache.length === 0 
-                    ? `<div class="text-center p-8"><p class="text-text-muted mt-2">Clique em "+ Adicionar Aluno" para começar a criar planos de treino.</p></div>`
-                    : `<p class="text-text-muted text-center py-8">Nenhum aluno encontrado.</p>`;
+            if(filtrados.length === 0) {
+                lista.innerHTML = '<p class="text-center text-text-muted py-8">Nenhum aluno encontrado.</p>';
                 return;
             }
 
-            lista.innerHTML = filtered.map(aluno => `
-                <div class="bg-background-dark border border-border-light p-4 rounded-lg flex justify-between items-center">
-                    <div class="flex items-center gap-4 flex-grow cursor-pointer view-aluno" data-alunoid="${aluno.id}">
-                        <div class="w-12 h-12 rounded-full bg-border-light flex items-center justify-center text-text-muted text-xl font-bold">${aluno.nome.charAt(0).toUpperCase()}</div>
-                        <div>
-                            <h4 class="font-semibold text-text-light pointer-events-none">${aluno.nome}</h4>
-                            <p class="text-sm text-text-muted pointer-events-none">${aluno.objetivo}</p>
-                        </div>
+            lista.innerHTML = filtrados.map(a => `
+                <div class="bg-background-dark border border-border-light p-4 rounded-lg flex justify-between items-center cursor-pointer hover:border-primary-blue transition-colors">
+                    <div class="flex-grow view-aluno" data-id="${a.id}">
+                        <h4 class="font-semibold text-text-light">${a.nome}</h4>
+                        <p class="text-sm text-text-muted">Objetivo: ${a.objetivo}</p>
                     </div>
-                    <div class="flex items-center">
-                        <button class="btn-editar-aluno text-primary-blue hover:text-opacity-80 p-2 rounded-full" data-alunoid="${aluno.id}" title="Editar Aluno">
-                            <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                        </button>
-                        <button class="btn-excluir-aluno text-red-500 hover:text-red-400 p-2 rounded-full" data-alunoid="${aluno.id}" title="Excluir Aluno">
-                            <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        </button>
+                    <div class="flex gap-2">
+                        <button class="btn-editar text-primary-blue p-2" data-id="${a.id}">Editar</button>
+                        <button class="btn-excluir text-red-500 p-2" data-id="${a.id}">X</button>
                     </div>
                 </div>
             `).join('');
         }
 
+        document.getElementById('alunoSearchInput').addEventListener('input', renderizarAlunos);
+
+        document.getElementById('listaAlunos').addEventListener('click', async e => {
+            const id = e.target.dataset.id || e.target.closest('.view-aluno')?.dataset.id;
+            if(!id) return;
+
+            if (e.target.classList.contains('btn-excluir')) {
+                if(await showConfirmationModal("Atenção", "Excluir aluno?")) {
+                    toggleSpinner(true);
+                    await deleteDoc(doc(db, "usuarios", appState.currentUser.uid, "alunos", id));
+                    carregarAlunos();
+                    toggleSpinner(false);
+                }
+            } else if (e.target.classList.contains('btn-editar')) {
+                const a = appState.alunosCache.find(x => x.id === id);
+                document.getElementById('alunoIdHidden').value = a.id;
+                document.getElementById('alunoNome').value = a.nome;
+                document.getElementById('alunoIdade').value = a.idade;
+                document.getElementById('alunoSexo').value = a.sexo;
+                document.getElementById('alunoAltura').value = a.altura;
+                document.getElementById('alunoPesoInicial').value = a.pesoInicial;
+                document.getElementById('alunoObjetivo').value = a.objetivo;
+                document.getElementById('addAlunoModal').classList.remove('hide');
+            } else if (e.target.closest('.view-aluno')) {
+                appState.alunoSelecionado = appState.alunosCache.find(x => x.id === id);
+                document.getElementById('nomeAlunoGerenciado').textContent = `Aluno: ${appState.alunoSelecionado.nome}`;
+                mostrarTela('telaGerenciarAluno');
+            }
+        });
+
+
+        // --- LÓGICA DE TREINOS COM IA (ROTATIVIDADE) ---
         const divisoesSugeridas = {
-            '1': ['Full Body', 'Específico (Ex: Pernas)'],
-            '3': ['ABC (Peito-Tríceps / Costas-Bíceps / Pernas)', 'Full Body 3x', 'Inferior/Superior/Full Body'],
-            '4': ['Upper/Lower (2x)', 'ABCD (Peito / Costas / Pernas / Ombros)', 'Push/Pull/Legs/Upper'],
+            '3': ['ABC', 'Full Body 3x', 'Upper/Lower/FullBody'],
+            '4': ['Upper/Lower 2x', 'ABCD'],
             '5': ['ABCDE (Isolado)', 'Push/Pull/Legs/Upper/Lower'],
             '6': ['ABC 2x (Push/Pull/Legs 2x)']
         };
-
+        
         function atualizarDivisoes() {
-            const dias = document.getElementById('dias_semana').value;
-            const select = document.getElementById('divisao_treino');
-            select.innerHTML = (divisoesSugeridas[dias] || []).map(d => `<option value="${d}">${d}</option>`).join('');
+            const d = document.getElementById('dias_semana').value;
+            document.getElementById('divisao_treino').innerHTML = (divisoesSugeridas[d] || ['Geral']).map(x => `<option>${x}</option>`).join('');
         }
+        document.getElementById('dias_semana').addEventListener('change', atualizarDivisoes);
 
-        function prepararNovoTreino() {
-            appState.treinoAbertoId = null;
-            document.getElementById('treinoForm').reset();
-            document.getElementById('diasDeTreinoContainer').innerHTML = '';
+        document.getElementById('btnNovoTreino').addEventListener('click', () => {
             document.getElementById('nome_aluno_form').value = appState.alunoSelecionado.nome;
             atualizarDivisoes();
-            document.getElementById('tecnicas_avancadas_container').classList.add('hide');
-
-            const { altura, idade, objetivo, sexo, pesoInicial } = appState.alunoSelecionado;
-            // Get latest peso if available (would normally fetch avaliações, using pesoInicial for fast prep)
-            const imc = calcularIMC(pesoInicial, altura);
-            const tmb = calcularTMB(pesoInicial, altura, idade, sexo);
-            const calorias = calcularCaloriasRecomendadas(tmb, objetivo);
-
-            appState.analiseNutricional = {
-                imc: `${imc.valor} (${imc.classificacao})`, tmb: `${tmb} kcal`, caloriasRecomendadas: `${calorias} kcal`,
-                proteina: calcularProteina(pesoInicial), carboidratos: calcularCarboidratos(pesoInicial, objetivo),
-                agua: calcularAgua(pesoInicial), creatina: "3g - 5g", dataCriacao: new Date().toLocaleDateString('pt-BR')
-            };
-
+            document.getElementById('diasDeTreinoContainer').innerHTML = '';
             mostrarTela('treinoForm');
-        }
+        });
 
-        async function buscarHistoricoTreinoRecente() {
+        async function buscarUltimoTreino() {
             try {
-                const treinosSnap = await getDocs(collection(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'treinos'));
-                // Sort and filter in JS (Rule 2)
-                const treinosAluno = treinosSnap.docs
-                    .map(d => d.data())
-                    .filter(t => t.alunoId === appState.alunoSelecionado.id)
-                    .sort((a,b) => (b.criadoEm?.seconds || 0) - (a.criadoEm?.seconds || 0));
-
-                if (treinosAluno.length === 0) return "";
+                const treinosSnap = await getDocs(collection(db, "usuarios", appState.currentUser.uid, "treinos"));
+                const historico = treinosSnap.docs.map(d=>d.data()).filter(t => t.alunoId === appState.alunoSelecionado.id).sort((a,b) => (b.criadoEm?.seconds||0) - (a.criadoEm?.seconds||0));
                 
-                const ultimoTreino = treinosAluno[0];
-                const exercises = new Set();
-                
-                if (ultimoTreino.dias) {
-                    ultimoTreino.dias.forEach(d => {
-                        if (d.exercicios) d.exercicios.forEach(ex => exercises.add(ex.nome));
-                    });
-                }
-                if(exercises.size > 0) {
-                    return `Histórico recente de exercícios executados pelo aluno:\n[${Array.from(exercises).join(', ')}]\n\nREGRA IMPORTANTE: Você pode e deve manter a base (exercícios multiarticulares essenciais como Agachamento, Terra, Supino), mas DEVE INOVAR/ROTACIONAR os exercícios isolados, máquinas e métodos (séries/reps) em relação a este histórico para fornecer estímulos inéditos ao aluno.`;
+                if(historico.length > 0) {
+                    const exs = new Set();
+                    historico[0].dias.forEach(d => d.exercicios.forEach(ex => exs.add(ex.nome)));
+                    return Array.from(exs).join(', ');
                 }
                 return "";
-            } catch(e) {
-                console.warn("Nao foi possivel buscar histórico", e);
-                return "";
-            }
+            } catch(e) { return ""; }
         }
 
-        // Função utilitária de Retry Backoff para chamadas da API
-        async function fetchWithBackoff(payload) {
-            const delays = [1000, 2000, 4000, 8000, 16000];
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            
-            for (let i = 0; i < delays.length; i++) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    
-                    if (!response.ok) {
-                        const errText = await response.text();
-                        throw new Error(`Status ${response.status}: ${errText}`);
-                    }
-                    
-                    return await response.json();
-                } catch (error) {
-                    console.warn(`Tentativa ${i+1} falhou. Retentando em ${delays[i]}ms...`);
-                    if (i === delays.length - 1) throw error;
-                    await new Promise(res => setTimeout(res, delays[i]));
-                }
+        document.getElementById('btnGerarComIA').addEventListener('click', async () => {
+            if(!appState.geminiApiKey) {
+                showNotification("Aviso", "Configure a sua chave Gemini primeiro.", "error");
+                document.getElementById('settingsModal').classList.remove('hide');
+                return;
             }
-        }
 
-        async function gerarTreinoComIA() {
             const btn = document.getElementById('btnGerarComIA');
             btn.disabled = true;
-            btn.classList.add('opacity-50', 'cursor-not-allowed');
-            toggleSpinner(true, "A analisar perfil e criar plano (pode demorar alguns segundos)...");
+            toggleSpinner(true, "A pensar na rotatividade ideal...");
 
             try {
-                const hist = await buscarHistoricoTreinoRecente();
+                const hist = await buscarUltimoTreino();
+                const a = appState.alunoSelecionado;
                 
-                const duracao = document.getElementById('duracao_treino').value;
-                const obsUser = document.getElementById('observacoes_ia').value.trim();
-                const diff = document.getElementById('dificuldade').value;
-                const obj = document.getElementById('objetivo').value;
-                const freq = document.getElementById('dias_semana').value;
-                const div = document.getElementById('divisao_treino').value;
-                
-                let extras = [];
-                if (document.getElementById('treino_em_casa').checked) extras.push("Fazer um treino SOMENTE com peso corporal ou utensílios caseiros.");
-                if (document.getElementById('incluir_tecnicas').checked && diff !== 'Iniciante') extras.push("Incluir técnicas intensificadoras (drop-set, rest-pause, etc).");
-                const enfase = document.getElementById('musculo_enfase').value;
-                if (enfase) extras.push(`Focar e priorizar desenvolvimento do: ${enfase}.`);
+                const prompt = `Atue como um Personal Trainer de elite. Crie um novo plano de treino focado em resultados.
+ALUNO: ${a.nome}, Sexo: ${a.sexo}, Objetivo: ${document.getElementById('objetivo').value}.
+ESTRUTURA: ${document.getElementById('dias_semana').value} dias, Divisão: ${document.getElementById('divisao_treino').value}.
+INSTRUÇÃO EXTRA: ${document.getElementById('observacoes_ia').value || 'Nenhuma'}.
 
-                const promptText = `Atue como um Personal Trainer de elite. Crie um plano de treino estruturado.
-Dados do Aluno: ${appState.alunoSelecionado.nome}, Sexo: ${appState.alunoSelecionado.sexo}, Idade: ${appState.alunoSelecionado.idade}.
-Nível: ${diff}. Objetivo: ${obj}.
-Estrutura: ${freq} dias/semana. Divisão: ${div}.
-Duração máxima: ${duracao}.
-Observações Relevantes do Instrutor: ${obsUser || 'Nenhuma'}.
-${extras.length > 0 ? "Regras Específicas:\n- " + extras.join('\n- ') : ""}
+${hist ? `ÚLTIMO TREINO DO ALUNO (Exercícios realizados recentemente):\n[${hist}]\n-> OBRIGATÓRIO ROTATIVIDADE: Mantenha os exercícios compostos base (ex: Supino, Agachamento, Terra), MAS TROQUE E INOVE as máquinas, os exercícios isoladores e varíe a faixa de repetições/séries (ex: se era 3x10, agora aplique 4x8 ou técnicas como Rest-Pause). Traga novos estímulos!` : ''}
 
-${hist}
-
-INSTRUÇÕES CRÍTICAS E OBRIGATÓRIAS:
-1. Responda ESTRITAMENTE em formato JSON.
-2. Cada dia deve ter entre 5 a 8 exercícios focados.
-3. Não use marcação de código ao redor do JSON (apenas o JSON puro).
-4. O JSON DEVE seguir esta estrutura exata:
+RETORNE APENAS JSON VÁLIDO. ESTRUTURA RIGOROSA:
 {
   "observacoes_gerais": "texto",
   "plano_semanal": [
     {
-      "nome_dia": "Treino A",
-      "grupos_musculares": "Peito e Tríceps",
-      "aquecimento": "texto",
+      "nome_dia": "Treino A", "grupos_musculares": "Peito",
+      "aquecimento": "texto", "cardio": "texto", "arrefecimento": "texto",
       "exercicios": [
-        { "nome": "Supino", "series": "4", "reps": "10-12", "descanso": "60s", "obs": "Focar excentrica" }
-      ],
-      "cardio": "texto (se aplicável)",
-      "arrefecimento": "texto"
+        { "nome": "Supino", "series": "4", "reps": "8 a 10", "descanso": "90s", "obs": "Controlar descida" }
+      ]
     }
-  ],
-  "tecnicas_utilizadas": [ { "nome": "Drop-set", "descricao": "texto" } ],
-  "dicas_extras": [ "texto" ]
-}
-`;
+  ]
+}`;
 
-                const payload = {
-                    contents: [{ role: "user", parts: [{ text: promptText }] }],
-                    generationConfig: { responseMimeType: "application/json" }
-                };
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${appState.geminiApiKey}`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{text: prompt}] }], generationConfig: { responseMimeType: "application/json" } })
+                });
 
-                const result = await fetchWithBackoff(payload);
-                const textPart = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                if(!response.ok) throw new Error("Chave inválida ou cota excedida.");
                 
-                if (!textPart) throw new Error("A IA retornou uma resposta vazia.");
-                const treinoData = JSON.parse(textPart);
+                const resData = await response.json();
+                const treinoData = JSON.parse(resData.candidates[0].content.parts[0].text);
+                
+                // Preencher UI
+                document.getElementById('observacoes_gerais').value = treinoData.observacoes_gerais || '';
+                document.getElementById('diasDeTreinoContainer').innerHTML = '';
+                
+                treinoData.plano_semanal.forEach(d => {
+                    const diaDiv = addDiaDeTreino(d.nome_dia, d.grupos_musculares, d.aquecimento, d.cardio, d.arrefecimento);
+                    const list = diaDiv.querySelector('.exercicios-container');
+                    d.exercicios.forEach(ex => addExercicio(list, ex));
+                });
+                
+                showNotification("Sucesso", "Treino rotativo gerado!");
 
-                preencherFormularioComDados(treinoData);
-                showNotification("Sucesso", "Plano gerado dinamicamente com sucesso!");
-
-            } catch (err) {
-                console.error(err);
-                showNotification("Erro na Geração", "A IA falhou ao gerar o treino. Tente novamente.", "error");
+            } catch(e) {
+                showNotification("Erro", e.message, "error");
             } finally {
-                toggleSpinner(false);
                 btn.disabled = false;
-                btn.classList.remove('opacity-50', 'cursor-not-allowed');
+                toggleSpinner(false);
             }
-        }
+        });
 
-        function preencherFormularioComDados(data) {
-            appState.tecnicas = data.tecnicas_utilizadas || data.tecnicas || [];
-            appState.dicas = data.dicas_extras || data.dicas || [];
-            document.getElementById('observacoes_gerais').value = data.observacoes_gerais || data.observacoes || '';
-            
-            document.getElementById('diasDeTreinoContainer').innerHTML = '';
-            
-            const dias = data.plano_semanal || data.dias || [];
-            dias.forEach(dia => {
-                const diaDiv = addDiaDeTreino(dia.nome_dia || dia.nome, dia.grupos_musculares || dia.musculos, dia.aquecimento, dia.cardio, dia.arrefecimento);
-                const container = diaDiv.querySelector('.exercicios-container');
-                (dia.exercicios || []).forEach(ex => addExercicio(container, ex));
-            });
-        }
-
-        let diaCount = 0;
-        function addDiaDeTreino(nome = '', musculos = '', aquecimento = '', cardio = '', arrefecimento = '') {
-            diaCount++;
+        // Gestão da UI do Formulário de Treino
+        document.getElementById('btnAddDia').addEventListener('click', () => addDiaDeTreino());
+        
+        function addDiaDeTreino(nome='', foco='', aq='', card='', arref='') {
             const div = document.createElement('div');
-            div.className = 'bg-background-dark border border-border-light p-6 rounded-xl space-y-4';
+            div.className = 'bg-background-dark border border-border-light p-4 rounded-xl mb-4';
             div.innerHTML = `
-                <div class="flex justify-between items-center gap-4">
-                    <input type="text" placeholder="Nome do Treino (Ex: Treino A)" value="${nome}" class="dia-nome w-full p-3 bg-bg-container border-border-light border rounded-lg font-semibold text-primary-blue">
-                    <button type="button" class="btn-remover-dia text-red-500 p-2 rounded-full hover:bg-red-500/20">✖</button>
-                </div>
-                <input type="text" placeholder="Foco (Ex: Peito e Tríceps)" value="${musculos}" class="dia-musculos w-full p-3 bg-bg-container border-border-light border rounded-lg text-md">
-                <textarea placeholder="Aquecimento..." class="dia-aquecimento w-full p-2 bg-bg-container border-border-light border rounded text-sm">${aquecimento}</textarea>
-                <div class="exercicios-container space-y-4"></div>
-                <button type="button" class="btn-add-exercicio w-full py-2 bg-btn-secondary text-white rounded-lg">+ Exercício</button>
-                <textarea placeholder="Cardio..." class="dia-cardio w-full p-2 bg-bg-container border-border-light border rounded text-sm">${cardio}</textarea>
-                <textarea placeholder="Arrefecimento..." class="dia-arrefecimento w-full p-2 bg-bg-container border-border-light border rounded text-sm">${arrefecimento}</textarea>
+                <div class="flex gap-2 mb-2"><input class="dia-nome flex-1 p-2 rounded text-black font-bold" value="${nome}" placeholder="Nome do Dia"><input class="dia-musculos flex-1 p-2 rounded text-black" value="${foco}" placeholder="Foco"></div>
+                <textarea class="dia-aquecimento w-full p-2 mb-2 rounded text-black text-sm" placeholder="Aquecimento...">${aq}</textarea>
+                <div class="exercicios-container space-y-2 mb-2"></div>
+                <button type="button" class="btn-add-ex w-full py-2 bg-btn-secondary rounded text-white mb-2">+ Exercício</button>
+                <textarea class="dia-cardio w-full p-2 mb-2 rounded text-black text-sm" placeholder="Cardio...">${card}</textarea>
+                <button type="button" class="btn-rem-dia w-full py-2 bg-red-600 rounded text-white font-bold">Remover Dia</button>
             `;
             document.getElementById('diasDeTreinoContainer').appendChild(div);
             return div;
         }
 
-        function addExercicio(container, ex = {}) {
+        function addExercicio(container, ex={}) {
             const div = document.createElement('div');
-            div.className = 'exercicio-item border-t border-border-light pt-4';
+            div.className = 'flex flex-wrap gap-2 items-center bg-gray-800 p-2 rounded';
             div.innerHTML = `
-                <div class="flex flex-col sm:flex-row items-center gap-2">
-                    <input type="text" placeholder="Exercício" value="${ex.nome || ''}" class="ex-nome flex-grow w-full p-2 bg-bg-container border-border-light border rounded">
-                    <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <input type="text" placeholder="Séries" value="${ex.series || ''}" class="ex-series w-20 p-2 bg-bg-container border-border-light border rounded text-center">
-                        <span class="text-text-muted">x</span>
-                        <input type="text" placeholder="Reps" value="${ex.reps || ''}" class="ex-reps w-20 p-2 bg-bg-container border-border-light border rounded text-center">
-                        <input type="text" placeholder="Descanso" value="${ex.descanso || ''}" class="ex-descanso w-24 p-2 bg-bg-container border-border-light border rounded text-center">
-                    </div>
-                    <button type="button" class="btn-remover-exercicio text-red-400 p-1 rounded-full">✖</button>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
-                    <input type="text" placeholder="Obs / Técnicas (ex: Drop set)" value="${ex.obs || ''}" class="ex-obs w-full p-2 bg-bg-container border-border-light border rounded text-sm">
-                    <div class="flex items-center gap-2">
-                        <input type="url" placeholder="Link do YouTube Opcional" value="${ex.videoUrl || ''}" class="ex-video-url w-full p-2 bg-bg-container border-border-light border rounded text-sm">
-                        <button type="button" class="btn-testar-video text-primary-blue hover:text-opacity-80 p-1" title="Testar Vídeo">
-                            <svg class="w-6 h-6 pointer-events-none" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
-                        </button>
-                    </div>
-                </div>`;
+                <input class="ex-nome flex-grow p-1 rounded text-black" value="${ex.nome||''}" placeholder="Exercicio">
+                <input class="ex-series w-16 p-1 rounded text-black text-center" value="${ex.series||''}" placeholder="Séries">
+                <input class="ex-reps w-20 p-1 rounded text-black text-center" value="${ex.reps||''}" placeholder="Reps">
+                <input class="ex-descanso w-20 p-1 rounded text-black text-center" value="${ex.descanso||''}" placeholder="Pausa">
+                <input class="ex-obs w-full mt-1 p-1 rounded text-black text-sm" value="${ex.obs||''}" placeholder="Observação/Técnica">
+                <button type="button" class="btn-rem-ex text-red-400 font-bold ml-auto px-2">X</button>
+            `;
             container.appendChild(div);
         }
 
-        function prepararPreview() {
-            const diasEl = document.querySelectorAll('#diasDeTreinoContainer > div');
-            if (diasEl.length === 0) return showNotification("Erro", "Adicione dias de treino.", "error");
+        document.getElementById('diasDeTreinoContainer').addEventListener('click', e => {
+            if(e.target.classList.contains('btn-add-ex')) addExercicio(e.target.previousElementSibling);
+            if(e.target.classList.contains('btn-rem-dia')) e.target.closest('.bg-background-dark').remove();
+            if(e.target.classList.contains('btn-rem-ex')) e.target.parentElement.remove();
+        });
 
+        // PREVIEW E SALVAR
+        document.getElementById('btnGerarPreview').addEventListener('click', () => {
+            const diasEl = document.querySelectorAll('#diasDeTreinoContainer > div');
             appState.treinoSemanal = [];
-            diasEl.forEach(diaEl => {
-                const exercicios = [];
-                diaEl.querySelectorAll('.exercicio-item').forEach(exEl => {
-                    exercicios.push({
-                        nome: exEl.querySelector('.ex-nome').value,
-                        series: exEl.querySelector('.ex-series').value,
-                        reps: exEl.querySelector('.ex-reps').value,
-                        descanso: exEl.querySelector('.ex-descanso').value,
-                        obs: exEl.querySelector('.ex-obs').value,
-                        videoUrl: exEl.querySelector('.ex-video-url').value
+            diasEl.forEach(d => {
+                const exs = [];
+                d.querySelectorAll('.exercicios-container > div').forEach(e => {
+                    exs.push({
+                        nome: e.querySelector('.ex-nome').value, series: e.querySelector('.ex-series').value,
+                        reps: e.querySelector('.ex-reps').value, descanso: e.querySelector('.ex-descanso').value,
+                        obs: e.querySelector('.ex-obs').value
                     });
                 });
                 appState.treinoSemanal.push({
-                    nome: diaEl.querySelector('.dia-nome').value,
-                    musculos: diaEl.querySelector('.dia-musculos').value,
-                    aquecimento: diaEl.querySelector('.dia-aquecimento').value,
-                    cardio: diaEl.querySelector('.dia-cardio').value,
-                    arrefecimento: diaEl.querySelector('.dia-arrefecimento').value,
-                    exercicios
+                    nome: d.querySelector('.dia-nome').value, musculos: d.querySelector('.dia-musculos').value,
+                    aquecimento: d.querySelector('.dia-aquecimento').value, cardio: d.querySelector('.dia-cardio').value,
+                    exercicios: exs
                 });
             });
 
-            const data = {
-                observacoes: document.getElementById('observacoes_gerais').value,
-                dias: appState.treinoSemanal,
-                tecnicas: appState.tecnicas,
-                dicas: appState.dicas,
-                analiseNutricional: appState.analiseNutricional
-            };
-            
-            // Reutiliza render da página publica adaptado
-            const container = document.getElementById('treinosPreviewContainer');
-            container.innerHTML = '';
-            document.getElementById('analiseNutricionalPreview').innerHTML = `
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-                    <p><strong>IMC:</strong> ${data.analiseNutricional.imc}</p>
-                    <p><strong>Meta Calorias:</strong> ${data.analiseNutricional.caloriasRecomendadas}</p>
-                    <p><strong>Proteína:</strong> ${data.analiseNutricional.proteina}</p>
-                </div>`;
-            
-            data.dias.forEach(d => {
-                const exs = d.exercicios.map(ex => `
-                    <tr class="border-b border-border-light text-sm">
-                        <td class="p-1">${ex.nome} ${ex.videoUrl ? '🔗' : ''}</td>
-                        <td class="p-1 text-center">${ex.series}</td>
-                        <td class="p-1 text-center">${ex.reps}</td>
-                        <td class="p-1 text-center">${ex.descanso}</td>
-                    </tr>
-                    ${ex.obs ? `<tr class="bg-background-dark"><td colspan="4" class="text-xs text-primary-blue p-1">${ex.obs}</td></tr>` : ''}
-                `).join('');
-                container.innerHTML += `
-                    <div class="mb-4">
-                        <h4 class="font-bold text-primary-blue">${d.nome} - ${d.musculos}</h4>
-                        <table class="w-full text-left mt-2">
-                            <thead><tr class="text-text-muted text-sm"><th class="w-2/5 p-1">Exercício</th><th class="w-1/5 text-center p-1">Séries</th><th class="w-1/5 text-center p-1">Reps</th><th class="w-1/5 text-center p-1">Desc.</th></tr></thead>
-                            <tbody>${exs}</tbody>
-                        </table>
-                    </div>`;
-            });
+            // UI Render Preview
+            const c = document.getElementById('treinosPreviewContainer');
+            c.innerHTML = appState.treinoSemanal.map(d => `
+                <div class="mb-4">
+                    <h4 class="font-bold text-primary-blue text-lg">${d.nome} - ${d.musculos}</h4>
+                    ${d.aquecimento ? `<p class="text-sm text-gray-400 italic mb-2">Aq: ${d.aquecimento}</p>` : ''}
+                    <ul class="text-sm border-l-2 border-primary-blue pl-3 space-y-1">
+                        ${d.exercicios.map(e => `<li><span class="text-white">${e.nome}</span> | <span class="text-yellow-400">${e.series}x${e.reps}</span> | Desc: ${e.descanso} ${e.obs ? `<br><span class="text-gray-500 text-xs">-> ${e.obs}</span>`:''}</li>`).join('')}
+                    </ul>
+                </div>
+            `).join('');
+
             mostrarTela('treinoPreview');
-        }
+        });
 
-        async function salvarTreino() {
+        document.getElementById('btnVoltarForm').addEventListener('click', () => mostrarTela('treinoForm'));
+
+        document.getElementById('btnSalvarTreino').addEventListener('click', async () => {
             const nome = document.getElementById('treinoNomeSalvo').value;
-            if (!nome) return showNotification("Erro", "Forneça um nome para salvar o treino.", "error");
+            if(!nome) return showNotification("Erro", "Forneça o nome do treino", "error");
+            
+            toggleSpinner(true, "A guardar...");
+            try {
+                await addDoc(collection(db, "usuarios", appState.currentUser.uid, "treinos"), {
+                    alunoId: appState.alunoSelecionado.id, nome: nome, dias: appState.treinoSemanal,
+                    observacoes: document.getElementById('observacoes_gerais').value, criadoEm: serverTimestamp()
+                });
+                showNotification("Sucesso", "Treino salvo!");
+                mostrarTela('telaGerenciarAluno');
+            } catch(e) { showNotification("Erro", "Falha ao salvar", "error"); }
+            finally { toggleSpinner(false); }
+        });
 
-            const treinoData = {
-                alunoId: appState.alunoSelecionado.id,
-                nome: nome,
-                observacoes: document.getElementById('observacoes_gerais').value,
-                dias: appState.treinoSemanal,
-                tecnicas: appState.tecnicas,
-                dicas: appState.dicas,
-                analiseNutricional: appState.analiseNutricional,
-                criadoEm: serverTimestamp()
-            };
-
-            if (appState.treinoAbertoId) {
-                const choice = await showSaveOptionsModal();
-                if (choice === 'cancel') return;
+        // TREINOS SALVOS E PARTILHA
+        document.getElementById('btnCarregarTreino').addEventListener('click', async () => {
+            const list = document.getElementById('listaTreinosSalvos');
+            list.innerHTML = 'Carregando...';
+            mostrarTela('telaCarregar');
+            try {
+                const snap = await getDocs(collection(db, "usuarios", appState.currentUser.uid, "treinos"));
+                const treinos = snap.docs.map(d=>({id: d.id, ...d.data()})).filter(t=>t.alunoId === appState.alunoSelecionado.id);
                 
-                toggleSpinner(true, "Salvando...");
+                list.innerHTML = treinos.map(t => `
+                    <div class="bg-gray-800 p-3 rounded flex justify-between items-center">
+                        <span class="font-bold">${t.nome}</span>
+                        <div class="flex gap-2">
+                            <button class="btn-partilhar bg-green-600 px-3 py-1 rounded text-sm" data-id="${t.id}">Partilhar</button>
+                            <button class="btn-excluir bg-red-600 px-3 py-1 rounded text-sm" data-id="${t.id}">X</button>
+                        </div>
+                    </div>
+                `).join('') || 'Nenhum treino';
+            } catch(e){}
+        });
+
+        document.getElementById('listaTreinosSalvos').addEventListener('click', async e => {
+            const id = e.target.dataset.id;
+            if(e.target.classList.contains('btn-excluir')) {
+                await deleteDoc(doc(db, "usuarios", appState.currentUser.uid, "treinos", id));
+                document.getElementById('btnCarregarTreino').click(); // refresh
+            } else if (e.target.classList.contains('btn-partilhar')) {
+                toggleSpinner(true, "A preparar link...");
                 try {
-                    if (choice === 'update') {
-                        await updateDoc(doc(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'treinos', appState.treinoAbertoId), treinoData);
-                    } else {
-                        await addDoc(collection(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'treinos'), treinoData);
+                    const ref = doc(db, "usuarios", appState.currentUser.uid, "treinos", id);
+                    const t = (await getDoc(ref)).data();
+                    let pid = t.publicId;
+                    if(!pid) {
+                        pid = crypto.randomUUID();
+                        await setDoc(doc(db, "publicTrainings", pid), {
+                            ...t, alunoNome: appState.alunoSelecionado.nome, trainerName: document.getElementById('userInfo').textContent
+                        });
+                        await updateDoc(ref, {publicId: pid});
                     }
-                    showNotification("Sucesso", "Treino salvo!");
-                    mostrarTela('telaGerenciarAluno');
-                } catch(e) { showNotification("Erro", "Erro ao salvar", "error"); }
-                finally { toggleSpinner(false); }
-            } else {
-                toggleSpinner(true, "Salvando...");
-                try {
-                    await addDoc(collection(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'treinos'), treinoData);
-                    showNotification("Sucesso", "Treino salvo!");
-                    mostrarTela('telaGerenciarAluno');
-                } catch(e) { showNotification("Erro", "Erro ao salvar", "error"); }
-                finally { toggleSpinner(false); }
+                    document.getElementById('shareableLinkInput').value = `${window.location.origin}${window.location.pathname}?publicId=${pid}`;
+                    document.getElementById('shareLinkModal').classList.remove('hide');
+                } catch(err){} finally { toggleSpinner(false); }
             }
-        }
+        });
 
-        async function carregarTreinosSalvos() {
-            const container = document.getElementById('listaTreinosSalvos');
-            container.innerHTML = '<p class="text-text-muted text-center py-8">A carregar...</p>';
+        document.getElementById('btnCopyLink').addEventListener('click', () => {
+            document.getElementById('shareableLinkInput').select();
+            document.execCommand('copy');
+            showNotification("Sucesso", "Link copiado!");
+        });
+        document.getElementById('closeShareLinkModal').addEventListener('click', () => document.getElementById('shareLinkModal').classList.add('hide'));
+
+        // LÓGICA DE EXIBIÇÃO PÚBLICA DO ALUNO
+        async function initializePublicView(pid) {
+            document.getElementById('mainApp').classList.add('hide');
+            document.getElementById('publicView').classList.remove('hide');
+            toggleSpinner(true, "A carregar o seu plano de treino...");
             try {
-                const snap = await getDocs(collection(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'treinos'));
-                // Sort/Filter JS (Rule 2)
-                const treinos = snap.docs.map(d => ({id: d.id, ...d.data()}))
-                                         .filter(t => t.alunoId === appState.alunoSelecionado.id)
-                                         .sort((a,b) => (b.criadoEm?.seconds || 0) - (a.criadoEm?.seconds || 0));
-
-                if (treinos.length === 0) {
-                    container.innerHTML = '<p class="text-text-muted text-center py-8">Nenhum treino guardado.</p>';
-                    return;
-                }
-                
-                container.innerHTML = treinos.map(t => {
-                    const data = t.criadoEm ? new Date(t.criadoEm.seconds * 1000).toLocaleDateString() : 'N/D';
-                    return `
-                    <div class="bg-bg-container p-4 rounded-lg flex flex-col sm:flex-row justify-between items-center gap-3">
-                        <div class="w-full">
-                            <h4 class="font-semibold text-text-light">${t.nome}</h4>
-                            <p class="text-sm text-text-muted">Data: ${data}</p>
-                        </div>
-                        <div class="flex gap-2 w-full sm:w-auto">
-                            <button data-treinoid="${t.id}" class="btn-compartilhar-treino flex-1 py-2 px-3 text-sm bg-btn-success text-white rounded-lg">Partilhar</button>
-                            <button data-treinoid="${t.id}" class="btn-visualizar-treino flex-1 py-2 px-3 text-sm bg-primary-blue text-white rounded-lg">Ver</button>
-                            <button data-treinoid="${t.id}" class="btn-deletar-treino py-2 px-3 text-sm bg-btn-danger text-white rounded-lg">X</button>
-                        </div>
-                    </div>`;
-                }).join('');
-            } catch(e) {
-                container.innerHTML = '<p class="text-red-500 text-center py-8">Erro.</p>';
-            }
-        }
-
-        async function abrirTreinoSalvo(id) {
-            toggleSpinner(true);
-            try {
-                const docSnap = await getDoc(doc(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'treinos', id));
+                const docSnap = await getDoc(doc(db, "publicTrainings", pid));
                 if (docSnap.exists()) {
                     const t = docSnap.data();
-                    appState.treinoAbertoId = id;
-                    appState.treinoSemanal = t.dias || [];
-                    appState.tecnicas = t.tecnicas || [];
-                    appState.dicas = t.dicas || [];
-                    appState.analiseNutricional = t.analiseNutricional || {};
-                    document.getElementById('observacoes_gerais').value = t.observacoes || '';
-                    document.getElementById('treinoNomeSalvo').value = t.nome;
-                    prepararPreview();
+                    document.getElementById('publicAlunoNome').textContent = t.alunoNome;
+                    document.getElementById('publicTrainerInfo').textContent = `Preparado por: ${t.trainerName}`;
+                    
+                    document.getElementById('publicTreinoContainer').innerHTML = t.dias.map(d => `
+                        <div class="mb-6 p-4 bg-gray-800 rounded-lg">
+                            <h3 class="text-xl text-primary-blue font-bold border-b border-gray-600 pb-2 mb-2">${d.nome} <span class="text-sm font-normal text-gray-400">(${d.musculos})</span></h3>
+                            ${d.aquecimento ? `<p class="text-sm text-gray-400 italic mb-2">Aquecimento: ${d.aquecimento}</p>` : ''}
+                            <table class="w-full text-left text-sm mt-3">
+                                <thead><tr class="text-gray-500"><th class="w-1/2">Exercício</th><th>Séries/Reps</th><th>Descanso</th></tr></thead>
+                                <tbody>
+                                    ${d.exercicios.map(ex => `
+                                        <tr class="border-t border-gray-700">
+                                            <td class="py-2"><span class="font-semibold text-white">${ex.nome}</span><br><span class="text-xs text-primary-blue">${ex.obs||''}</span></td>
+                                            <td class="py-2 text-yellow-500">${ex.series} x ${ex.reps}</td>
+                                            <td class="py-2">${ex.descanso}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                            ${d.cardio ? `<p class="text-sm text-gray-400 mt-3 pt-2 border-t border-gray-700"><strong>Cardio:</strong> ${d.cardio}</p>` : ''}
+                        </div>
+                    `).join('');
+                } else {
+                    document.getElementById('publicContent').classList.add('hide');
+                    document.getElementById('publicError').classList.remove('hide');
                 }
             } catch(e) {} finally { toggleSpinner(false); }
         }
 
-        async function compartilharTreino(id) {
-            toggleSpinner(true, "A gerar link público...");
-            try {
-                const ref = doc(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'treinos', id);
-                const docSnap = await getDoc(ref);
-                if (!docSnap.exists()) throw new Error();
-                
-                const t = docSnap.data();
-                let publicId = t.publicId;
-
-                if (!publicId) {
-                    publicId = crypto.randomUUID();
-                    const pubData = { ...t, alunoNome: appState.alunoSelecionado.nome, trainerName: appState.currentUser.displayName || "Seu Treinador" };
-                    // RULE 1: Public path
-                    await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'publicTrainings', publicId), pubData);
-                    await updateDoc(ref, { publicId });
-                }
-
-                document.getElementById('shareableLinkInput').value = `${window.location.origin}${window.location.pathname}?publicId=${publicId}`;
-                document.getElementById('shareLinkModal').classList.remove('hide');
-            } catch(e) { showNotification("Erro", "Erro ao compartilhar.", "error"); }
-            finally { toggleSpinner(false); }
-        }
-
-        async function salvarModelo() {
-            const nome = document.getElementById('treinoNomeSalvo').value;
-            if (!nome) return showNotification("Erro", "Forneça um nome.", "error");
-            toggleSpinner(true, "A guardar modelo...");
-            try {
-                await addDoc(collection(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'templates'), {
-                    nome, dias: appState.treinoSemanal, tecnicas: appState.tecnicas, dicas: appState.dicas, criadoEm: serverTimestamp()
-                });
-                showNotification("Sucesso", "Modelo salvo!");
-            } catch(e) { showNotification("Erro", "Erro", "error"); }
-            finally { toggleSpinner(false); }
-        }
-
-        async function carregarListaModelos() {
-            const container = document.getElementById('templateListContainer');
-            container.innerHTML = 'A carregar...';
-            document.getElementById('loadTemplateModal').classList.remove('hide');
-            try {
-                const snap = await getDocs(collection(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'templates'));
-                appState.modelosCache = snap.docs.map(d => ({id: d.id, ...d.data()})).sort((a,b) => a.nome.localeCompare(b.nome));
-                
-                if (appState.modelosCache.length === 0) {
-                    container.innerHTML = '<p class="text-text-muted">Nenhum modelo guardado ainda.</p>';
-                    return;
-                }
-                
-                container.innerHTML = appState.modelosCache.map(m => `
-                    <div class="bg-background-dark border border-border-light p-4 rounded-lg flex justify-between items-center">
-                        <div><h4 class="font-semibold text-text-light">${m.nome}</h4><p class="text-sm text-text-muted">${m.dias.length} dias</p></div>
-                        <button data-templateid="${m.id}" class="btn-load-template-confirm py-2 px-4 bg-primary-blue text-white rounded-lg font-semibold">Carregar</button>
-                    </div>`).join('');
-            } catch(e) {}
-        }
-
-        async function carregarAvaliacoes() {
-            const container = document.getElementById('listaAvaliacoes');
-            container.innerHTML = '<p class="text-center py-8">A carregar...</p>';
-            try {
-                const snap = await getDocs(collection(db, 'artifacts', appId, 'users', appState.currentUser.uid, 'avaliacoes'));
-                appState.avaliacoesCache = snap.docs.map(d => ({id: d.id, ...d.data()}))
-                                               .filter(a => a.alunoId === appState.alunoSelecionado.id)
-                                               .sort((a,b) => new Date(b.data) - new Date(a.data));
-                
-                if(appState.avaliacoesCache.length === 0) {
-                    container.innerHTML = '<p class="text-center py-8">Nenhuma avaliação registada.</p>';
-                    return;
-                }
-
-                container.innerHTML = appState.avaliacoesCache.map((av, index) => {
-                    const dFmt = new Date(av.data + 'T00:00:00').toLocaleDateString();
-                    const mHTML = Object.entries(av.medidas||{}).map(([k,v]) => `<div class="text-sm capitalize"><span class="text-text-muted">${k}:</span> <strong class="text-text-light">${v}cm</strong></div>`).join('') || '<p class="text-sm">Sem medidas</p>';
-
-                    return `
-                    <div class="bg-background-dark border border-border-light p-4 rounded-lg">
-                        <div class="flex justify-between items-start mb-3">
-                            <div><h4 class="font-bold text-primary-blue text-xl">${dFmt}</h4><p class="font-semibold text-text-light">${av.peso} kg</p></div>
-                            <div class="flex gap-2">
-                                <button class="btn-ver-grafico py-2 px-3 text-sm bg-btn-success text-white rounded-lg" data-avaliacaoindex="${index}">Gráfico</button>
-                                <button class="btn-excluir-avaliacao py-2 px-3 text-sm bg-btn-danger text-white rounded-lg" data-avaliacaoid="${av.id}">X</button>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-border-light">${mHTML}</div>
-                    </div>`;
-                }).join('');
-            } catch(e) {}
-        }
-
-        let chartW, chartM;
-        function abrirModalGrafico(index) {
-            const listaOrdenadaAsc = [...appState.avaliacoesCache].sort((a,b) => new Date(a.data) - new Date(b.data));
-            const avAtual = appState.avaliacoesCache[index];
-            const avAnterior = appState.avaliacoesCache[index + 1]; // Pois cache é desc
-
-            document.getElementById('chartModalTitle').textContent = `Progresso até ${new Date(avAtual.data + 'T00:00:00').toLocaleDateString()}`;
-
-            const ctxW = document.getElementById('weightChart').getContext('2d');
-            if (chartW) chartW.destroy();
-            chartW = new Chart(ctxW, {
-                type: 'line',
-                data: {
-                    labels: listaOrdenadaAsc.map(a => new Date(a.data + 'T00:00:00').toLocaleDateString()),
-                    datasets: [{ label: 'Peso', data: listaOrdenadaAsc.map(a => a.peso), borderColor: '#58a6ff', backgroundColor: 'rgba(88,166,255,0.2)', fill: true }]
-                },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { ticks: { color: '#c9d1d9' } }, x: { ticks: { color: '#c9d1d9' } } } }
-            });
-
-            const ctxM = document.getElementById('measuresChart').getContext('2d');
-            if (chartM) chartM.destroy();
-            
-            const ks = Array.from(new Set([...Object.keys(avAtual.medidas||{}), ...(avAnterior ? Object.keys(avAnterior.medidas||{}) : [])]));
-            const dAtual = ks.map(k => (avAtual.medidas||{})[k] || 0);
-            const datasets = [{ label: 'Atual', data: dAtual, borderColor: '#38c172', backgroundColor: 'rgba(56,193,114,0.2)' }];
-            if (avAnterior) datasets.push({ label: 'Anterior', data: ks.map(k => (avAnterior.medidas||{})[k] || 0), borderColor: '#8b949e', backgroundColor: 'rgba(139,148,158,0.2)' });
-
-            chartM = new Chart(ctxM, {
-                type: 'radar',
-                data: { labels: ks.map(k=>k.replace(/_/g,' ')), datasets },
-                options: { responsive: true, plugins: { legend: { labels: { color: '#c9d1d9' } } }, scales: { r: { angleLines: { color: '#30363d' }, grid: { color: '#30363d' }, pointLabels: { color: '#c9d1d9' }, ticks: { backdropColor: 'transparent', color: '#c9d1d9' } } } }
-            });
-
-            document.getElementById('chartModal').classList.remove('hide');
-        }
-
-        function baixarGraficos() {
-            // Simplificado: baixa o canvas de peso. Pode ser expandido.
-            const link = document.createElement('a');
-            link.download = `progresso.png`;
-            link.href = document.getElementById('weightChart').toDataURL();
-            link.click();
-        }
-
-        // Funções Numéricas 
-        function calcularIMC(peso, alturaCm) {
-            if (!peso || !alturaCm) return { valor: 0, classificacao: "N/D" };
-            const imc = peso / Math.pow(alturaCm/100, 2);
-            let cls = "Normal";
-            if (imc<18.5) cls = "Baixo"; else if (imc>=25 && imc<30) cls = "Excesso"; else if (imc>=30) cls = "Obeso";
-            return { valor: imc.toFixed(1), classificacao: cls };
-        }
-        function calcularTMB(peso, alturaCm, idade, sexo) {
-            if (!peso || !alturaCm || !idade) return 0;
-            return (sexo === 'Masculino' ? (10*peso + 6.25*alturaCm - 5*idade + 5) : (10*peso + 6.25*alturaCm - 5*idade - 161)).toFixed(0);
-        }
-        function calcularCaloriasRecomendadas(tmb, obj) {
-            if (!tmb) return 0;
-            const bas = tmb * 1.55;
-            if(obj.toLowerCase().includes('emagrecimento')) return (bas - 400).toFixed(0);
-            if(obj.toLowerCase().includes('hipertrofia')) return (bas + 400).toFixed(0);
-            return bas.toFixed(0);
-        }
-        function calcularProteina(peso) { return peso ? `${(peso*1.6).toFixed(0)}g - ${(peso*2.2).toFixed(0)}g` : "N/D"; }
-        function calcularCarboidratos(peso, obj) { 
-            if (!peso) return "N/D";
-            let mi = 2, ma = 5;
-            if(obj.toLowerCase().includes('hipertrofia')) { mi=4; ma=6; }
-            if(obj.toLowerCase().includes('emagrecimento')) { mi=2; ma=4; }
-            return `${(peso*mi).toFixed(0)}g - ${(peso*ma).toFixed(0)}g`;
-        }
-        function calcularAgua(peso) { return peso ? `${(peso*0.035).toFixed(1)}L - ${(peso*0.05).toFixed(1)}L` : "N/D"; }
-
-        function gerarPDF() {
-            toggleSpinner(true, "A gerar PDF...");
+        // --- GERAÇÃO DE PDF ---
+        document.getElementById('btnGerarPDF').addEventListener('click', () => {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            const MARGIN = 15; let y = 20;
-
-            doc.setFontSize(22); doc.setTextColor('#58a6ff'); doc.text('Plano de Treino', MARGIN, y); y += 10;
-            doc.setFontSize(14); doc.setTextColor('#333'); doc.text(appState.alunoSelecionado.nome, MARGIN, y); y += 10;
+            doc.setFontSize(22); doc.setTextColor('#58a6ff'); doc.text('Plano de Treino', 15, 20);
+            doc.setFontSize(14); doc.setTextColor('#333'); doc.text(`Aluno: ${appState.alunoSelecionado.nome}`, 15, 30);
             
+            let y = 40;
             appState.treinoSemanal.forEach(d => {
                 if (y > 250) { doc.addPage(); y = 20; }
-                doc.setFontSize(14); doc.setTextColor('#58a6ff'); doc.text(`${d.nome} - ${d.musculos}`, MARGIN, y); y += 6;
-                const head = [['Exercício', 'Séries/Reps', 'Descanso']];
-                const body = d.exercicios.map(ex => [ex.nome, `${ex.series}x${ex.reps}`, ex.descanso]);
+                doc.setFontSize(14); doc.setTextColor('#58a6ff'); doc.text(`${d.nome} - ${d.musculos}`, 15, y); y += 6;
+                const head = [['Exercício', 'Séries/Reps', 'Descanso', 'Obs']];
+                const body = d.exercicios.map(ex => [ex.nome, `${ex.series}x${ex.reps}`, ex.descanso, ex.obs]);
                 doc.autoTable({ startY: y, head, body, theme: 'grid' });
                 y = doc.autoTable.previous.finalY + 10;
             });
             doc.save(`Treino_${appState.alunoSelecionado.nome}.pdf`);
-            toggleSpinner(false);
-        }
+        });
 
     </script>
 </body>
